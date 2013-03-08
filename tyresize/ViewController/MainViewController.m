@@ -7,9 +7,11 @@
 //
 
 #import "MainViewController.h"
-
+#import "KBViewController.h"
 @interface MainViewController ()
 @property(strong,nonatomic)UIImageView *tempImage;
+@property (nonatomic, strong) UIButton *button1;
+
 @end
 
 @implementation MainViewController
@@ -34,6 +36,36 @@
     self.tempImage.frame = self.view.bounds;
     [self.view addSubview:self.tempImage];
     
+    //button1
+    self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.button1.frame = CGRectZero;
+    [self.button1 setTitle:@"" forState:UIControlStateNormal];
+    self.button1.alpha = 1;
+    self.button1.tag = 0;
+    [self.view addSubview:self.button1];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    self.tempImage.frame = CGRectMake(0, 0, 320, 480);
+    [self.button1 setFrame:CGRectMake(90, 50, 135, 160)];
+    [self.button1 addTarget:self action:@selector(linkAction:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+
+}
+
+- (void)linkAction:(UIButton *)sender
+{
+    KBViewController *controller = [[KBViewController alloc]initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
