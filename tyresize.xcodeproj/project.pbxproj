@@ -22,6 +22,11 @@
 		264F71C416E9A48F00E77FE0 /* tyresize2.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71C016E9A48F00E77FE0 /* tyresize2.png */; };
 		264F71C516E9A48F00E77FE0 /* tyresize2_zh.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71C116E9A48F00E77FE0 /* tyresize2_zh.png */; };
 		264F71C616E9A48F00E77FE0 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71C216E9A48F00E77FE0 /* welcome.png */; };
+		26C982C716E9AA1B00295FAE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C982C516E9AA1B00295FAE /* Icon.png */; };
+		26C982C816E9AA1B00295FAE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C982C616E9AA1B00295FAE /* Icon@2x.png */; };
+		26C982CA16E9AA2300295FAE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C982C916E9AA2300295FAE /* Icon.png */; };
+		26C982CC16E9AA2700295FAE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C982CB16E9AA2700295FAE /* Icon@2x.png */; };
+		26C982CF16E9AA6C00295FAE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C982CE16E9AA6C00295FAE /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,12 @@
 		264F71C016E9A48F00E77FE0 /* tyresize2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyresize2.png; sourceTree = "<group>"; };
 		264F71C116E9A48F00E77FE0 /* tyresize2_zh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyresize2_zh.png; sourceTree = "<group>"; };
 		264F71C216E9A48F00E77FE0 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
+		26C982C516E9AA1B00295FAE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = tyresize/Icon.png; sourceTree = SOURCE_ROOT; };
+		26C982C616E9AA1B00295FAE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "tyresize/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		26C982C916E9AA2300295FAE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		26C982CB16E9AA2700295FAE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		26C982CD16E9AA6C00295FAE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ViewController/MainViewController.h; sourceTree = "<group>"; };
+		26C982CE16E9AA6C00295FAE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ViewController/MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +75,8 @@
 		264F719016E9A3EE00E77FE0 = {
 			isa = PBXGroup;
 			children = (
+				26C982CB16E9AA2700295FAE /* Icon@2x.png */,
+				26C982C916E9AA2300295FAE /* Icon.png */,
 				264F71A416E9A3EE00E77FE0 /* tyresize */,
 				264F719B16E9A3EE00E77FE0 /* Frameworks */,
 				264F719A16E9A3EE00E77FE0 /* Products */,
@@ -93,8 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				264F71AD16E9A3EE00E77FE0 /* AppDelegate.h */,
-				264F71BE16E9A48F00E77FE0 /* Resource */,
 				264F71AE16E9A3EE00E77FE0 /* AppDelegate.m */,
+				26C982CD16E9AA6C00295FAE /* MainViewController.h */,
+				26C982CE16E9AA6C00295FAE /* MainViewController.m */,
+				264F71BE16E9A48F00E77FE0 /* Resource */,
 				264F71B616E9A3EE00E77FE0 /* tyresize.xcdatamodeld */,
 				264F71A516E9A3EE00E77FE0 /* Supporting Files */,
 			);
@@ -119,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				264F71BF16E9A48F00E77FE0 /* tyresize.png */,
+				26C982C516E9AA1B00295FAE /* Icon.png */,
+				26C982C616E9AA1B00295FAE /* Icon@2x.png */,
 				264F71C016E9A48F00E77FE0 /* tyresize2.png */,
 				264F71C116E9A48F00E77FE0 /* tyresize2_zh.png */,
 				264F71C216E9A48F00E77FE0 /* welcome.png */,
@@ -185,6 +202,10 @@
 				264F71C416E9A48F00E77FE0 /* tyresize2.png in Resources */,
 				264F71C516E9A48F00E77FE0 /* tyresize2_zh.png in Resources */,
 				264F71C616E9A48F00E77FE0 /* welcome.png in Resources */,
+				26C982C716E9AA1B00295FAE /* Icon.png in Resources */,
+				26C982C816E9AA1B00295FAE /* Icon@2x.png in Resources */,
+				26C982CA16E9AA2300295FAE /* Icon.png in Resources */,
+				26C982CC16E9AA2700295FAE /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +219,7 @@
 				264F71AB16E9A3EE00E77FE0 /* main.m in Sources */,
 				264F71AF16E9A3EE00E77FE0 /* AppDelegate.m in Sources */,
 				264F71B816E9A3EE00E77FE0 /* tyresize.xcdatamodeld in Sources */,
+				26C982CF16E9AA6C00295FAE /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +249,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: qian meng (6359682965)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: qian meng (6359682965)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -242,6 +265,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "78B7BF57-ED44-4745-94AE-25FBC324F612";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78B7BF57-ED44-4745-94AE-25FBC324F612";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -258,7 +283,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: qian meng (6359682965)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: qian meng (6359682965)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -266,6 +292,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "78B7BF57-ED44-4745-94AE-25FBC324F612";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78B7BF57-ED44-4745-94AE-25FBC324F612";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -277,7 +305,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tyresize/tyresize-Prefix.pch";
 				INFOPLIST_FILE = "tyresize/tyresize-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -288,7 +318,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tyresize/tyresize-Prefix.pch";
 				INFOPLIST_FILE = "tyresize/tyresize-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -312,6 +344,7 @@
 				264F71BD16E9A3EE00E77FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

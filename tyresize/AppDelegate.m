@@ -7,18 +7,36 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize mainViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    // mainMenuViewController
+    
+    self.mainViewController = [[MainViewController alloc]initWithNibName:nil bundle:nil];
+    UINavigationController *mainController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
+    self.mainViewController.managedObjectContext = _managedObjectContext;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window addSubview:self.mainViewController.view];
+    [self.window setRootViewController:mainController];
+    
+    // [self checkIOSVersion];
+    [self.window makeKeyAndVisible];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
