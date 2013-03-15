@@ -50,7 +50,7 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    self.tempImage.frame = CGRectMake(0, 0, 320, 480);
+    self.tempImage.frame = CGRectMake(0, 0, 320, 460);
     [self.button1 setFrame:CGRectMake(90, 50, 135, 160)];
     [self.button1 addTarget:self action:@selector(linkAction:) forControlEvents:UIControlEventTouchUpInside];
 }
