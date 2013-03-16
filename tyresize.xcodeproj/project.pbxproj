@@ -27,6 +27,7 @@
 		26C982CA16E9AA2300295FAE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C982C916E9AA2300295FAE /* Icon.png */; };
 		26C982CC16E9AA2700295FAE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C982CB16E9AA2700295FAE /* Icon@2x.png */; };
 		26C982CF16E9AA6C00295FAE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C982CE16E9AA6C00295FAE /* MainViewController.m */; };
+		26C982D416E9AEF100295FAE /* KBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C982D316E9AEF100295FAE /* KBViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		26C982CB16E9AA2700295FAE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		26C982CD16E9AA6C00295FAE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ViewController/MainViewController.h; sourceTree = "<group>"; };
 		26C982CE16E9AA6C00295FAE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ViewController/MainViewController.m; sourceTree = "<group>"; };
+		26C982D216E9AEF100295FAE /* KBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBViewController.h; path = ViewController/KBViewController.h; sourceTree = "<group>"; };
+		26C982D316E9AEF100295FAE /* KBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBViewController.m; path = ViewController/KBViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				26C982CD16E9AA6C00295FAE /* MainViewController.h */,
 				26C982CE16E9AA6C00295FAE /* MainViewController.m */,
 				04CD4CFF16F22593008BD23A /* Model */,
+				26C982D216E9AEF100295FAE /* KBViewController.h */,
+				26C982D316E9AEF100295FAE /* KBViewController.m */,
 				264F71BE16E9A48F00E77FE0 /* Resource */,
 				264F71A516E9A3EE00E77FE0 /* Supporting Files */,
 			);
@@ -228,6 +233,7 @@
 				264F71AF16E9A3EE00E77FE0 /* AppDelegate.m in Sources */,
 				264F71B816E9A3EE00E77FE0 /* tyresize.xcdatamodeld in Sources */,
 				26C982CF16E9AA6C00295FAE /* MainViewController.m in Sources */,
+				26C982D416E9AEF100295FAE /* KBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
