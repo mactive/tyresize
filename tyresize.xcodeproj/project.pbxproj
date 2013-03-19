@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0427F61616F8CFE10001FF9D /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0427F61516F8CFE10001FF9D /* Museo500-Regular.otf */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
 		264F719F16E9A3EE00E77FE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719E16E9A3EE00E77FE0 /* Foundation.framework */; };
 		264F71A116E9A3EE00E77FE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F71A016E9A3EE00E77FE0 /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0427F61416F8C9A20001FF9D /* AppDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDefs.h; sourceTree = "<group>"; };
+		0427F61516F8CFE10001FF9D /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264F719C16E9A3EE00E77FE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		264F719E16E9A3EE00E77FE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +119,7 @@
 		264F71A416E9A3EE00E77FE0 /* tyresize */ = {
 			isa = PBXGroup;
 			children = (
+				0427F61416F8C9A20001FF9D /* AppDefs.h */,
 				264F71AD16E9A3EE00E77FE0 /* AppDelegate.h */,
 				264F71AE16E9A3EE00E77FE0 /* AppDelegate.m */,
 				26C982CD16E9AA6C00295FAE /* MainViewController.h */,
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				264F71BF16E9A48F00E77FE0 /* tyresize.png */,
+				0427F61516F8CFE10001FF9D /* Museo500-Regular.otf */,
 				26C982C516E9AA1B00295FAE /* Icon.png */,
 				26C982C616E9AA1B00295FAE /* Icon@2x.png */,
 				264F71C016E9A48F00E77FE0 /* tyresize2.png */,
@@ -219,6 +224,7 @@
 				26C982C816E9AA1B00295FAE /* Icon@2x.png in Resources */,
 				26C982CA16E9AA2300295FAE /* Icon.png in Resources */,
 				26C982CC16E9AA2700295FAE /* Icon@2x.png in Resources */,
+				0427F61616F8CFE10001FF9D /* Museo500-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
