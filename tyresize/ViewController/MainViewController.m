@@ -31,10 +31,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"轮胎计算器";
+    self.title = T(@"tyresize");
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 200, 30)];
+    label.font = CUSTOMFONT;
+    label.text = T(@"tyresize");
+    label.textColor = GREENCOLOR;
+    
+    
     self.tempImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyresize2_zh.png"]];
     self.tempImage.frame = self.view.bounds;
-    [self.view addSubview:self.tempImage];
+//    [self.view addSubview:self.tempImage];
+    [self.view addSubview:label];
     
     //button1
     self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -12,5 +12,5 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
-    #import <AppDefs.h>
+    #import "AppDefs.h"
 #endif

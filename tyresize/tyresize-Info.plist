@@ -41,6 +41,12 @@
 	<true/>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Museo500-Regular.otf</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

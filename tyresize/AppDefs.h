@@ -33,7 +33,7 @@
 #define kDateFormat  @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z"
 
 // font
-#define CustomFont [UIFont fontWithName:@"Museo500-Regular" size:17.0f]
+#define CUSTOMFONT [UIFont fontWithName:@"Museo" size:20.0f]
 
 // Color helpers
 
@@ -45,7 +45,8 @@ alpha:(a)]
 #define HSVACOLOR(h,s,v,a) [UIColor colorWithHue:(h) saturation:(s) value:(v) alpha:(a)]
 
 #define RGBA(r,g,b,a) (r)/255.0f, (g)/255.0f, (b)/255.0f, (a)
-#define BGCOLOR [UIColor colorWithRed:236.0/255.0 green:236.0/255.0 blue:236.0/255.0 alpha:1.0]
+#define BGCOLOR [UIColor colorWithRed:255.0f/255.0 green:255.0/255.0 blue:253.0/255.0 alpha:1.0]
+#define GREENCOLOR [UIColor colorWithRed:57.0f/255.0f green:181.0f/255.0f blue:74.0f/255.0f alpha:1]
 #define SEPCOLOR [UIColor colorWithRed:225.0f/255.0f green:225.0f/255.0f blue:225.0f/255.0f alpha:1]
 #define TEXTFIELD_BGCOLOR [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1]
 #define TEXTFIELD_BORDERCOLOR [UIColor colorWithRed:147.0f/255.0f green:150.0f/255.0f blue:157.0f/245.0f alpha:1]
