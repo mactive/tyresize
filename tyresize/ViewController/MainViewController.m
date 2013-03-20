@@ -9,22 +9,30 @@
 #import "MainViewController.h"
 #import "KBViewController.h"
 #import "AppDelegate.h"
+#import "OperationView.h"
+#import "ParameterView.h"
 
 @interface MainViewController ()
-@property(strong,nonatomic)UIImageView *tempImage;
 @property(nonatomic, strong) UIButton *button1;
-@property(strong, nonatomic)NSArray *PRMTIMPERIAL;
-@property(strong, nonatomic)NSArray *PRMTMETIC;
+
+// tyre view
+@property(strong, nonatomic)OperationView *tyreView;
+
+@property(strong, nonatomic)ParameterView *prmtView;
+
+// main label
+@property(strong, nonatomic)UILabel *leftTitle;
+@property(strong, nonatomic)UILabel *rightTitle;
+
 
 @end
 
 
 @implementation MainViewController
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize tempImage;
 @synthesize button1;
-@synthesize PRMTMETIC;
-@synthesize PRMTIMPERIAL;
+@synthesize tyreView;
+@synthesize prmtView;
 
 
 
@@ -36,47 +44,19 @@
     }
     return self;
 }
-
+#define OFFSET_X    (320.0f - TYRE_WIDTH)/2
+#define OFFSET_Y    20.0f
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = T(@"tyresize");
     
+    self.tyreView = [[OperationView alloc]initWithFrame:CGRectMake(OFFSET_X, OFFSET_Y, TYRE_WIDTH, TYRE_HEIGHT)];
+    [self.view addSubview:self.tyreView];
     
-    self.PRMTIMPERIAL = [NSArray arrayWithObjects:
-                              T(@"Sidewall(in)"),
-                              T(@"Radius(in)"),
-                              T(@"Diamter(in)"),
-                              T(@"Circumference(in)"),
-                              T(@"Rotations/Mile"),
-                              T(@"Speedo Diff(%)"),
-                              T(@"Speed@60mph"),nil];
-    
-    self.PRMTMETIC = [[NSArray alloc]initWithObjects:
-                             T(@"Sidewall(mm)"),
-                             T(@"Radius(mm)"),
-                             T(@"Diamter(mm)"),
-                             T(@"Circumference(mm)"),
-                             T(@"Rotations/KM"),
-                             T(@"Speedo Diff(%)"),
-                             T(@"Speed@100kph"), nil];
-        
-    for(int i = 0; i < [PRMTIMPERIAL count]; i++){
-        UILabel *label = [[UILabel alloc]init];
-        label.font = CUSTOMFONT;
-        label.textColor = GREENCOLOR;
-        label.text = [PRMTIMPERIAL objectAtIndex:i];
-        [label setFrame:CGRectMake(20, 40 *i +20, 200, 30)];
-        [self.view addSubview:label];
-    }
-    
-    
-    
-    
-    self.tempImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyresize2_zh.png"]];
-    self.tempImage.frame = self.view.bounds;
-//    [self.view addSubview:self.tempImage];
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, OFFSET_Y+TYRE_HEIGHT, 320, 320)];
+    [self.view addSubview:self.prmtView];
     
     //button1
     self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -92,7 +72,6 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    self.tempImage.frame = CGRectMake(0, 0, 320, 460);
     [self.button1 setFrame:CGRectMake(90, 50, 135, 160)];
     [self.button1 addTarget:self action:@selector(linkAction:) forControlEvents:UIControlEventTouchUpInside];
 }
