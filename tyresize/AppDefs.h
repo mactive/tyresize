@@ -33,10 +33,11 @@
 #define kDateFormat  @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z"
 
 // font
-#define CUSTOMFONT [UIFont fontWithName:@"Museo" size:20.0f]
+#define CUSTOMFONT [UIFont fontWithName:@"Museo" size:16.0f]
 
 // NSARRAY
-
+#define TYRE_HEIGHT 160.0f
+#define TYRE_WIDTH  160.0f
 
 // Color helpers
 
@@ -50,6 +51,13 @@ alpha:(a)]
 #define RGBA(r,g,b,a) (r)/255.0f, (g)/255.0f, (b)/255.0f, (a)
 #define BGCOLOR [UIColor colorWithRed:255.0f/255.0 green:255.0/255.0 blue:253.0/255.0 alpha:1.0]
 #define GREENCOLOR [UIColor colorWithRed:57.0f/255.0f green:181.0f/255.0f blue:74.0f/255.0f alpha:1]
+#define REDCOLOR [UIColor colorWithRed:237.0f/255.0f green:28.0f/255.0f blue:36.0f/255.0f alpha:1]
+#define GRAYCOLOR [UIColor colorWithRed:158.0f/255.0f green:158.0f/255.0f blue:158.0f/255.0f alpha:1]
+#define INPUTBORDERCOLOR [UIColor colorWithRed:228.0f/255.0f green:228.0f/255.0f blue:228.0f/255.0f alpha:1]
+#define INPUTBGCOLOR [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1]
+
+
+
 #define SEPCOLOR [UIColor colorWithRed:225.0f/255.0f green:225.0f/255.0f blue:225.0f/255.0f alpha:1]
 #define TEXTFIELD_BGCOLOR [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1]
 #define TEXTFIELD_BORDERCOLOR [UIColor colorWithRed:147.0f/255.0f green:150.0f/255.0f blue:157.0f/245.0f alpha:1]
