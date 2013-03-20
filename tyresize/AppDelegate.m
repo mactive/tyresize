@@ -22,7 +22,6 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    
     // mainMenuViewController
     
     self.mainViewController = [[MainViewController alloc]initWithNibName:nil bundle:nil];

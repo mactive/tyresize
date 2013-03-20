@@ -322,6 +322,10 @@
 		264F71BC16E9A3EE00E77FE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tyresize/tyresize-Prefix.pch";
 				INFOPLIST_FILE = "tyresize/tyresize-Info.plist";
@@ -335,6 +339,10 @@
 		264F71BD16E9A3EE00E77FE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tyresize/tyresize-Prefix.pch";
 				INFOPLIST_FILE = "tyresize/tyresize-Info.plist";
