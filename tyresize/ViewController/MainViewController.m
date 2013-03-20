@@ -8,15 +8,25 @@
 
 #import "MainViewController.h"
 #import "KBViewController.h"
+#import "AppDelegate.h"
+
 @interface MainViewController ()
 @property(strong,nonatomic)UIImageView *tempImage;
-@property (nonatomic, strong) UIButton *button1;
+@property(nonatomic, strong) UIButton *button1;
+@property(strong, nonatomic)NSArray *PRMTIMPERIAL;
+@property(strong, nonatomic)NSArray *PRMTMETIC;
 
 @end
+
 
 @implementation MainViewController
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize tempImage;
+@synthesize button1;
+@synthesize PRMTMETIC;
+@synthesize PRMTIMPERIAL;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,16 +43,40 @@
 	// Do any additional setup after loading the view.
     self.title = T(@"tyresize");
     
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 200, 30)];
-    label.font = CUSTOMFONT;
-    label.text = T(@"tyresize");
-    label.textColor = GREENCOLOR;
+    
+    self.PRMTIMPERIAL = [NSArray arrayWithObjects:
+                              T(@"Sidewall(in)"),
+                              T(@"Radius(in)"),
+                              T(@"Diamter(in)"),
+                              T(@"Circumference(in)"),
+                              T(@"Rotations/Mile"),
+                              T(@"Speedo Diff(%)"),
+                              T(@"Speed@60mph"),nil];
+    
+    self.PRMTMETIC = [[NSArray alloc]initWithObjects:
+                             T(@"Sidewall(mm)"),
+                             T(@"Radius(mm)"),
+                             T(@"Diamter(mm)"),
+                             T(@"Circumference(mm)"),
+                             T(@"Rotations/KM"),
+                             T(@"Speedo Diff(%)"),
+                             T(@"Speed@100kph"), nil];
+        
+    for(int i = 0; i < [PRMTIMPERIAL count]; i++){
+        UILabel *label = [[UILabel alloc]init];
+        label.font = CUSTOMFONT;
+        label.textColor = GREENCOLOR;
+        label.text = [PRMTIMPERIAL objectAtIndex:i];
+        [label setFrame:CGRectMake(20, 40 *i +20, 200, 30)];
+        [self.view addSubview:label];
+    }
+    
+    
     
     
     self.tempImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyresize2_zh.png"]];
     self.tempImage.frame = self.view.bounds;
 //    [self.view addSubview:self.tempImage];
-    [self.view addSubview:label];
     
     //button1
     self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -81,5 +115,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 
 @end
