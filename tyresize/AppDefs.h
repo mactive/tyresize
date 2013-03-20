@@ -20,6 +20,7 @@
 #define INT(a)  [NSNumber numberWithInt:(a)]
 #define STR(a)  [NSString stringWithFormat:@"%@", (a)]
 #define STR_INT(a)  [NSString stringWithFormat:@"%d", (a)]
+#define STR_NUM(a)  [NSString stringWithFormat:@"%.0f", (a)]
 
 #define NUMBER_OR_NIL(a)	\
 (((a) && [(a) isKindOfClass:[NSNumber class]]) ? (a) : nil)
@@ -38,6 +39,12 @@
 // NSARRAY
 #define TYRE_HEIGHT 160.0f
 #define TYRE_WIDTH  160.0f
+#define TOTAL_WIDTH 320.0f
+
+#define P_W tyreWidth
+#define P_A aspectRatio
+#define P_R innerDiameter
+
 
 // Color helpers
 
@@ -53,8 +60,8 @@ alpha:(a)]
 #define GREENCOLOR [UIColor colorWithRed:57.0f/255.0f green:181.0f/255.0f blue:74.0f/255.0f alpha:1]
 #define REDCOLOR [UIColor colorWithRed:237.0f/255.0f green:28.0f/255.0f blue:36.0f/255.0f alpha:1]
 #define GRAYCOLOR [UIColor colorWithRed:158.0f/255.0f green:158.0f/255.0f blue:158.0f/255.0f alpha:1]
-#define INPUTBORDERCOLOR [UIColor colorWithRed:228.0f/255.0f green:228.0f/255.0f blue:228.0f/255.0f alpha:1]
-#define INPUTBGCOLOR [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1]
+#define HANDLEBORDERCOLOR [UIColor colorWithRed:228.0f/255.0f green:228.0f/255.0f blue:228.0f/255.0f alpha:1].CGColor
+#define HANDLEBGCOLOR [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1]
 
 
 

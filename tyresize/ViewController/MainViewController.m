@@ -11,13 +11,14 @@
 #import "AppDelegate.h"
 #import "OperationView.h"
 #import "ParameterView.h"
+#import "TyreView.h"
 
 @interface MainViewController ()
 @property(nonatomic, strong) UIButton *button1;
 
 // tyre view
-@property(strong, nonatomic)OperationView *tyreView;
-
+@property(strong, nonatomic)TyreView *tyreView;
+@property(strong, nonatomic)OperationView *operView;
 @property(strong, nonatomic)ParameterView *prmtView;
 
 // main label
@@ -32,6 +33,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize button1;
 @synthesize tyreView;
+@synthesize operView;
 @synthesize prmtView;
 
 
@@ -44,18 +46,28 @@
     }
     return self;
 }
-#define OFFSET_X    (320.0f - TYRE_WIDTH)/2
-#define OFFSET_Y    20.0f
+
+#define TYRE_X            (320.0f - TYRE_WIDTH)/2
+#define TYRE_Y            20.0f
+
+#define OPER_HEIGHT         160.0f
+
+#define PRMT_HEIGHT         230.0f
+#define PRMT_LITE_HEIGHT    75.0f
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = T(@"tyresize");
     
-    self.tyreView = [[OperationView alloc]initWithFrame:CGRectMake(OFFSET_X, OFFSET_Y, TYRE_WIDTH, TYRE_HEIGHT)];
+    self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, TYRE_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
-    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, OFFSET_Y+TYRE_HEIGHT, 320, 320)];
+    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT, TOTAL_WIDTH, OPER_HEIGHT)];
+    [self.view addSubview:self.operView];
+    
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT+OPER_HEIGHT, TOTAL_WIDTH, PRMT_LITE_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
     //button1

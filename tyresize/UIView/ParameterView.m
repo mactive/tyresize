@@ -19,6 +19,7 @@
 @synthesize PRMTMETIC;
 @synthesize PRMTIMPERIAL;
 
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

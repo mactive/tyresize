@@ -16,6 +16,8 @@
 		042094AF16F9F2DB0019C12E /* tyre_outer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A816F9F2DB0019C12E /* tyre_outer@2x.png */; };
 		042094BB16FA09340019C12E /* OperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094B816FA09340019C12E /* OperationView.m */; };
 		042094BC16FA09340019C12E /* ParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094BA16FA09340019C12E /* ParameterView.m */; };
+		042094BF16FA1B6D0019C12E /* HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094BE16FA1B6D0019C12E /* HandleView.m */; };
+		042094C216FA230E0019C12E /* TyreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094C116FA230E0019C12E /* TyreView.m */; };
 		0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
 		264F719F16E9A3EE00E77FE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719E16E9A3EE00E77FE0 /* Foundation.framework */; };
@@ -52,6 +54,10 @@
 		042094B816FA09340019C12E /* OperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationView.m; sourceTree = "<group>"; };
 		042094B916FA09340019C12E /* ParameterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterView.h; sourceTree = "<group>"; };
 		042094BA16FA09340019C12E /* ParameterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterView.m; sourceTree = "<group>"; };
+		042094BD16FA1B6D0019C12E /* HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandleView.h; sourceTree = "<group>"; };
+		042094BE16FA1B6D0019C12E /* HandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandleView.m; sourceTree = "<group>"; };
+		042094C016FA230E0019C12E /* TyreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyreView.h; sourceTree = "<group>"; };
+		042094C116FA230E0019C12E /* TyreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyreView.m; sourceTree = "<group>"; };
 		0427F61416F8C9A20001FF9D /* AppDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDefs.h; sourceTree = "<group>"; };
 		0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,10 +108,14 @@
 		042094B616FA09340019C12E /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				042094C016FA230E0019C12E /* TyreView.h */,
+				042094C116FA230E0019C12E /* TyreView.m */,
 				042094B716FA09340019C12E /* OperationView.h */,
 				042094B816FA09340019C12E /* OperationView.m */,
 				042094B916FA09340019C12E /* ParameterView.h */,
 				042094BA16FA09340019C12E /* ParameterView.m */,
+				042094BD16FA1B6D0019C12E /* HandleView.h */,
+				042094BE16FA1B6D0019C12E /* HandleView.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -288,6 +298,8 @@
 				26C982D416E9AEF100295FAE /* KBViewController.m in Sources */,
 				042094BB16FA09340019C12E /* OperationView.m in Sources */,
 				042094BC16FA09340019C12E /* ParameterView.m in Sources */,
+				042094BF16FA1B6D0019C12E /* HandleView.m in Sources */,
+				042094C216FA230E0019C12E /* TyreView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
