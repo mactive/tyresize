@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		042094A116F9EDBC0019C12E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042094A016F9EDBC0019C12E /* QuartzCore.framework */; };
+		042094A916F9F2DB0019C12E /* add_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A216F9F2DA0019C12E /* add_button@2x.png */; };
+		042094AA16F9F2DB0019C12E /* bottom_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A316F9F2DB0019C12E /* bottom_bg@2x.png */; };
+		042094AC16F9F2DB0019C12E /* sub_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A516F9F2DB0019C12E /* sub_button@2x.png */; };
+		042094AD16F9F2DB0019C12E /* tiny_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A616F9F2DB0019C12E /* tiny_up@2x.png */; };
+		042094AE16F9F2DB0019C12E /* tyre_inner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A716F9F2DB0019C12E /* tyre_inner@2x.png */; };
+		042094AF16F9F2DB0019C12E /* tyre_outer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A816F9F2DB0019C12E /* tyre_outer@2x.png */; };
 		0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
 		264F719F16E9A3EE00E77FE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719E16E9A3EE00E77FE0 /* Foundation.framework */; };
@@ -34,6 +40,12 @@
 
 /* Begin PBXFileReference section */
 		042094A016F9EDBC0019C12E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		042094A216F9F2DA0019C12E /* add_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button@2x.png"; sourceTree = "<group>"; };
+		042094A316F9F2DB0019C12E /* bottom_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_bg@2x.png"; sourceTree = "<group>"; };
+		042094A516F9F2DB0019C12E /* sub_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sub_button@2x.png"; sourceTree = "<group>"; };
+		042094A616F9F2DB0019C12E /* tiny_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiny_up@2x.png"; sourceTree = "<group>"; };
+		042094A716F9F2DB0019C12E /* tyre_inner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyre_inner@2x.png"; sourceTree = "<group>"; };
+		042094A816F9F2DB0019C12E /* tyre_outer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyre_outer@2x.png"; sourceTree = "<group>"; };
 		0427F61416F8C9A20001FF9D /* AppDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDefs.h; sourceTree = "<group>"; };
 		0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +167,12 @@
 			isa = PBXGroup;
 			children = (
 				264F71BF16E9A48F00E77FE0 /* tyresize.png */,
+				042094A216F9F2DA0019C12E /* add_button@2x.png */,
+				042094A316F9F2DB0019C12E /* bottom_bg@2x.png */,
+				042094A516F9F2DB0019C12E /* sub_button@2x.png */,
+				042094A616F9F2DB0019C12E /* tiny_up@2x.png */,
+				042094A716F9F2DB0019C12E /* tyre_inner@2x.png */,
+				042094A816F9F2DB0019C12E /* tyre_outer@2x.png */,
 				0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */,
 				26C982C516E9AA1B00295FAE /* Icon.png */,
 				26C982C616E9AA1B00295FAE /* Icon@2x.png */,
@@ -229,6 +247,12 @@
 				26C982CA16E9AA2300295FAE /* Icon.png in Resources */,
 				26C982CC16E9AA2700295FAE /* Icon@2x.png in Resources */,
 				0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */,
+				042094A916F9F2DB0019C12E /* add_button@2x.png in Resources */,
+				042094AA16F9F2DB0019C12E /* bottom_bg@2x.png in Resources */,
+				042094AC16F9F2DB0019C12E /* sub_button@2x.png in Resources */,
+				042094AD16F9F2DB0019C12E /* tiny_up@2x.png in Resources */,
+				042094AE16F9F2DB0019C12E /* tyre_inner@2x.png in Resources */,
+				042094AF16F9F2DB0019C12E /* tyre_outer@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
