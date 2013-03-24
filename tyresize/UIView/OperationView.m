@@ -25,7 +25,8 @@
 
 @property(strong, nonatomic)UILabel *nowTitle;
 @property(strong, nonatomic)UILabel *wantTitle;
-
+@property(strong, nonatomic)UIButton *lockNowButton;
+@property(readwrite, nonatomic)BOOL isLockNowButton;
 @end
 
 @implementation OperationView
@@ -42,6 +43,8 @@
 
 @synthesize nowTitle;
 @synthesize wantTitle;
+@synthesize lockNowButton;
+@synthesize isLockNowButton;
 
 
 #define LINE_HEIGHT         40.0f
@@ -78,6 +81,15 @@
         [self.wantTitle setFont:CUSTOMFONT];
         [self.wantTitle setTextColor:GREENCOLOR];
         [self.wantTitle setText:T(@"you want")];
+        
+        // lockNowButton
+        self.lockNowButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.lockNowButton setFrame:CGRectMake(10, 0, HANDLE_HEIGHT, HANDLE_HEIGHT)];
+        [self.lockNowButton setTitle:@"" forState:UIControlStateNormal];
+        [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_btn.png"] forState:UIControlStateNormal];
+        [self.lockNowButton setBackgroundColor:[UIColor clearColor]];
+        [self.lockNowButton addTarget:self action:@selector(lockNowAction) forControlEvents:UIControlEventTouchUpInside];
+        self.isLockNowButton = NO;
 
         // now handle input
         
@@ -105,8 +117,29 @@
         [self addSubview:self.wantRView];
         [self addSubview:self.nowTitle];
         [self addSubview:self.wantTitle];
+        [self addSubview:self.lockNowButton];
+        
     }
     return self;
+}
+
+
+- (void)lockNowAction
+{
+    if (self.isLockNowButton) {
+        [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_btn.png"] forState:UIControlStateNormal];
+        [self.nowWView setLockStatus:NO];
+        [self.nowRView setLockStatus:NO];
+        [self.nowAView setLockStatus:NO];
+        self.isLockNowButton = NO;
+    }else{
+        [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_status.png"] forState:UIControlStateNormal];
+        [self.nowWView setLockStatus:YES];
+        [self.nowRView setLockStatus:YES];
+        [self.nowAView setLockStatus:YES];
+        self.isLockNowButton = YES;
+    }
+
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview

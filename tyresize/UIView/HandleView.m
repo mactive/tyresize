@@ -26,6 +26,7 @@
 @synthesize prevButton;
 
 @synthesize index;
+@synthesize isLock;
 
 
 #define OFFSET_WIDTH    5.0f
@@ -103,6 +104,18 @@
     }
 }
 
+- (void)setLockStatus:(BOOL)lockStatus
+{
+        self.isLock = lockStatus;
+        [self.prevButton setHidden:lockStatus];
+        [self.nextButton setHidden:lockStatus];
+    
+    if (lockStatus) {
+        [self.handleLabel setTextColor:RGBCOLOR(100, 100, 100)];
+    }else{
+        [self.handleLabel setTextColor:REDCOLOR];
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

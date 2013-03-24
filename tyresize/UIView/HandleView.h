@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface HandleView : UIView
+
 @property(strong, nonatomic)NSArray *dataArray;
 @property(strong, nonatomic)NSNumber *dataNumber;
 @property(readwrite, nonatomic)NSInteger index;
+@property(readwrite, nonatomic)BOOL isLock;
+
+- (void)setLockStatus:(BOOL)lockStatus;
 @end
