@@ -90,6 +90,9 @@
     self.dataNumber = [self.dataArray objectAtIndex:0];
     [self.handleLabel setText:STR_INT(self.dataNumber.integerValue)];
     self.sView = (OperationView *)newSuperview;
+    
+    [self.delegate passStringValue:self.handleLabel.text andIndex:self.posIndex];
+
 }
 
 - (void)nextAction:(id)sender

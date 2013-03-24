@@ -20,6 +20,13 @@
 #define CM_FT 0.0328f
 #define KM_MI 0.621f
 
+#define NOWW_INDEX 1
+#define NOWA_INDEX 2
+#define NOWR_INDEX 3
+#define WANTW_INDEX 4
+#define WANTA_INDEX 5
+#define WANTR_INDEX 6
+
 #pragma mark - mactive
 
 #define T(a)    NSLocalizedString((a), nil)

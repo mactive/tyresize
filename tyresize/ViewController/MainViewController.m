@@ -14,17 +14,41 @@
 #import "TyreView.h"
 
 @interface MainViewController ()
-@property(nonatomic, strong) UIButton *button1;
-
+@property(strong, nonatomic) UIButton *button1;
 // tyre view
 @property(strong, nonatomic)TyreView *tyreView;
 @property(strong, nonatomic)OperationView *operView;
 @property(strong, nonatomic)ParameterView *prmtView;
-
 // main label
 @property(strong, nonatomic)UILabel *leftTitle;
 @property(strong, nonatomic)UILabel *rightTitle;
 
+// value
+@property(assign, nonatomic)CGFloat nowWFloat;
+@property(assign, nonatomic)CGFloat nowAFloat;
+@property(assign, nonatomic)CGFloat nowRFloat;
+@property(assign, nonatomic)CGFloat wantWFloat;
+@property(assign, nonatomic)CGFloat wantAFloat;
+@property(assign, nonatomic)CGFloat wantRFloat;
+
+@property(assign, nonatomic)CGFloat nowTyreRatio;
+@property(assign, nonatomic)CGFloat nowHubRatio;
+@property(assign, nonatomic)CGFloat wantTyreRatio;
+@property(assign, nonatomic)CGFloat wantHubRatio;
+
+@property(assign, nonatomic)CGFloat nowPrmtA;
+@property(assign, nonatomic)CGFloat nowPrmtB;
+@property(assign, nonatomic)CGFloat nowPrmtC;
+@property(assign, nonatomic)CGFloat nowPrmtD;
+@property(assign, nonatomic)CGFloat nowPrmtE;
+@property(assign, nonatomic)CGFloat nowPrmtF;
+
+@property(assign, nonatomic)CGFloat wantPrmtA;
+@property(assign, nonatomic)CGFloat wantPrmtB;
+@property(assign, nonatomic)CGFloat wantPrmtC;
+@property(assign, nonatomic)CGFloat wantPrmtD;
+@property(assign, nonatomic)CGFloat wantPrmtE;
+@property(assign, nonatomic)CGFloat wantPrmtF;
 
 @end
 
@@ -35,6 +59,32 @@
 @synthesize tyreView;
 @synthesize operView;
 @synthesize prmtView;
+//value
+@synthesize nowWFloat;
+@synthesize nowAFloat;
+@synthesize nowRFloat;
+@synthesize wantWFloat;
+@synthesize wantAFloat;
+@synthesize wantRFloat;
+
+@synthesize nowTyreRatio;
+@synthesize nowHubRatio;
+@synthesize wantTyreRatio;
+@synthesize wantHubRatio;
+
+@synthesize nowPrmtA;
+@synthesize nowPrmtB;
+@synthesize nowPrmtC;
+@synthesize nowPrmtD;
+@synthesize nowPrmtE;
+@synthesize nowPrmtF;
+
+@synthesize wantPrmtA;
+@synthesize wantPrmtB;
+@synthesize wantPrmtC;
+@synthesize wantPrmtD;
+@synthesize wantPrmtE;
+@synthesize wantPrmtF;
 
 
 
@@ -105,6 +155,49 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+//////////////////////////////////////////////////////////////////////
+// delegate
+//////////////////////////////////////////////////////////////////////
+
+- (NSNumber *)calculation
+{
+    CGFloat nowW = self.nowWFloat;
+    CGFloat nowA = self.nowAFloat;
+    CGFloat nowR = self.nowRFloat;
+    
+    CGFloat tyreHeightMM = nowW * nowA / 100 * 2 + nowR * IN_MM ;
+    NSLog(@"%.2f",tyreHeightMM);
+    return FLOAT(tyreHeightMM);
+}
+
+- (void)passStringValue:(NSString *)value andIndex:(NSUInteger)index
+{
+    switch (index) {
+        case NOWW_INDEX:
+            self.nowWFloat = value.floatValue;
+            break;
+        case NOWA_INDEX:
+            self.nowAFloat = value.floatValue;
+            break;
+        case NOWR_INDEX:
+            self.nowRFloat = value.floatValue;
+            break;
+        case WANTW_INDEX:
+            self.wantWFloat = value.floatValue;
+            break;
+        case WANTA_INDEX:
+            self.wantAFloat = value.floatValue;
+            break;
+        case WANTR_INDEX:
+            self.wantRFloat = value.floatValue;
+            break;
+        default:
+            break;
+    }
+    NSLog(@"%@ %d",value,index);
+    [self calculation];
+    
 }
 
 - (AppDelegate *)appDelegate

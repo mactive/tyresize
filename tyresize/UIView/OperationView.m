@@ -8,6 +8,8 @@
 
 #import "OperationView.h"
 #import "HandleView.h"
+#import "AppDelegate.h"
+#import "PassValueDelegate.h"
 
 @interface OperationView()
 
@@ -111,12 +113,20 @@
         
         
         // delegate
-        self.nowWView.delegate = self;
-        self.nowAView.delegate = self;
-        self.nowRView.delegate = self;
-        self.wantWView.delegate = self;
-        self.wantAView.delegate = self;
-        self.wantRView.delegate = self;
+        self.nowWView.delegate = [self appDelegate].mainViewController;
+        self.nowAView.delegate = [self appDelegate].mainViewController;
+        self.nowRView.delegate = [self appDelegate].mainViewController;
+        self.wantWView.delegate = [self appDelegate].mainViewController;
+        self.wantAView.delegate = [self appDelegate].mainViewController;
+        self.wantRView.delegate = [self appDelegate].mainViewController;
+        
+        // pos index
+        self.nowWView.posIndex = NOWW_INDEX;
+        self.nowAView.posIndex = NOWA_INDEX;
+        self.nowRView.posIndex = NOWR_INDEX;
+        self.wantWView.posIndex = WANTW_INDEX;
+        self.wantAView.posIndex = WANTA_INDEX;
+        self.wantRView.posIndex = WANTR_INDEX;
         
         [self addSubview:self.nowWView];
         [self addSubview:self.nowAView];
@@ -130,27 +140,6 @@
         
     }
     return self;
-}
-
-//////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////
-- (NSNumber *)calculation
-{
-    CGFloat nowW = self.nowWView.dataNumber.floatValue;
-    CGFloat nowA = self.nowAView.dataNumber.floatValue;
-    CGFloat nowR = self.nowRView.dataNumber.floatValue;
-
-    CGFloat tyreHeightMM = nowW * nowA / 100 * 2 + nowR * IN_MM ;
-    NSLog(@"%f",tyreHeightMM);
-    return FLOAT(tyreHeightMM);
-}
-
-- (void)passStringValue:(NSString *)value andIndex:(NSUInteger)index
-{
-    NSLog(@"%@ %d",value,index);
-    [self calculation];
-
 }
 
 - (void)lockNowAction
@@ -174,6 +163,11 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     
+}
+
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 /*
