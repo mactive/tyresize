@@ -109,6 +109,15 @@
         self.wantRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT*2 + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantRView.dataArray = self.RArray;
         
+        
+        // delegate
+        self.nowWView.delegate = self;
+        self.nowAView.delegate = self;
+        self.nowRView.delegate = self;
+        self.wantWView.delegate = self;
+        self.wantAView.delegate = self;
+        self.wantRView.delegate = self;
+        
         [self addSubview:self.nowWView];
         [self addSubview:self.nowAView];
         [self addSubview:self.nowRView];
@@ -123,6 +132,26 @@
     return self;
 }
 
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+- (NSNumber *)calculation
+{
+    CGFloat nowW = self.nowWView.dataNumber.floatValue;
+    CGFloat nowA = self.nowAView.dataNumber.floatValue;
+    CGFloat nowR = self.nowRView.dataNumber.floatValue;
+
+    CGFloat tyreHeightMM = nowW * nowA / 100 * 2 + nowR * IN_MM ;
+    NSLog(@"%f",tyreHeightMM);
+    return FLOAT(tyreHeightMM);
+}
+
+- (void)passStringValue:(NSString *)value andIndex:(NSUInteger)index
+{
+    NSLog(@"%@ %d",value,index);
+    [self calculation];
+
+}
 
 - (void)lockNowAction
 {

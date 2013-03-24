@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PassValueDelegate.h"
 
-@interface OperationView : UIView
+
+@interface OperationView : UIView<PassValueDelegate>
+
+- (NSNumber *)calculation;
 
 @end

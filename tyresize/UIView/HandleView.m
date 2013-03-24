@@ -8,12 +8,14 @@
 
 #import "HandleView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "OperationView.h"
 
 @interface HandleView()
 
 @property(strong, nonatomic)UILabel *handleLabel;
 @property(strong, nonatomic)UIButton *nextButton;
 @property(strong, nonatomic)UIButton *prevButton;
+@property(strong, nonatomic)OperationView *sView;
 
 @end
 
@@ -24,9 +26,12 @@
 @synthesize handleLabel;
 @synthesize nextButton;
 @synthesize prevButton;
+@synthesize sView;
 
 @synthesize index;
+@synthesize posIndex;
 @synthesize isLock;
+@synthesize delegate;
 
 
 #define OFFSET_WIDTH    5.0f
@@ -84,6 +89,7 @@
 {
     self.dataNumber = [self.dataArray objectAtIndex:0];
     [self.handleLabel setText:STR_INT(self.dataNumber.integerValue)];
+    self.sView = (OperationView *)newSuperview;
 }
 
 - (void)nextAction:(id)sender
@@ -93,6 +99,7 @@
         self.dataNumber = [self.dataArray objectAtIndex:self.index];
         [self.handleLabel setText:STR_INT(self.dataNumber.integerValue)];
     }
+    [self.delegate passStringValue:self.handleLabel.text andIndex:self.posIndex];
 }
 
 - (void)prevAction:(id)sender
@@ -102,6 +109,7 @@
         self.dataNumber = [self.dataArray objectAtIndex:self.index];
         [self.handleLabel setText:STR_INT(self.dataNumber.integerValue)];
     }
+    [self.delegate passStringValue:self.handleLabel.text andIndex:self.posIndex];
 }
 
 - (void)setLockStatus:(BOOL)lockStatus

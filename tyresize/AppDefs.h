@@ -25,6 +25,7 @@
 #define T(a)    NSLocalizedString((a), nil)
 
 #define INT(a)  [NSNumber numberWithInt:(a)]
+#define FLOAT(a)  [NSNumber numberWithFloat:(a)]
 #define STR(a)  [NSString stringWithFormat:@"%@", (a)]
 #define STR_INT(a)  [NSString stringWithFormat:@"%d", (a)]
 #define STR_NUM(a)  [NSString stringWithFormat:@"%.0f", (a)]
