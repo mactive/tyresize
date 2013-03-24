@@ -35,6 +35,22 @@
     return self;
 }
 
+- (void)changeTyreRatio:(CGFloat)ratio
+{
+    CGFloat _x = TYRE_WIDTH * (1 - ratio) / 2;
+    CGFloat _y = TYRE_HEIGHT * (1 - ratio) / 2;
+    
+    self.tyreImage.frame = CGRectMake(_x, _y, TYRE_WIDTH*ratio, TYRE_HEIGHT*ratio);
+}
+
+- (void)changeHubRatio:(CGFloat)ratio
+{
+    CGFloat _x = TYRE_WIDTH * (1 - ratio) / 2;
+    CGFloat _y = TYRE_HEIGHT * (1 - ratio) / 2;
+    
+    self.hubImage.frame = CGRectMake(_x, _y, TYRE_WIDTH*ratio, TYRE_HEIGHT*ratio);
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

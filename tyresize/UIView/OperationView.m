@@ -93,7 +93,7 @@
         [self.lockNowButton addTarget:self action:@selector(lockNowAction) forControlEvents:UIControlEventTouchUpInside];
         self.isLockNowButton = NO;
 
-        // now handle input
+        // now handle input datasource and frame
         
         self.nowWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.nowWView.dataArray = self.WArray;
@@ -102,7 +102,7 @@
         self.nowRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, LINE_HEIGHT*2 + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.nowRView.dataArray = self.RArray;
         
-        // want handle input
+        // want handle input datasource and frame
 
         self.wantWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantWView.dataArray = self.WArray;
@@ -111,8 +111,16 @@
         self.wantRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT*2 + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantRView.dataArray = self.RArray;
         
+        // default now and want value 六个input的初始值
         
-        // delegate
+        self.nowWView.index = DEFAULT_NOWW_INDEX;
+        self.nowAView.index = DEFAULT_NOWA_INDEX;
+        self.nowRView.index = DEFAULT_NOWR_INDEX;
+        self.wantWView.index = DEFAULT_WANTW_INDEX;
+        self.wantAView.index = DEFAULT_WANTA_INDEX;
+        self.wantRView.index = DEFAULT_WANTR_INDEX;
+        
+        // delegate 
         self.nowWView.delegate = [self appDelegate].mainViewController;
         self.nowAView.delegate = [self appDelegate].mainViewController;
         self.nowRView.delegate = [self appDelegate].mainViewController;
@@ -127,6 +135,8 @@
         self.wantWView.posIndex = WANTW_INDEX;
         self.wantAView.posIndex = WANTA_INDEX;
         self.wantRView.posIndex = WANTR_INDEX;
+        
+        // add to view
         
         [self addSubview:self.nowWView];
         [self addSubview:self.nowAView];

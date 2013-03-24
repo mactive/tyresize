@@ -87,7 +87,7 @@
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
-    self.dataNumber = [self.dataArray objectAtIndex:0];
+    self.dataNumber = [self.dataArray objectAtIndex:self.index];
     [self.handleLabel setText:STR_INT(self.dataNumber.integerValue)];
     self.sView = (OperationView *)newSuperview;
     

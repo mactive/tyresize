@@ -14,7 +14,6 @@
 #import "TyreView.h"
 
 @interface MainViewController ()
-@property(strong, nonatomic) UIButton *button1;
 // tyre view
 @property(strong, nonatomic)TyreView *tyreView;
 @property(strong, nonatomic)OperationView *operView;
@@ -55,7 +54,6 @@
 
 @implementation MainViewController
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize button1;
 @synthesize tyreView;
 @synthesize operView;
 @synthesize prmtView;
@@ -120,13 +118,7 @@
     self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT+OPER_HEIGHT, TOTAL_WIDTH, PRMT_LITE_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
-    //button1
-    self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.button1.frame = CGRectZero;
-    [self.button1 setTitle:@"" forState:UIControlStateNormal];
-    self.button1.alpha = 1;
-    self.button1.tag = 0;
-    [self.view addSubview:self.button1];
+
     
 }
 
@@ -134,8 +126,6 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [self.button1 setFrame:CGRectMake(90, 50, 135, 160)];
-    [self.button1 addTarget:self action:@selector(linkAction:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -160,15 +150,45 @@
 // delegate
 //////////////////////////////////////////////////////////////////////
 
-- (NSNumber *)calculation
+- (NSArray *)calculationWithW:(CGFloat)wFloat andA:(CGFloat)AFloat andR:(CGFloat)RFloat
 {
-    CGFloat nowW = self.nowWFloat;
-    CGFloat nowA = self.nowAFloat;
-    CGFloat nowR = self.nowRFloat;
+    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     
-    CGFloat tyreHeightMM = nowW * nowA / 100 * 2 + nowR * IN_MM ;
-    NSLog(@"%.2f",tyreHeightMM);
-    return FLOAT(tyreHeightMM);
+    // 侧壁
+    CGFloat sidewall = wFloat * AFloat / 100 ;
+    
+    // 直径
+    CGFloat diameter = sidewall * 2 + RFloat * IN_MM ;
+    NSLog(@"%.2f",diameter);
+    
+    self.nowTyreRatio = diameter / TYRE_DIA_BASE;
+    self.nowHubRatio = RFloat * IN_MM / HUB_DIA_BASE;
+    
+    [self.tyreView changeTyreRatio:self.nowTyreRatio];
+    [self.tyreView changeHubRatio:self.nowHubRatio];
+    
+    // 半径
+    CGFloat radius = diameter / 2;
+    
+    // 周长
+    CGFloat circumference = diameter * M_PI;
+    
+    // 圈数
+    CGFloat rotations = 1000000  / circumference;
+    
+    // 速度差距
+    CGFloat speedo = 0.f;
+    CGFloat speed = 0.f;
+    
+    [resultArray addObject:FLOAT(sidewall)];
+    [resultArray addObject:FLOAT(radius)];
+    [resultArray addObject:FLOAT(diameter)];
+    [resultArray addObject:FLOAT(circumference)];
+    [resultArray addObject:FLOAT(rotations)];
+    [resultArray addObject:FLOAT(speedo)];
+    [resultArray addObject:FLOAT(speed)];
+    
+    return resultArray;
 }
 
 - (void)passStringValue:(NSString *)value andIndex:(NSUInteger)index
@@ -196,7 +216,7 @@
             break;
     }
     NSLog(@"%@ %d",value,index);
-    [self calculation];
+    [self.prmtView changeNowPrmt:[self calculationWithW:self.nowWFloat andA:self.nowAFloat andR:self.nowRFloat]];
     
 }
 

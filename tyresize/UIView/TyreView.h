@@ -10,4 +10,6 @@
 
 @interface TyreView : UIView
 
+- (void)changeTyreRatio:(CGFloat)ratio;
+- (void)changeHubRatio:(CGFloat)ratio;
 @end
