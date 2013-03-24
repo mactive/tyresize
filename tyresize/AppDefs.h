@@ -11,7 +11,14 @@
 
 #define M_APPLEID 623336978
 
+// unit transfrom
+#define IN_MM 25.4f
+#define FT_CM 30.48f
+#define MI_KM 1.609f
 
+#define MM_IN 0.0394f
+#define CM_FT 0.0328f
+#define KM_MI 0.621f
 
 #pragma mark - mactive
 
