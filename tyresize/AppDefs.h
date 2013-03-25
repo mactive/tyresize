@@ -11,13 +11,43 @@
 
 #define M_APPLEID 623336978
 
+// unit transfrom
+#define IN_MM 25.4f
+#define FT_CM 30.48f
+#define MI_KM 1.609f
 
+#define MM_IN 0.0394f
+#define CM_FT 0.0328f
+#define KM_MI 0.621f
+
+#define DEFAULT_UNIT METRIC
+
+#define NOWW_INDEX 1
+#define NOWA_INDEX 2
+#define NOWR_INDEX 3
+#define WANTW_INDEX 4
+#define WANTA_INDEX 5
+#define WANTR_INDEX 6
+
+// base
+#define TYRE_DIA_BASE 595.8f
+#define HUB_DIA_BASE 406.4
+
+// default
+#define DEFAULT_NOWW_INDEX  8
+#define DEFAULT_NOWA_INDEX  2
+#define DEFAULT_NOWR_INDEX  7
+
+#define DEFAULT_WANTW_INDEX  8
+#define DEFAULT_WANTA_INDEX  5
+#define DEFAULT_WANTR_INDEX  8
 
 #pragma mark - mactive
 
 #define T(a)    NSLocalizedString((a), nil)
 
 #define INT(a)  [NSNumber numberWithInt:(a)]
+#define FLOAT(a)  [NSNumber numberWithFloat:(a)]
 #define STR(a)  [NSString stringWithFormat:@"%@", (a)]
 #define STR_INT(a)  [NSString stringWithFormat:@"%d", (a)]
 #define STR_NUM(a)  [NSString stringWithFormat:@"%.0f", (a)]

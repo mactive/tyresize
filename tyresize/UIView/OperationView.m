@@ -8,6 +8,8 @@
 
 #import "OperationView.h"
 #import "HandleView.h"
+#import "AppDelegate.h"
+#import "PassValueDelegate.h"
 
 @interface OperationView()
 
@@ -25,7 +27,8 @@
 
 @property(strong, nonatomic)UILabel *nowTitle;
 @property(strong, nonatomic)UILabel *wantTitle;
-
+@property(strong, nonatomic)UIButton *lockNowButton;
+@property(readwrite, nonatomic)BOOL isLockNowButton;
 @end
 
 @implementation OperationView
@@ -42,6 +45,8 @@
 
 @synthesize nowTitle;
 @synthesize wantTitle;
+@synthesize lockNowButton;
+@synthesize isLockNowButton;
 
 
 #define LINE_HEIGHT         40.0f
@@ -78,8 +83,17 @@
         [self.wantTitle setFont:CUSTOMFONT];
         [self.wantTitle setTextColor:GREENCOLOR];
         [self.wantTitle setText:T(@"you want")];
+        
+        // lockNowButton
+        self.lockNowButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.lockNowButton setFrame:CGRectMake(10, 0, HANDLE_HEIGHT, HANDLE_HEIGHT)];
+        [self.lockNowButton setTitle:@"" forState:UIControlStateNormal];
+        [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_btn.png"] forState:UIControlStateNormal];
+        [self.lockNowButton setBackgroundColor:[UIColor clearColor]];
+        [self.lockNowButton addTarget:self action:@selector(lockNowAction) forControlEvents:UIControlEventTouchUpInside];
+        self.isLockNowButton = NO;
 
-        // now handle input
+        // now handle input datasource and frame
         
         self.nowWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.nowWView.dataArray = self.WArray;
@@ -88,7 +102,7 @@
         self.nowRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, LINE_HEIGHT*2 + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.nowRView.dataArray = self.RArray;
         
-        // want handle input
+        // want handle input datasource and frame
 
         self.wantWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantWView.dataArray = self.WArray;
@@ -96,6 +110,33 @@
         self.wantAView.dataArray = self.AArray;
         self.wantRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT*2 + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantRView.dataArray = self.RArray;
+        
+        // default now and want value 六个input的初始值
+        
+        self.nowWView.index = DEFAULT_NOWW_INDEX;
+        self.nowAView.index = DEFAULT_NOWA_INDEX;
+        self.nowRView.index = DEFAULT_NOWR_INDEX;
+        self.wantWView.index = DEFAULT_WANTW_INDEX;
+        self.wantAView.index = DEFAULT_WANTA_INDEX;
+        self.wantRView.index = DEFAULT_WANTR_INDEX;
+        
+        // delegate 
+        self.nowWView.delegate = [self appDelegate].mainViewController;
+        self.nowAView.delegate = [self appDelegate].mainViewController;
+        self.nowRView.delegate = [self appDelegate].mainViewController;
+        self.wantWView.delegate = [self appDelegate].mainViewController;
+        self.wantAView.delegate = [self appDelegate].mainViewController;
+        self.wantRView.delegate = [self appDelegate].mainViewController;
+        
+        // pos index
+        self.nowWView.posIndex = NOWW_INDEX;
+        self.nowAView.posIndex = NOWA_INDEX;
+        self.nowRView.posIndex = NOWR_INDEX;
+        self.wantWView.posIndex = WANTW_INDEX;
+        self.wantAView.posIndex = WANTA_INDEX;
+        self.wantRView.posIndex = WANTR_INDEX;
+        
+        // add to view
         
         [self addSubview:self.nowWView];
         [self addSubview:self.nowAView];
@@ -105,13 +146,38 @@
         [self addSubview:self.wantRView];
         [self addSubview:self.nowTitle];
         [self addSubview:self.wantTitle];
+        [self addSubview:self.lockNowButton];
+        
     }
     return self;
+}
+
+- (void)lockNowAction
+{
+    if (self.isLockNowButton) {
+        [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_btn.png"] forState:UIControlStateNormal];
+        [self.nowWView setLockStatus:NO];
+        [self.nowRView setLockStatus:NO];
+        [self.nowAView setLockStatus:NO];
+        self.isLockNowButton = NO;
+    }else{
+        [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_status.png"] forState:UIControlStateNormal];
+        [self.nowWView setLockStatus:YES];
+        [self.nowRView setLockStatus:YES];
+        [self.nowAView setLockStatus:YES];
+        self.isLockNowButton = YES;
+    }
+
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     
+}
+
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 /*

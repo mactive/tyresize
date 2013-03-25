@@ -10,4 +10,6 @@
 
 @interface ParameterView : UIView
 
+- (void)changeNowPrmt:(NSArray *)prmtArray;
+- (void)changeWantPrmt:(NSArray *)prmtArray;
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PassValueDelegate.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController<PassValueDelegate>
 @property(strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
