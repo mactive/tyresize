@@ -33,9 +33,7 @@
     [self.window addSubview:self.mainViewController.view];
     [self.window setRootViewController:mainController];
     
-    // [self checkIOSVersion];
-    [self.window makeKeyAndVisible];
-    
+    // [self checkIOSVersion];    
     [self.window makeKeyAndVisible];
     return YES;
 }
