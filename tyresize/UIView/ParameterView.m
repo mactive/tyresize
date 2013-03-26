@@ -84,6 +84,18 @@
         [self addSubview:label];
     }
     
+    NSLog(@"willMoveToSuperview want para");
+    for(int i = 0; i < [PRMTIMPERIAL count]; i++){
+        UILabel *label = [[UILabel alloc]init];
+        label.font = CUSTOMFONT;
+        label.textColor = GREENCOLOR;
+        label.textAlignment = NSTextAlignmentCenter;
+        [label setFrame:CGRectMake(PRMT_WIDTH+PRMT_TITLE, LINE_HEIGHT *(i+1), PRMT_WIDTH, LINE_HEIGHT)];
+        label.text = T(@"---");
+        [self.wantArray addObject:label];
+        [self addSubview:label];
+    }
+    
     
 }
 
@@ -91,6 +103,15 @@
 {
     for(int i = 0; i < [self.nowArray count]; i++){
         UILabel *label = (UILabel *)[self.nowArray objectAtIndex:i];
+        NSNumber *num = [prmtArray objectAtIndex:i];
+        label.text = [NSString stringWithFormat:@"%.2f",num.floatValue];
+    }
+}
+
+- (void)changeWantPrmt:(NSArray *)prmtArray
+{
+    for(int i = 0; i < [self.wantArray count]; i++){
+        UILabel *label = (UILabel *)[self.wantArray objectAtIndex:i];
         NSNumber *num = [prmtArray objectAtIndex:i];
         label.text = [NSString stringWithFormat:@"%.2f",num.floatValue];
     }

@@ -118,8 +118,6 @@
     self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT+OPER_HEIGHT, TOTAL_WIDTH, PRMT_LITE_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
-
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -166,6 +164,8 @@
     
     [self.tyreView changeTyreRatio:self.nowTyreRatio];
     [self.tyreView changeHubRatio:self.nowHubRatio];
+    
+    NSLog(@"%f, %f",self.nowTyreRatio, self.nowHubRatio);
     
     // 半径
     CGFloat radius = diameter / 2;
@@ -216,8 +216,13 @@
             break;
     }
     NSLog(@"%@ %d",value,index);
-    [self.prmtView changeNowPrmt:[self calculationWithW:self.nowWFloat andA:self.nowAFloat andR:self.nowRFloat]];
     
+    // which index to refresh prmt data
+    if (index == NOWW_INDEX || index == NOWA_INDEX || index == NOWR_INDEX) {
+        [self.prmtView changeNowPrmt:[self calculationWithW:self.nowWFloat andA:self.nowAFloat andR:self.nowRFloat]];
+    }else if(index == WANTW_INDEX || index == WANTA_INDEX || index == WANTR_INDEX){
+        [self.prmtView changeWantPrmt:[self calculationWithW:self.wantWFloat andA:self.wantAFloat andR:self.wantRFloat]];
+    }
 }
 
 - (AppDelegate *)appDelegate
