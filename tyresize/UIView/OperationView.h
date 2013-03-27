@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LockNowTyreDelegate.h"
 
 @interface OperationView : UIView
+
+@property(nonatomic,assign) NSObject<LockNowTyreDelegate> *delegate;
+
 
 @end

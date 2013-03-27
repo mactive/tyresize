@@ -33,14 +33,15 @@
 #define TYRE_DIA_BASE 595.8f
 #define HUB_DIA_BASE 406.4
 
+// 默认值和做的图片关系很大 如果tyre的图 hub的图不是特别标准按照 真实尺寸来的话 default index就需要往图片上靠一靠了
 // default
 #define DEFAULT_NOWW_INDEX  8
 #define DEFAULT_NOWA_INDEX  2
 #define DEFAULT_NOWR_INDEX  7
 
-#define DEFAULT_WANTW_INDEX  8
-#define DEFAULT_WANTA_INDEX  5
-#define DEFAULT_WANTR_INDEX  8
+#define DEFAULT_WANTW_INDEX  10
+#define DEFAULT_WANTA_INDEX  1
+#define DEFAULT_WANTR_INDEX  10
 
 #pragma mark - mactive
 

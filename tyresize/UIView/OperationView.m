@@ -29,6 +29,7 @@
 @property(strong, nonatomic)UILabel *wantTitle;
 @property(strong, nonatomic)UIButton *lockNowButton;
 @property(readwrite, nonatomic)BOOL isLockNowButton;
+
 @end
 
 @implementation OperationView
@@ -47,7 +48,7 @@
 @synthesize wantTitle;
 @synthesize lockNowButton;
 @synthesize isLockNowButton;
-
+@synthesize delegate;
 
 #define LINE_HEIGHT         40.0f
 #define OFFSET_X            5.0f
@@ -128,6 +129,8 @@
         self.wantAView.delegate = [self appDelegate].mainViewController;
         self.wantRView.delegate = [self appDelegate].mainViewController;
         
+        
+        
         // pos index
         self.nowWView.posIndex = NOWW_INDEX;
         self.nowAView.posIndex = NOWA_INDEX;
@@ -137,13 +140,13 @@
         self.wantRView.posIndex = WANTR_INDEX;
         
         // add to view
-        
-        [self addSubview:self.nowWView];
-        [self addSubview:self.nowAView];
-        [self addSubview:self.nowRView];
+        // add 晚的后计算
         [self addSubview:self.wantWView];
         [self addSubview:self.wantAView];
         [self addSubview:self.wantRView];
+        [self addSubview:self.nowWView];
+        [self addSubview:self.nowAView];
+        [self addSubview:self.nowRView];
         [self addSubview:self.nowTitle];
         [self addSubview:self.wantTitle];
         [self addSubview:self.lockNowButton];
@@ -160,12 +163,16 @@
         [self.nowRView setLockStatus:NO];
         [self.nowAView setLockStatus:NO];
         self.isLockNowButton = NO;
+        // delegate
+        [self.delegate unlockNowTyre];
     }else{
         [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_status.png"] forState:UIControlStateNormal];
         [self.nowWView setLockStatus:YES];
         [self.nowRView setLockStatus:YES];
         [self.nowAView setLockStatus:YES];
         self.isLockNowButton = YES;
+        // delegate
+        [self.delegate lockNowTyre];
     }
 
 }

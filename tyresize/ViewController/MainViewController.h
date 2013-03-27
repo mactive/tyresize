@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PassValueDelegate.h"
+#import "LockNowTyreDelegate.h"
 
-@interface MainViewController : UIViewController<PassValueDelegate>
+@interface MainViewController : UIViewController<PassValueDelegate,LockNowTyreDelegate>
 @property(strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

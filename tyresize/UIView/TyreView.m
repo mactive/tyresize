@@ -54,13 +54,24 @@
     return self;
 }
 
+// 锁定your tyre 的时候绘制这跟线
+- (void)lockNowTyreRatio:(CGFloat)tyreRatio andHubRatio:(CGFloat)hubRatio
+{
+    [self drawCricleWithRadius:TYRE_WIDTH*tyreRatio/2 andColor:REDCOLOR onView:self.nowTyreCricle];
+    [self drawCricleWithRadius:TYRE_WIDTH*hubRatio/2 * HUB_DIA_BASE/TYRE_DIA_BASE andColor:[UIColor blueColor] onView:self.nowTyreCricle];
+}
+
+- (void)unlockNowTyre
+{
+    self.nowTyreCricle.layer.sublayers = nil;
+}
+
+//
 - (void)changeTyreRatio:(CGFloat)ratio
 {
     CGFloat _x = TYRE_WIDTH * (1 - ratio) / 2;
     CGFloat _y = TYRE_HEIGHT * (1 - ratio) / 2;
-    
     self.tyreImage.frame = CGRectMake(_x, _y, TYRE_WIDTH*ratio, TYRE_HEIGHT*ratio);
-    [self drawCricleWithRadius:TYRE_WIDTH*ratio/2 andColor:REDCOLOR onView:self.nowTyreCricle];
 }
 
 - (void)changeHubRatio:(CGFloat)ratio
@@ -69,13 +80,13 @@
     CGFloat _y = TYRE_HEIGHT * (1 - ratio) / 2;
     
     self.hubImage.frame = CGRectMake(_x, _y, TYRE_WIDTH*ratio, TYRE_HEIGHT*ratio);
-    [self drawCricleWithRadius:TYRE_WIDTH*ratio/2 * HUB_DIA_BASE/TYRE_DIA_BASE andColor:[UIColor blueColor] onView:self.nowHubCricle];
+
 }
 
 - (void)drawCricleWithRadius:(CGFloat)radius andColor:(UIColor *)borderColor onView:(UIView *)targetView
 {
     // clean all sublayers
-    targetView.layer.sublayers = nil;
+//    targetView.layer.sublayers = nil;
     
     // Draw tyre cricle
     CAShapeLayer *circle = [CAShapeLayer layer];

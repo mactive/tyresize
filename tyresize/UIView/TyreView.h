@@ -12,4 +12,8 @@
 
 - (void)changeTyreRatio:(CGFloat)ratio;
 - (void)changeHubRatio:(CGFloat)ratio;
+
+- (void)lockNowTyreRatio:(CGFloat)tyreRatio andHubRatio:(CGFloat)hubRatio;
+- (void)unlockNowTyre;
+
 @end

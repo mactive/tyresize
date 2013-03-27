@@ -61,7 +61,7 @@
 // do refresh
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
-    NSLog(@"willMoveToSuperview title");
+//    NSLog(@"willMoveToSuperview title");
     for(int i = 0; i < [PRMTIMPERIAL count]; i++){
         UILabel *label = [[UILabel alloc]init];
         label.font = CUSTOMFONT;
@@ -72,7 +72,7 @@
         [self addSubview:label];
     }
     
-    NSLog(@"willMoveToSuperview now para");
+//    NSLog(@"willMoveToSuperview now para");
     for(int i = 0; i < [PRMTIMPERIAL count]; i++){
         UILabel *label = [[UILabel alloc]init];
         label.font = CUSTOMFONT;
@@ -84,7 +84,7 @@
         [self addSubview:label];
     }
     
-    NSLog(@"willMoveToSuperview want para");
+//    NSLog(@"willMoveToSuperview want para");
     for(int i = 0; i < [PRMTIMPERIAL count]; i++){
         UILabel *label = [[UILabel alloc]init];
         label.font = CUSTOMFONT;
@@ -119,7 +119,7 @@
 
 - (void)didMoveToSuperview
 {
-    NSLog(@"didMoveToSuperview");
+//    NSLog(@"didMoveToSuperview");
 }
 
 /*

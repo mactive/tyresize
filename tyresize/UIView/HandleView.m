@@ -91,6 +91,7 @@
     [self.handleLabel setText:STR_INT(self.dataNumber.integerValue)];
     self.sView = (OperationView *)newSuperview;
     
+    // 一开始让 now的参数起作用
     [self.delegate passStringValue:self.handleLabel.text andIndex:self.posIndex];
 
 }

@@ -30,10 +30,8 @@
 @property(assign, nonatomic)CGFloat wantAFloat;
 @property(assign, nonatomic)CGFloat wantRFloat;
 
-@property(assign, nonatomic)CGFloat nowTyreRatio;
-@property(assign, nonatomic)CGFloat nowHubRatio;
-@property(assign, nonatomic)CGFloat wantTyreRatio;
-@property(assign, nonatomic)CGFloat wantHubRatio;
+@property(assign, nonatomic)CGFloat handleTyreRatio;
+@property(assign, nonatomic)CGFloat handleHubRatio;
 
 @property(assign, nonatomic)CGFloat nowPrmtA;
 @property(assign, nonatomic)CGFloat nowPrmtB;
@@ -65,10 +63,8 @@
 @synthesize wantAFloat;
 @synthesize wantRFloat;
 
-@synthesize nowTyreRatio;
-@synthesize nowHubRatio;
-@synthesize wantTyreRatio;
-@synthesize wantHubRatio;
+@synthesize handleTyreRatio;
+@synthesize handleHubRatio;
 
 @synthesize nowPrmtA;
 @synthesize nowPrmtB;
@@ -112,11 +108,14 @@
     self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, TYRE_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
-    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT, TOTAL_WIDTH, OPER_HEIGHT)];
-    [self.view addSubview:self.operView];
-    
     self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT+OPER_HEIGHT, TOTAL_WIDTH, PRMT_LITE_HEIGHT)];
     [self.view addSubview:self.prmtView];
+    
+    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT, TOTAL_WIDTH, OPER_HEIGHT)];
+    self.operView.delegate = self;
+    [self.view addSubview:self.operView];
+    
+
     
 }
 
@@ -148,7 +147,23 @@
 // delegate
 //////////////////////////////////////////////////////////////////////
 
-- (NSArray *)calculationWithW:(CGFloat)wFloat andA:(CGFloat)AFloat andR:(CGFloat)RFloat
+// 锁定当前的轮胎 1.主动锁定时候 2.调整想要的时候
+- (void)lockNowTyre
+{
+    [self.tyreView lockNowTyreRatio:self.handleTyreRatio andHubRatio:self.handleHubRatio];
+}
+// 解锁当前的轮胎 1.主动解锁
+- (void)unlockNowTyre
+{
+    [self.tyreView unlockNowTyre];
+}
+
+
+///////////////////////////////////////////////////////////////////
+// 计算
+///////////////////////////////////////////////////////////////////
+
+- (NSArray *)calculationWithW:(CGFloat)wFloat andA:(CGFloat)AFloat andR:(CGFloat)RFloat andType:(NSString *)type
 {
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     
@@ -157,15 +172,7 @@
     
     // 直径
     CGFloat diameter = sidewall * 2 + RFloat * IN_MM ;
-    NSLog(@"%.2f",diameter);
-    
-    self.nowTyreRatio = diameter / TYRE_DIA_BASE;
-    self.nowHubRatio = RFloat * IN_MM / HUB_DIA_BASE;
-    
-    [self.tyreView changeTyreRatio:self.nowTyreRatio];
-    [self.tyreView changeHubRatio:self.nowHubRatio];
-    
-    NSLog(@"%f, %f",self.nowTyreRatio, self.nowHubRatio);
+//    NSLog(@"diameter %.2f",diameter);
     
     // 半径
     CGFloat radius = diameter / 2;
@@ -187,6 +194,26 @@
     [resultArray addObject:FLOAT(rotations)];
     [resultArray addObject:FLOAT(speedo)];
     [resultArray addObject:FLOAT(speed)];
+    
+    self.handleTyreRatio = diameter / TYRE_DIA_BASE;
+    self.handleHubRatio = RFloat * IN_MM / HUB_DIA_BASE;
+    
+    // action
+    if ([type isEqualToString:@"now"]) {
+        
+        [self.tyreView changeTyreRatio:self.handleTyreRatio];
+        [self.tyreView changeHubRatio:self.handleHubRatio];
+        
+        NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
+                
+    }else if ([type isEqualToString:@"want"]){
+        
+        [self.tyreView changeTyreRatio:self.handleTyreRatio];
+        [self.tyreView changeHubRatio:self.handleHubRatio];
+        
+        NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
+    }
+
     
     return resultArray;
 }
@@ -215,13 +242,14 @@
         default:
             break;
     }
-    NSLog(@"%@ %d",value,index);
+    
+    NSLog(@"passStringValue %@ %d",value,index);
     
     // which index to refresh prmt data
     if (index == NOWW_INDEX || index == NOWA_INDEX || index == NOWR_INDEX) {
-        [self.prmtView changeNowPrmt:[self calculationWithW:self.nowWFloat andA:self.nowAFloat andR:self.nowRFloat]];
+        [self.prmtView changeNowPrmt:[self calculationWithW:self.nowWFloat andA:self.nowAFloat andR:self.nowRFloat andType:@"now"]];
     }else if(index == WANTW_INDEX || index == WANTA_INDEX || index == WANTR_INDEX){
-        [self.prmtView changeWantPrmt:[self calculationWithW:self.wantWFloat andA:self.wantAFloat andR:self.wantRFloat]];
+        [self.prmtView changeWantPrmt:[self calculationWithW:self.wantWFloat andA:self.wantAFloat andR:self.wantRFloat andType:@"want"]];
     }
 }
 

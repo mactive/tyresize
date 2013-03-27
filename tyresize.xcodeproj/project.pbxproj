@@ -62,6 +62,7 @@
 		042094C116FA230E0019C12E /* TyreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyreView.m; sourceTree = "<group>"; };
 		0427F61416F8C9A20001FF9D /* AppDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDefs.h; sourceTree = "<group>"; };
 		0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
+		043C8142170368CA00BF5AA3 /* LockNowTyreDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockNowTyreDelegate.h; sourceTree = "<group>"; };
 		046A2D1B16FF068A00DFAB86 /* PassValueDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassValueDelegate.h; sourceTree = "<group>"; };
 		04E89BDC16FED37100E7CB1F /* lock_status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_status@2x.png"; sourceTree = "<group>"; };
 		04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_btn@2x.png"; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 			children = (
 				0427F61416F8C9A20001FF9D /* AppDefs.h */,
 				046A2D1B16FF068A00DFAB86 /* PassValueDelegate.h */,
+				043C8142170368CA00BF5AA3 /* LockNowTyreDelegate.h */,
 				264F71AD16E9A3EE00E77FE0 /* AppDelegate.h */,
 				264F71AE16E9A3EE00E77FE0 /* AppDelegate.m */,
 				26C982CD16E9AA6C00295FAE /* MainViewController.h */,
