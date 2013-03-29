@@ -196,7 +196,9 @@
 
 - (void)wikiAction
 {
-    NSLog(@"wikiAction");
+    KBViewController *controller = [[KBViewController alloc]initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 
 - (void)otherAction
@@ -258,11 +260,6 @@
 
 }
 
-- (void)linkAction:(UIButton *)sender
-{
-    KBViewController *controller = [[KBViewController alloc]initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:controller animated:YES];
-}
 
 - (void)didReceiveMemoryWarning
 {

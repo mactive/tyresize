@@ -19,6 +19,7 @@
 		042094BF16FA1B6D0019C12E /* HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094BE16FA1B6D0019C12E /* HandleView.m */; };
 		042094C216FA230E0019C12E /* TyreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094C116FA230E0019C12E /* TyreView.m */; };
 		0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */; };
+		0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6611705DDC100A12128 /* back_button_bg@2x.png */; };
 		04E89BDE16FED37100E7CB1F /* lock_status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E89BDC16FED37100E7CB1F /* lock_status@2x.png */; };
 		04E89BDF16FED37100E7CB1F /* lock_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
@@ -64,6 +65,7 @@
 		0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
 		043C8142170368CA00BF5AA3 /* LockNowTyreDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockNowTyreDelegate.h; sourceTree = "<group>"; };
 		046A2D1B16FF068A00DFAB86 /* PassValueDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassValueDelegate.h; sourceTree = "<group>"; };
+		0480E6611705DDC100A12128 /* back_button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button_bg@2x.png"; sourceTree = "<group>"; };
 		04E89BDC16FED37100E7CB1F /* lock_status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_status@2x.png"; sourceTree = "<group>"; };
 		04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_btn@2x.png"; sourceTree = "<group>"; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				264F71BF16E9A48F00E77FE0 /* tyresize.png */,
+				0480E6611705DDC100A12128 /* back_button_bg@2x.png */,
 				04E89BDC16FED37100E7CB1F /* lock_status@2x.png */,
 				04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */,
 				042094A216F9F2DA0019C12E /* add_button@2x.png */,
@@ -293,6 +296,7 @@
 				042094AF16F9F2DB0019C12E /* tyre_outer@2x.png in Resources */,
 				04E89BDE16FED37100E7CB1F /* lock_status@2x.png in Resources */,
 				04E89BDF16FED37100E7CB1F /* lock_btn@2x.png in Resources */,
+				0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
