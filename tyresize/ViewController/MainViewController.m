@@ -51,7 +51,8 @@
 @property(assign, nonatomic)CGFloat wantPrmtE;
 @property(assign, nonatomic)CGFloat wantPrmtF;
 
-
+// Boolean
+@property(assign, nonatomic)BOOL isOffseted;
 @property(strong, nonatomic)UISwipeGestureRecognizer *tyreSwipeGR;
 @property(strong, nonatomic)UISwipeGestureRecognizer *prmtSwipeGR;
 @property(strong, nonatomic)UITapGestureRecognizer *prmtTapGR;
@@ -122,7 +123,7 @@
     self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, TYRE_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
-    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT+OPER_HEIGHT, TOTAL_WIDTH, PRMT_LITE_HEIGHT)];
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT+OPER_HEIGHT, TOTAL_WIDTH, PRMT_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
     self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT, TOTAL_WIDTH, OPER_HEIGHT)];
@@ -138,6 +139,7 @@
     self.prmtTapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handlePrmtTap:)];
     self.prmtTapGR.numberOfTapsRequired = 1;
     self.prmtTapGR.numberOfTouchesRequired = 1;
+    self.isOffseted = NO;
     
 }
 
@@ -154,10 +156,29 @@
     self.switchBtn.titleLabel.font = CUSTOMFONT;
     [self.switchBtn setTitle:T(@"Metric") forState:UIControlStateNormal];
     [self.switchBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
+    [self.switchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [self.switchBtn setBackgroundColor:[UIColor clearColor]];
     [self.switchBtn addTarget:self action:@selector(switchAction) forControlEvents:UIControlEventTouchUpInside];
     
+    // wiki
+    self.wikiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.wikiBtn.frame= CGRectMake(TOTAL_WIDTH/3, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
+    self.wikiBtn.titleLabel.font = CUSTOMFONT;
+    [self.wikiBtn setTitle:T(@"Wiki") forState:UIControlStateNormal];
+    [self.wikiBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
+    [self.wikiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.wikiBtn setBackgroundColor:[UIColor clearColor]];
+    [self.wikiBtn addTarget:self action:@selector(wikiAction) forControlEvents:UIControlEventTouchUpInside];
     
+    // other
+    self.otherBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.otherBtn.frame= CGRectMake(TOTAL_WIDTH/3*2, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
+    self.otherBtn.titleLabel.font = CUSTOMFONT;
+    [self.otherBtn setTitle:T(@"Other") forState:UIControlStateNormal];
+    [self.otherBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
+    [self.otherBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.otherBtn setBackgroundColor:[UIColor clearColor]];
+    [self.otherBtn addTarget:self action:@selector(otherAction) forControlEvents:UIControlEventTouchUpInside];
     
     //
     [self.buttonView addSubview:bg];
@@ -167,18 +188,58 @@
     [self.view addSubview:self.buttonView];
 
 }
-
+#pragma mark - bottom button actions
 - (void)switchAction
 {
-    NSLog(@"dfdfd");
+    NSLog(@"switchAction");
 }
+
+- (void)wikiAction
+{
+    NSLog(@"wikiAction");
+}
+
+- (void)otherAction
+{
+    NSLog(@"otherAction");
+}
+
 
 
 ///////////////////////////
 // 点击参数
 - (void)handlePrmtTap:(UITapGestureRecognizer *)paramSender
 {
+    if (self.isOffseted) {
+        CGFloat Yoffset = 150;
+        [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreView];
+        [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
+        [self moveYOffest:Yoffset andDelay:0.0 withView:self.prmtView];
+        self.isOffseted = NO;
+    }else{
+        CGFloat Yoffset = -150;
+        [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreView];
+        [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
+        [self moveYOffest:Yoffset andDelay:0.10 withView:self.prmtView];
+        self.isOffseted = YES;
+    }
     
+    
+}
+
+- (void)moveYOffest:(CGFloat)offset andDelay:(CGFloat)delay withView:(UIView *)targetView
+{
+    CGRect rect = targetView.frame;
+    
+    rect.origin.y = rect.origin.y + offset ;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.35];
+    [UIView setAnimationDelay:delay];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    
+    targetView.frame = rect;
+    
+    [UIView commitAnimations];
 }
 
 - (void)viewWillAppear:(BOOL)animated
