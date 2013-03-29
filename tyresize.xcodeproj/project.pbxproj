@@ -20,6 +20,8 @@
 		042094C216FA230E0019C12E /* TyreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094C116FA230E0019C12E /* TyreView.m */; };
 		0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */; };
 		0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6611705DDC100A12128 /* back_button_bg@2x.png */; };
+		0480E6641705E54300A12128 /* tyresize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6631705E54300A12128 /* tyresize@2x.png */; };
+		0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6651705E7CD00A12128 /* green_line@2x.png */; };
 		04E89BDE16FED37100E7CB1F /* lock_status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E89BDC16FED37100E7CB1F /* lock_status@2x.png */; };
 		04E89BDF16FED37100E7CB1F /* lock_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
@@ -33,7 +35,6 @@
 		264F71B316E9A3EE00E77FE0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71B216E9A3EE00E77FE0 /* Default@2x.png */; };
 		264F71B516E9A3EE00E77FE0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71B416E9A3EE00E77FE0 /* Default-568h@2x.png */; };
 		264F71B816E9A3EE00E77FE0 /* tyresize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 264F71B616E9A3EE00E77FE0 /* tyresize.xcdatamodeld */; };
-		264F71C316E9A48F00E77FE0 /* tyresize.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71BF16E9A48F00E77FE0 /* tyresize.png */; };
 		264F71C416E9A48F00E77FE0 /* tyresize2.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71C016E9A48F00E77FE0 /* tyresize2.png */; };
 		264F71C516E9A48F00E77FE0 /* tyresize2_zh.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71C116E9A48F00E77FE0 /* tyresize2_zh.png */; };
 		264F71C616E9A48F00E77FE0 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 264F71C216E9A48F00E77FE0 /* welcome.png */; };
@@ -66,6 +67,8 @@
 		043C8142170368CA00BF5AA3 /* LockNowTyreDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockNowTyreDelegate.h; sourceTree = "<group>"; };
 		046A2D1B16FF068A00DFAB86 /* PassValueDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassValueDelegate.h; sourceTree = "<group>"; };
 		0480E6611705DDC100A12128 /* back_button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button_bg@2x.png"; sourceTree = "<group>"; };
+		0480E6631705E54300A12128 /* tyresize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyresize@2x.png"; sourceTree = "<group>"; };
+		0480E6651705E7CD00A12128 /* green_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_line@2x.png"; sourceTree = "<group>"; };
 		04E89BDC16FED37100E7CB1F /* lock_status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_status@2x.png"; sourceTree = "<group>"; };
 		04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_btn@2x.png"; sourceTree = "<group>"; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +86,6 @@
 		264F71B216E9A3EE00E77FE0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		264F71B416E9A3EE00E77FE0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		264F71B716E9A3EE00E77FE0 /* tyresize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tyresize.xcdatamodel; sourceTree = "<group>"; };
-		264F71BF16E9A48F00E77FE0 /* tyresize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyresize.png; sourceTree = "<group>"; };
 		264F71C016E9A48F00E77FE0 /* tyresize2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyresize2.png; sourceTree = "<group>"; };
 		264F71C116E9A48F00E77FE0 /* tyresize2_zh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyresize2_zh.png; sourceTree = "<group>"; };
 		264F71C216E9A48F00E77FE0 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
@@ -204,8 +206,9 @@
 		264F71BE16E9A48F00E77FE0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				264F71BF16E9A48F00E77FE0 /* tyresize.png */,
 				0480E6611705DDC100A12128 /* back_button_bg@2x.png */,
+				0480E6651705E7CD00A12128 /* green_line@2x.png */,
+				0480E6631705E54300A12128 /* tyresize@2x.png */,
 				04E89BDC16FED37100E7CB1F /* lock_status@2x.png */,
 				04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */,
 				042094A216F9F2DA0019C12E /* add_button@2x.png */,
@@ -279,7 +282,6 @@
 				264F71B116E9A3EE00E77FE0 /* Default.png in Resources */,
 				264F71B316E9A3EE00E77FE0 /* Default@2x.png in Resources */,
 				264F71B516E9A3EE00E77FE0 /* Default-568h@2x.png in Resources */,
-				264F71C316E9A48F00E77FE0 /* tyresize.png in Resources */,
 				264F71C416E9A48F00E77FE0 /* tyresize2.png in Resources */,
 				264F71C516E9A48F00E77FE0 /* tyresize2_zh.png in Resources */,
 				264F71C616E9A48F00E77FE0 /* welcome.png in Resources */,
@@ -297,6 +299,8 @@
 				04E89BDE16FED37100E7CB1F /* lock_status@2x.png in Resources */,
 				04E89BDF16FED37100E7CB1F /* lock_btn@2x.png in Resources */,
 				0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */,
+				0480E6641705E54300A12128 /* tyresize@2x.png in Resources */,
+				0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +402,8 @@
 		264F71BC16E9A3EE00E77FE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: qian meng (6359682965)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: qian meng (6359682965)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -407,6 +413,8 @@
 				INFOPLIST_FILE = "tyresize/tyresize-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "78B7BF57-ED44-4745-94AE-25FBC324F612";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78B7BF57-ED44-4745-94AE-25FBC324F612";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -415,6 +423,8 @@
 		264F71BD16E9A3EE00E77FE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: qian meng (6359682965)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: qian meng (6359682965)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -424,6 +434,8 @@
 				INFOPLIST_FILE = "tyresize/tyresize-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "78B7BF57-ED44-4745-94AE-25FBC324F612";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78B7BF57-ED44-4745-94AE-25FBC324F612";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

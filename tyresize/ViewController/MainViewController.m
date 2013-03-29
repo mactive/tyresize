@@ -306,6 +306,7 @@
     // 圈数
     CGFloat rotations = 1000000  / circumference;
     
+#warning 这里需要存两边的值然后比较
     // 速度差距
     CGFloat speedo = 0.f;
     CGFloat speed = 0.f;

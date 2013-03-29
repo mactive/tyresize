@@ -66,6 +66,8 @@
 
 // font
 #define CUSTOMFONT [UIFont fontWithName:@"Museo" size:16.0f]
+#define LITTLECUSTOMFONT [UIFont fontWithName:@"Museo" size:13.0f]
+#define TINYCUSTOMFONT [UIFont fontWithName:@"Museo" size:11.0f]
 
 // NSARRAY
 #define TYRE_HEIGHT 160.0f
@@ -93,6 +95,7 @@ alpha:(a)]
 #define GRAYCOLOR [UIColor colorWithRed:158.0f/255.0f green:158.0f/255.0f blue:158.0f/255.0f alpha:1]
 #define HANDLEBORDERCOLOR [UIColor colorWithRed:228.0f/255.0f green:228.0f/255.0f blue:228.0f/255.0f alpha:1].CGColor
 #define HANDLEBGCOLOR [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1]
+#define DARKCOLOR [UIColor colorWithRed:57.0f/255.0f green:57.0f/255.0f blue:57.0f/255.0f alpha:1]
 
 
 
