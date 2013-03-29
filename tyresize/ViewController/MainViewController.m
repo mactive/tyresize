@@ -18,6 +18,10 @@
 @property(strong, nonatomic)TyreView *tyreView;
 @property(strong, nonatomic)OperationView *operView;
 @property(strong, nonatomic)ParameterView *prmtView;
+@property(strong, nonatomic)UIView *buttonView;
+@property(strong, nonatomic)UIButton *switchBtn;
+@property(strong, nonatomic)UIButton *wikiBtn;
+@property(strong, nonatomic)UIButton *otherBtn;
 // main label
 @property(strong, nonatomic)UILabel *leftTitle;
 @property(strong, nonatomic)UILabel *rightTitle;
@@ -47,6 +51,11 @@
 @property(assign, nonatomic)CGFloat wantPrmtE;
 @property(assign, nonatomic)CGFloat wantPrmtF;
 
+
+@property(strong, nonatomic)UISwipeGestureRecognizer *tyreSwipeGR;
+@property(strong, nonatomic)UISwipeGestureRecognizer *prmtSwipeGR;
+@property(strong, nonatomic)UITapGestureRecognizer *prmtTapGR;
+
 @end
 
 
@@ -55,6 +64,8 @@
 @synthesize tyreView;
 @synthesize operView;
 @synthesize prmtView;
+@synthesize buttonView;
+@synthesize switchBtn, wikiBtn, otherBtn;
 //value
 @synthesize nowWFloat;
 @synthesize nowAFloat;
@@ -80,6 +91,8 @@
 @synthesize wantPrmtE;
 @synthesize wantPrmtF;
 
+@synthesize tyreSwipeGR, prmtSwipeGR, prmtTapGR;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -97,7 +110,8 @@
 #define OPER_HEIGHT         160.0f
 
 #define PRMT_HEIGHT         230.0f
-#define PRMT_LITE_HEIGHT    75.0f
+#define PRMT_LITE_HEIGHT    50.0f
+#define BUTTON_VIEW_HEIGHT  44.0f
 
 - (void)viewDidLoad
 {
@@ -115,7 +129,55 @@
     self.operView.delegate = self;
     [self.view addSubview:self.operView];
     
+    [self initButtonView];
+    
+    self.tyreSwipeGR = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleTyreSwipe:)];
+    self.tyreSwipeGR.direction = UISwipeGestureRecognizerDirectionDown;
+    self.tyreSwipeGR.numberOfTouchesRequired = 1;
+    
+    self.prmtTapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handlePrmtTap:)];
+    self.prmtTapGR.numberOfTapsRequired = 1;
+    self.prmtTapGR.numberOfTouchesRequired = 1;
+    
+}
 
+// init button view
+- (void)initButtonView
+{
+    self.buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-BUTTON_VIEW_HEIGHT, TOTAL_WIDTH, BUTTON_VIEW_HEIGHT)];
+    UIImageView *bg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, BUTTON_VIEW_HEIGHT)];
+    [bg setImage:[UIImage imageNamed:@"bottom_bg.png"]];
+
+    // switch
+    self.switchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.switchBtn.frame= CGRectMake(0, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
+    self.switchBtn.titleLabel.font = CUSTOMFONT;
+    [self.switchBtn setTitle:T(@"Metric") forState:UIControlStateNormal];
+    [self.switchBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
+    [self.switchBtn setBackgroundColor:[UIColor clearColor]];
+    [self.switchBtn addTarget:self action:@selector(switchAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    //
+    [self.buttonView addSubview:bg];
+    [self.buttonView addSubview:self.switchBtn];
+    [self.buttonView addSubview:self.wikiBtn];
+    [self.buttonView addSubview:self.otherBtn];
+    [self.view addSubview:self.buttonView];
+
+}
+
+- (void)switchAction
+{
+    NSLog(@"dfdfd");
+}
+
+
+///////////////////////////
+// 点击参数
+- (void)handlePrmtTap:(UITapGestureRecognizer *)paramSender
+{
     
 }
 
@@ -123,6 +185,9 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    [self.prmtView addGestureRecognizer:self.prmtTapGR];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

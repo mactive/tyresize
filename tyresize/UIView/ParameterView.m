@@ -55,7 +55,7 @@
     return self;
 }
 
-#define LINE_HEIGHT 20
+#define LINE_HEIGHT 30
 #define PRMT_WIDTH 70
 #define PRMT_TITLE 180
 // do refresh
@@ -94,9 +94,7 @@
         label.text = T(@"---");
         [self.wantArray addObject:label];
         [self addSubview:label];
-    }
-    
-    
+    }    
 }
 
 - (void)changeNowPrmt:(NSArray *)prmtArray
