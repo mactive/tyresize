@@ -20,7 +20,10 @@
 #define CM_FT 0.0328f
 #define KM_MI 0.621f
 
-#define DEFAULT_UNIT METRIC
+//#define DEFAULT_SYSTEM  METRIC
+#define UKSYS           T(@"IMPERIAL")
+#define USSYS           T(@"METRIC")
+
 
 #define NOWW_INDEX 1
 #define NOWA_INDEX 2

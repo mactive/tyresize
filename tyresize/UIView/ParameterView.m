@@ -11,6 +11,7 @@
 @interface ParameterView()
 @property(strong, nonatomic)NSArray *PRMTIMPERIAL;
 @property(strong, nonatomic)NSArray *PRMTMETIC;
+@property(strong, nonatomic)NSMutableArray *sysTitleArray;
 @property(strong, nonatomic)NSMutableArray *nowArray;
 @property(strong, nonatomic)NSMutableArray *wantArray;
 @property(strong, nonatomic)UIImageView *bgView;
@@ -19,6 +20,7 @@
 @implementation ParameterView
 @synthesize nowArray;
 @synthesize wantArray;
+@synthesize sysTitleArray;
 
 @synthesize PRMTMETIC;
 @synthesize PRMTIMPERIAL;
@@ -50,8 +52,9 @@
                           T(@"Speedo Diff(%)"),
                           T(@"Speed@100kph"), nil];
         
-        self.nowArray = [[NSMutableArray alloc]init];
-        self.wantArray = [[NSMutableArray alloc]init];
+        self.sysTitleArray  = [[NSMutableArray alloc]init];
+        self.nowArray       = [[NSMutableArray alloc]init];
+        self.wantArray      = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -64,18 +67,19 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
 //    NSLog(@"willMoveToSuperview title");
-    for(int i = 0; i < [PRMTIMPERIAL count]; i++){
+    for(int i = 0; i < [self.PRMTMETIC count]; i++){
         UILabel *label = [[UILabel alloc]init];
         label.font = CUSTOMFONT;
         label.textColor = GREENCOLOR;
-        label.text = [PRMTIMPERIAL objectAtIndex:i];
+        label.text = [self.PRMTMETIC objectAtIndex:i];
         label.textAlignment = NSTextAlignmentCenter;
         [label setFrame:CGRectMake(PRMT_WIDTH, LINE_HEIGHT *i +OFFSET_Y, PRMT_TITLE, LINE_HEIGHT)];
+        [self.sysTitleArray addObject:label];
         [self addSubview:label];
     }
     
 //    NSLog(@"willMoveToSuperview now para");
-    for(int i = 0; i < [PRMTIMPERIAL count]; i++){
+    for(int i = 0; i < [self.PRMTMETIC count]; i++){
         UILabel *label = [[UILabel alloc]init];
         label.font = CUSTOMFONT;
         label.textColor = GRAYCOLOR;
@@ -87,7 +91,7 @@
     }
     
 //    NSLog(@"willMoveToSuperview want para");
-    for(int i = 0; i < [PRMTIMPERIAL count]; i++){
+    for(int i = 0; i < [self.PRMTMETIC count]; i++){
         UILabel *label = [[UILabel alloc]init];
         label.font = CUSTOMFONT;
         label.textColor = GREENCOLOR;
@@ -101,8 +105,21 @@
     self.bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, 7)];
     [self.bgView setImage:[UIImage imageNamed:@"tiny_up.png"]];
     [self addSubview:self.bgView];
-    
-    
+}
+
+-(void)refreshPrmtView:(NSString *)system
+{
+    if ([system isEqualToString:UKSYS]) {
+        for(int i = 0; i < [self.sysTitleArray count]; i++){
+            UILabel *label = (UILabel *)[self.sysTitleArray objectAtIndex:i];
+            label.text = [self.PRMTIMPERIAL objectAtIndex:i];
+        }
+    }else if ([system isEqualToString:USSYS]){
+        for(int i = 0; i < [self.sysTitleArray count]; i++){
+            UILabel *label = (UILabel *)[self.sysTitleArray objectAtIndex:i];
+            label.text = [self.PRMTMETIC objectAtIndex:i];
+        }
+    }
 }
 
 - (void)changeNowPrmt:(NSArray *)prmtArray

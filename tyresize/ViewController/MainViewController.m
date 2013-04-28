@@ -25,6 +25,7 @@
 // main label
 @property(strong, nonatomic)UILabel *leftTitle;
 @property(strong, nonatomic)UILabel *rightTitle;
+@property(strong, nonatomic)NSString *curSystem;
 
 // value
 @property(assign, nonatomic)CGFloat nowWFloat;
@@ -102,7 +103,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = T(@"tyresize");
-    
+    self.curSystem = USSYS;
+
     self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, TYRE_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
@@ -113,7 +115,6 @@
     self.operView.delegate = self;
     [self.view addSubview:self.operView];
     
-    [self initButtonView];
     
     self.tyreSwipeGR = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleTyreSwipe:)];
     self.tyreSwipeGR.direction = UISwipeGestureRecognizerDirectionDown;
@@ -126,6 +127,10 @@
     
     self.nowArray   = [[NSArray alloc]init];
     self.wantArray  = [[NSArray alloc]init];
+    
+    [self initButtonView];
+
+
 }
 
 // init button view
@@ -139,7 +144,7 @@
     self.switchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.switchBtn.frame= CGRectMake(0, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
     self.switchBtn.titleLabel.font = CUSTOMFONT;
-    [self.switchBtn setTitle:T(@"Metric") forState:UIControlStateNormal];
+    [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
     [self.switchBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
     [self.switchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [self.switchBtn setBackgroundColor:[UIColor clearColor]];
@@ -176,7 +181,31 @@
 #pragma mark - bottom button actions
 - (void)switchAction
 {
-    NSLog(@"switchAction");
+    if ([self.curSystem isEqualToString:UKSYS]) {
+        self.curSystem = USSYS;
+    }else{
+        self.curSystem = UKSYS;
+    }
+    
+    [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
+    
+    NSLog(@"switchAction: %@",self.curSystem );
+    
+    self.nowArray = [self calculationWithW:self.nowWFloat
+                                      andA:self.nowAFloat
+                                      andR:self.nowRFloat
+                                   andType:@"now"];
+    
+    [self.prmtView changeNowPrmt:self.nowArray];
+    self.wantArray = [self calculationWithW:self.wantWFloat
+                                       andA:self.wantAFloat
+                                       andR:self.wantRFloat
+                                    andType:@"want"];
+    
+    [self.prmtView changeWantPrmt:self.wantArray];
+    [self.prmtView refreshPrmtView:self.curSystem];
+
+    
 }
 
 - (void)wikiAction
@@ -296,12 +325,26 @@
     CGFloat circumference = diameter * M_PI;
     
     // 圈数
-    CGFloat rotations = 1000000  / circumference;
-    
-#warning 这里需要存两边的值然后比较
+    CGFloat rotations = 0.f;
     // 速度差距
     CGFloat speedo = 0.f;
     CGFloat speed = 0.f;
+    
+    if ([self.curSystem isEqualToString:UKSYS]) {
+        sidewall    = sidewall / IN_MM;
+        radius      = radius / IN_MM;
+        diameter    = diameter / IN_MM;
+        circumference = circumference / IN_MM;
+        rotations   = 63360  / circumference;
+        self.handleHubRatio = RFloat / HUB_DIA_BASE * IN_MM;
+        self.handleTyreRatio = diameter / TYRE_DIA_BASE *IN_MM;
+
+    }else if ([self.curSystem isEqualToString:USSYS]){
+        rotations   = 1000000  / circumference;
+        self.handleHubRatio = RFloat * IN_MM / HUB_DIA_BASE;
+        self.handleTyreRatio = diameter / TYRE_DIA_BASE;
+    }
+    
     
     [resultArray addObject:FLOAT(sidewall)];
     [resultArray addObject:FLOAT(radius)];
@@ -310,28 +353,32 @@
     [resultArray addObject:FLOAT(rotations)];
 
     
-    self.handleTyreRatio = diameter / TYRE_DIA_BASE;
-    self.handleHubRatio = RFloat * IN_MM / HUB_DIA_BASE;
+    [self.tyreView changeTyreRatio:self.handleTyreRatio];
+    [self.tyreView changeHubRatio:self.handleHubRatio];
+    
+    
     
     // action
     if ([type isEqualToString:@"now"]) {
         
-        [self.tyreView changeTyreRatio:self.handleTyreRatio];
-        [self.tyreView changeHubRatio:self.handleHubRatio];
+
         self.nowPrmtD = circumference;
         
         NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
                 
     }else if ([type isEqualToString:@"want"]){
-        
-        [self.tyreView changeTyreRatio:self.handleTyreRatio];
-        [self.tyreView changeHubRatio:self.handleHubRatio];
+
         self.wantPrmtD = circumference;
 
         NSLog(@"now: %f want: %f", self.nowPrmtD,self.wantPrmtD);
         if (self.nowPrmtD > 0 && self.wantPrmtD > 0) {
             speedo  = self.wantPrmtD / self.nowPrmtD *100;
-            speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
+            
+            if ([self.curSystem isEqualToString:UKSYS]) {
+                speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
+            }else if ([self.curSystem isEqualToString:USSYS]){
+                speed   = 100.0f * self.wantPrmtD / self.nowPrmtD ;
+            }
         }
     
         NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);

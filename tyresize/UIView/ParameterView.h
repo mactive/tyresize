@@ -12,4 +12,5 @@
 
 - (void)changeNowPrmt:(NSArray *)prmtArray;
 - (void)changeWantPrmt:(NSArray *)prmtArray;
+- (void)refreshPrmtView:(NSString *)system;
 @end
