@@ -110,7 +110,11 @@
     for(int i = 0; i < [self.nowArray count]; i++){
         UILabel *label = (UILabel *)[self.nowArray objectAtIndex:i];
         NSNumber *num = [prmtArray objectAtIndex:i];
-        label.text = [NSString stringWithFormat:@"%.2f",num.floatValue];
+        if (i >= SPEED_LABEL_INDEX) {
+            label.text = T(@"---");
+        }else{
+            label.text = [NSString stringWithFormat:@"%.2f",num.floatValue];
+        }
     }
 }
 
@@ -119,7 +123,11 @@
     for(int i = 0; i < [self.wantArray count]; i++){
         UILabel *label = (UILabel *)[self.wantArray objectAtIndex:i];
         NSNumber *num = [prmtArray objectAtIndex:i];
-        label.text = [NSString stringWithFormat:@"%.2f",num.floatValue];
+        if (i == SPEED_LABEL_INDEX) {
+            label.text = [NSString stringWithFormat:@"%.1f%%",num.floatValue];
+        }else{
+            label.text = [NSString stringWithFormat:@"%.2f",num.floatValue];
+        }
     }
 }
 

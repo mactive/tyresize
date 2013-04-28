@@ -44,8 +44,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 	// Do any additional setup after loading the view.
-    self.title = @"轮胎知识";
     self.tempImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyresize.png"]];
     self.tempImage.frame = CGRectMake(0, 20, 320, 340);
     [self.view addSubview:self.tempImage];
@@ -70,7 +70,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:YES];
     [self refreshDetailViewWithIndex:1];
 }
 

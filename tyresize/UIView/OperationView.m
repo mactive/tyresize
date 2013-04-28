@@ -141,12 +141,16 @@
         
         // add to view
         // add 晚的后计算
-        [self addSubview:self.wantWView];
-        [self addSubview:self.wantAView];
-        [self addSubview:self.wantRView];
+
         [self addSubview:self.nowWView];
         [self addSubview:self.nowAView];
         [self addSubview:self.nowRView];
+        
+        
+        [self addSubview:self.wantWView];
+        [self addSubview:self.wantAView];
+        [self addSubview:self.wantRView];
+        
         [self addSubview:self.nowTitle];
         [self addSubview:self.wantTitle];
         [self addSubview:self.lockNowButton];

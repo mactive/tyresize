@@ -43,6 +43,8 @@
 #define DEFAULT_WANTA_INDEX  1
 #define DEFAULT_WANTR_INDEX  10
 
+#define SPEED_LABEL_INDEX   5
+
 #pragma mark - mactive
 
 #define T(a)    NSLocalizedString((a), nil)

@@ -37,19 +37,12 @@
 @property(assign, nonatomic)CGFloat handleTyreRatio;
 @property(assign, nonatomic)CGFloat handleHubRatio;
 
-@property(assign, nonatomic)CGFloat nowPrmtA;
-@property(assign, nonatomic)CGFloat nowPrmtB;
-@property(assign, nonatomic)CGFloat nowPrmtC;
 @property(assign, nonatomic)CGFloat nowPrmtD;
-@property(assign, nonatomic)CGFloat nowPrmtE;
-@property(assign, nonatomic)CGFloat nowPrmtF;
-
-@property(assign, nonatomic)CGFloat wantPrmtA;
-@property(assign, nonatomic)CGFloat wantPrmtB;
-@property(assign, nonatomic)CGFloat wantPrmtC;
 @property(assign, nonatomic)CGFloat wantPrmtD;
-@property(assign, nonatomic)CGFloat wantPrmtE;
-@property(assign, nonatomic)CGFloat wantPrmtF;
+
+@property(strong, nonatomic)NSMutableArray *nowArray;
+@property(strong, nonatomic)NSMutableArray *wantArray;
+
 
 // Boolean
 @property(assign, nonatomic)BOOL isOffseted;
@@ -78,21 +71,11 @@
 @synthesize handleTyreRatio;
 @synthesize handleHubRatio;
 
-@synthesize nowPrmtA;
-@synthesize nowPrmtB;
-@synthesize nowPrmtC;
 @synthesize nowPrmtD;
-@synthesize nowPrmtE;
-@synthesize nowPrmtF;
-
-@synthesize wantPrmtA;
-@synthesize wantPrmtB;
-@synthesize wantPrmtC;
 @synthesize wantPrmtD;
-@synthesize wantPrmtE;
-@synthesize wantPrmtF;
 
 @synthesize tyreSwipeGR, prmtSwipeGR, prmtTapGR;
+@synthesize nowArray,wantArray;
 
 
 
@@ -141,6 +124,8 @@
     self.prmtTapGR.numberOfTouchesRequired = 1;
     self.isOffseted = NO;
     
+    self.nowArray   = [[NSMutableArray alloc]init];
+    self.wantArray  = [[NSMutableArray alloc]init];
 }
 
 // init button view
@@ -196,7 +181,8 @@
 
 - (void)wikiAction
 {
-    KBViewController *controller = [[KBViewController alloc]initWithNibName:nil bundle:nil];
+    KBViewController *controller = [[KBViewController alloc]initWithNibName:nil
+                                                                     bundle:nil];
     [self.navigationController pushViewController:controller animated:YES];
     
 }
@@ -229,7 +215,9 @@
     
 }
 
-- (void)moveYOffest:(CGFloat)offset andDelay:(CGFloat)delay withView:(UIView *)targetView
+- (void)moveYOffest:(CGFloat)offset
+           andDelay:(CGFloat)delay
+           withView:(UIView *)targetView
 {
     CGRect rect = targetView.frame;
     
@@ -273,7 +261,8 @@
 // 锁定当前的轮胎 1.主动锁定时候 2.调整想要的时候
 - (void)lockNowTyre
 {
-    [self.tyreView lockNowTyreRatio:self.handleTyreRatio andHubRatio:self.handleHubRatio];
+    [self.tyreView lockNowTyreRatio:self.handleTyreRatio
+                        andHubRatio:self.handleHubRatio];
 }
 // 解锁当前的轮胎 1.主动解锁
 - (void)unlockNowTyre
@@ -286,7 +275,10 @@
 // 计算
 ///////////////////////////////////////////////////////////////////
 
-- (NSArray *)calculationWithW:(CGFloat)wFloat andA:(CGFloat)AFloat andR:(CGFloat)RFloat andType:(NSString *)type
+- (NSMutableArray *)calculationWithW:(CGFloat)wFloat
+                         andA:(CGFloat)AFloat
+                         andR:(CGFloat)RFloat
+                      andType:(NSString *)type
 {
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     
@@ -295,7 +287,7 @@
     
     // 直径
     CGFloat diameter = sidewall * 2 + RFloat * IN_MM ;
-//    NSLog(@"diameter %.2f",diameter);
+    NSLog(@"diameter %.2f",diameter);
     
     // 半径
     CGFloat radius = diameter / 2;
@@ -316,8 +308,7 @@
     [resultArray addObject:FLOAT(diameter)];
     [resultArray addObject:FLOAT(circumference)];
     [resultArray addObject:FLOAT(rotations)];
-    [resultArray addObject:FLOAT(speedo)];
-    [resultArray addObject:FLOAT(speed)];
+
     
     self.handleTyreRatio = diameter / TYRE_DIA_BASE;
     self.handleHubRatio = RFloat * IN_MM / HUB_DIA_BASE;
@@ -325,8 +316,11 @@
     // action
     if ([type isEqualToString:@"now"]) {
         
+        [resultArray addObject:FLOAT(speedo)];
+        [resultArray addObject:FLOAT(speed)];
         [self.tyreView changeTyreRatio:self.handleTyreRatio];
         [self.tyreView changeHubRatio:self.handleHubRatio];
+        self.nowPrmtD = circumference;
         
         NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
                 
@@ -334,6 +328,19 @@
         
         [self.tyreView changeTyreRatio:self.handleTyreRatio];
         [self.tyreView changeHubRatio:self.handleHubRatio];
+        self.wantPrmtD = circumference;
+
+        NSLog(@"now: %f want: %f", self.nowPrmtD,self.wantPrmtD);
+        if (self.nowPrmtD > 0 && self.wantPrmtD > 0) {
+            speedo  = self.wantPrmtD / self.nowPrmtD *100;
+            speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
+        }else{
+            speedo = 0.f;
+            speed = 0.f;
+        }
+        
+        [resultArray addObject:FLOAT(speedo)];
+        [resultArray addObject:FLOAT(speed)];
         
         NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
     }
@@ -371,9 +378,23 @@
     
     // which index to refresh prmt data
     if (index == NOWW_INDEX || index == NOWA_INDEX || index == NOWR_INDEX) {
-        [self.prmtView changeNowPrmt:[self calculationWithW:self.nowWFloat andA:self.nowAFloat andR:self.nowRFloat andType:@"now"]];
+        
+        self.nowArray = [self calculationWithW:self.nowWFloat
+                                          andA:self.nowAFloat
+                                          andR:self.nowRFloat
+                                       andType:@"now"];
+        
+        [self.prmtView changeNowPrmt:self.nowArray];
+        
+        
     }else if(index == WANTW_INDEX || index == WANTA_INDEX || index == WANTR_INDEX){
-        [self.prmtView changeWantPrmt:[self calculationWithW:self.wantWFloat andA:self.wantAFloat andR:self.wantRFloat andType:@"want"]];
+        
+        self.wantArray = [self calculationWithW:self.wantWFloat
+                                           andA:self.wantAFloat
+                                           andR:self.wantRFloat
+                                        andType:@"want"];
+        
+        [self.prmtView changeWantPrmt:self.wantArray];
     }
 }
 
