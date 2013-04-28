@@ -40,8 +40,8 @@
 @property(assign, nonatomic)CGFloat nowPrmtD;
 @property(assign, nonatomic)CGFloat wantPrmtD;
 
-@property(strong, nonatomic)NSMutableArray *nowArray;
-@property(strong, nonatomic)NSMutableArray *wantArray;
+@property(strong, nonatomic)NSArray *nowArray;
+@property(strong, nonatomic)NSArray *wantArray;
 
 
 // Boolean
@@ -124,8 +124,8 @@
     self.prmtTapGR.numberOfTouchesRequired = 1;
     self.isOffseted = NO;
     
-    self.nowArray   = [[NSMutableArray alloc]init];
-    self.wantArray  = [[NSMutableArray alloc]init];
+    self.nowArray   = [[NSArray alloc]init];
+    self.wantArray  = [[nowArray alloc]init];
 }
 
 // init button view
@@ -275,7 +275,7 @@
 // 计算
 ///////////////////////////////////////////////////////////////////
 
-- (NSMutableArray *)calculationWithW:(CGFloat)wFloat
+- (NSArray *)calculationWithW:(CGFloat)wFloat
                          andA:(CGFloat)AFloat
                          andR:(CGFloat)RFloat
                       andType:(NSString *)type
