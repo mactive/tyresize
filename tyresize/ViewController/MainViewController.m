@@ -125,7 +125,7 @@
     self.isOffseted = NO;
     
     self.nowArray   = [[NSArray alloc]init];
-    self.wantArray  = [[nowArray alloc]init];
+    self.wantArray  = [[NSArray alloc]init];
 }
 
 // init button view
@@ -316,8 +316,6 @@
     // action
     if ([type isEqualToString:@"now"]) {
         
-        [resultArray addObject:FLOAT(speedo)];
-        [resultArray addObject:FLOAT(speed)];
         [self.tyreView changeTyreRatio:self.handleTyreRatio];
         [self.tyreView changeHubRatio:self.handleHubRatio];
         self.nowPrmtD = circumference;
@@ -334,16 +332,13 @@
         if (self.nowPrmtD > 0 && self.wantPrmtD > 0) {
             speedo  = self.wantPrmtD / self.nowPrmtD *100;
             speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
-        }else{
-            speedo = 0.f;
-            speed = 0.f;
         }
-        
-        [resultArray addObject:FLOAT(speedo)];
-        [resultArray addObject:FLOAT(speed)];
-        
+    
         NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
     }
+    
+    [resultArray addObject:FLOAT(speedo)];
+    [resultArray addObject:FLOAT(speed)];
 
     
     return resultArray;
