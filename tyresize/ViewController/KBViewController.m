@@ -44,10 +44,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    CGFloat offsetY;
+    if (IS_IPHONE_5) {
+        offsetY =  40.0f;
+    }else{
+        offsetY = 20.0f;
+    }
 	// Do any additional setup after loading the view.
     self.tempImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyresize.png"]];
-    self.tempImage.frame = CGRectMake(0, 20, 320, 340);
+    self.tempImage.frame = CGRectMake(0, offsetY, 320, 340);
     [self.view addSubview:self.tempImage];
     
     self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -64,6 +69,8 @@
     [self initButtons];
     // bottom detail view
     [self initDetailView];
+    
+
     
 }
 
@@ -171,7 +178,13 @@
 
 - (void)initButtons
 {
-    CGFloat y_button = 180;
+    CGFloat y_button;
+
+    if (IS_IPHONE_5) {
+        y_button = 200.0f;
+    }else{
+        y_button = 180.0f;
+    }
     self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button2 = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button3 = [UIButton buttonWithType:UIButtonTypeCustom];

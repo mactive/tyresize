@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "KBViewController.h"
+#import "OtherViewController.h"
 #import "AppDelegate.h"
 #import "OperationView.h"
 #import "ParameterView.h"
@@ -89,6 +90,8 @@
     return self;
 }
 
+
+
 #define TYRE_X            (320.0f - TYRE_WIDTH)/2
 #define TYRE_Y            20.0f
 
@@ -104,14 +107,24 @@
 	// Do any additional setup after loading the view.
     self.title = T(@"tyresize");
     self.curSystem = USSYS;
+    
+    CGFloat tyre_Y;
+    CGFloat tyre_Height;
+    if (IS_IPHONE_5) {
+        tyre_Y = 30.0f;
+        tyre_Height = 180.0f;
+    }else{
+        tyre_Y = TYRE_Y;
+        tyre_Height = TYRE_HEIGHT;
+    }
 
-    self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, TYRE_Y, TYRE_WIDTH, TYRE_HEIGHT)];
+    self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, tyre_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
-    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT+OPER_HEIGHT, TOTAL_WIDTH, PRMT_HEIGHT)];
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, tyre_Y+tyre_Height+OPER_HEIGHT, TOTAL_WIDTH, PRMT_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
-    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_Y+TYRE_HEIGHT, TOTAL_WIDTH, OPER_HEIGHT)];
+    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, tyre_Y+tyre_Height, TOTAL_WIDTH, OPER_HEIGHT)];
     self.operView.delegate = self;
     [self.view addSubview:self.operView];
     
@@ -218,7 +231,9 @@
 
 - (void)otherAction
 {
-    NSLog(@"otherAction");
+    OtherViewController *controller = [[OtherViewController alloc]initWithNibName:nil
+                                                                           bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 
@@ -227,14 +242,24 @@
 // 点击参数
 - (void)handlePrmtTap:(UITapGestureRecognizer *)paramSender
 {
+    CGFloat Yoffset;
+
     if (self.isOffseted) {
-        CGFloat Yoffset = 150;
+        if (IS_IPHONE_5) {
+            Yoffset = 90;
+        }else{
+            Yoffset = 150;
+        }
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreView];
         [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.prmtView];
         self.isOffseted = NO;
     }else{
-        CGFloat Yoffset = -150;
+        if (IS_IPHONE_5) {
+            Yoffset = -90;
+        }else{
+            Yoffset = -150;
+        }
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreView];
         [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.prmtView];
@@ -316,7 +341,7 @@
     
     // 直径
     CGFloat diameter = sidewall * 2 + RFloat * IN_MM ;
-    NSLog(@"diameter %.2f",diameter);
+//    NSLog(@"diameter %.2f",diameter);
     
     // 半径
     CGFloat radius = diameter / 2;
@@ -355,33 +380,28 @@
     
     [self.tyreView changeTyreRatio:self.handleTyreRatio];
     [self.tyreView changeHubRatio:self.handleHubRatio];
-    
+//    NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
+
     
     
     // action
     if ([type isEqualToString:@"now"]) {
-        
-
         self.nowPrmtD = circumference;
-        
         NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
-                
-    }else if ([type isEqualToString:@"want"]){
-
-        self.wantPrmtD = circumference;
-
-        NSLog(@"now: %f want: %f", self.nowPrmtD,self.wantPrmtD);
-        if (self.nowPrmtD > 0 && self.wantPrmtD > 0) {
-            speedo  = self.wantPrmtD / self.nowPrmtD *100;
             
-            if ([self.curSystem isEqualToString:UKSYS]) {
-                speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
-            }else if ([self.curSystem isEqualToString:USSYS]){
-                speed   = 100.0f * self.wantPrmtD / self.nowPrmtD ;
-            }
-        }
+    }else if ([type isEqualToString:@"want"]){
+        self.wantPrmtD = circumference;
+    }
     
-        NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
+    NSLog(@"now: %f want: %f", self.nowPrmtD,self.wantPrmtD);
+    if (self.nowPrmtD > 0 && self.wantPrmtD > 0) {
+        speedo  = self.wantPrmtD / self.nowPrmtD *100;
+        
+        if ([self.curSystem isEqualToString:UKSYS]) {
+            speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
+        }else if ([self.curSystem isEqualToString:USSYS]){
+            speed   = 100.0f * self.wantPrmtD / self.nowPrmtD ;
+        }
     }
     
     [resultArray addObject:FLOAT(speedo)];

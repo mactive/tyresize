@@ -10,6 +10,7 @@
 #define tyresize_AppDefs_h
 
 #define M_APPLEID 623336978
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
 // unit transfrom
 #define IN_MM 25.4f
@@ -38,13 +39,13 @@
 
 // 默认值和做的图片关系很大 如果tyre的图 hub的图不是特别标准按照 真实尺寸来的话 default index就需要往图片上靠一靠了
 // default
-#define DEFAULT_NOWW_INDEX  8
-#define DEFAULT_NOWA_INDEX  2
-#define DEFAULT_NOWR_INDEX  7
+#define DEFAULT_NOWW_INDEX  7
+#define DEFAULT_NOWA_INDEX  5
+#define DEFAULT_NOWR_INDEX  6
 
-#define DEFAULT_WANTW_INDEX  10
-#define DEFAULT_WANTA_INDEX  1
-#define DEFAULT_WANTR_INDEX  10
+#define DEFAULT_WANTW_INDEX  8
+#define DEFAULT_WANTA_INDEX  2
+#define DEFAULT_WANTR_INDEX  7
 
 #define SPEED_LABEL_INDEX   5
 

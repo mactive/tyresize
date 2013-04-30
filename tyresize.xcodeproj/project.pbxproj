@@ -19,6 +19,9 @@
 		042094BF16FA1B6D0019C12E /* HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094BE16FA1B6D0019C12E /* HandleView.m */; };
 		042094C216FA230E0019C12E /* TyreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094C116FA230E0019C12E /* TyreView.m */; };
 		0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */; };
+		047973C8172D9EB10037CD8B /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047973C7172D9EB10037CD8B /* OtherViewController.m */; };
+		047973CB172DA3BA0037CD8B /* leonqin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 047973C9172DA3BA0037CD8B /* leonqin@2x.png */; };
+		047973CC172DA3BA0037CD8B /* mactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 047973CA172DA3BA0037CD8B /* mactive@2x.png */; };
 		0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6611705DDC100A12128 /* back_button_bg@2x.png */; };
 		0480E6641705E54300A12128 /* tyresize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6631705E54300A12128 /* tyresize@2x.png */; };
 		0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6651705E7CD00A12128 /* green_line@2x.png */; };
@@ -66,6 +69,10 @@
 		0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
 		043C8142170368CA00BF5AA3 /* LockNowTyreDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockNowTyreDelegate.h; sourceTree = "<group>"; };
 		046A2D1B16FF068A00DFAB86 /* PassValueDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassValueDelegate.h; sourceTree = "<group>"; };
+		047973C6172D9EB10037CD8B /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherViewController.h; path = ViewController/OtherViewController.h; sourceTree = "<group>"; };
+		047973C7172D9EB10037CD8B /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherViewController.m; path = ViewController/OtherViewController.m; sourceTree = "<group>"; };
+		047973C9172DA3BA0037CD8B /* leonqin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leonqin@2x.png"; sourceTree = "<group>"; };
+		047973CA172DA3BA0037CD8B /* mactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mactive@2x.png"; sourceTree = "<group>"; };
 		0480E6611705DDC100A12128 /* back_button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button_bg@2x.png"; sourceTree = "<group>"; };
 		0480E6631705E54300A12128 /* tyresize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyresize@2x.png"; sourceTree = "<group>"; };
 		0480E6651705E7CD00A12128 /* green_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_line@2x.png"; sourceTree = "<group>"; };
@@ -179,10 +186,12 @@
 				264F71AE16E9A3EE00E77FE0 /* AppDelegate.m */,
 				26C982CD16E9AA6C00295FAE /* MainViewController.h */,
 				26C982CE16E9AA6C00295FAE /* MainViewController.m */,
-				042094B616FA09340019C12E /* UIView */,
-				04CD4CFF16F22593008BD23A /* Model */,
 				26C982D216E9AEF100295FAE /* KBViewController.h */,
 				26C982D316E9AEF100295FAE /* KBViewController.m */,
+				047973C6172D9EB10037CD8B /* OtherViewController.h */,
+				047973C7172D9EB10037CD8B /* OtherViewController.m */,
+				042094B616FA09340019C12E /* UIView */,
+				04CD4CFF16F22593008BD23A /* Model */,
 				264F71BE16E9A48F00E77FE0 /* Resource */,
 				264F71A516E9A3EE00E77FE0 /* Supporting Files */,
 			);
@@ -207,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				0480E6611705DDC100A12128 /* back_button_bg@2x.png */,
+				047973C9172DA3BA0037CD8B /* leonqin@2x.png */,
+				047973CA172DA3BA0037CD8B /* mactive@2x.png */,
 				0480E6651705E7CD00A12128 /* green_line@2x.png */,
 				0480E6631705E54300A12128 /* tyresize@2x.png */,
 				04E89BDC16FED37100E7CB1F /* lock_status@2x.png */,
@@ -301,6 +312,8 @@
 				0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */,
 				0480E6641705E54300A12128 /* tyresize@2x.png in Resources */,
 				0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */,
+				047973CB172DA3BA0037CD8B /* leonqin@2x.png in Resources */,
+				047973CC172DA3BA0037CD8B /* mactive@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +333,7 @@
 				042094BC16FA09340019C12E /* ParameterView.m in Sources */,
 				042094BF16FA1B6D0019C12E /* HandleView.m in Sources */,
 				042094C216FA230E0019C12E /* TyreView.m in Sources */,
+				047973C8172D9EB10037CD8B /* OtherViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

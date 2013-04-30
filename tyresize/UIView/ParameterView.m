@@ -26,7 +26,10 @@
 @synthesize PRMTIMPERIAL;
 @synthesize bgView;
 
-
+#define LINE_HEIGHT 30.0f
+#define PRMT_WIDTH  70.0f
+#define PRMT_TITLE  180.0f
+#define OFFSET_Y    12.0f
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -55,14 +58,12 @@
         self.sysTitleArray  = [[NSMutableArray alloc]init];
         self.nowArray       = [[NSMutableArray alloc]init];
         self.wantArray      = [[NSMutableArray alloc]init];
+        
     }
     return self;
 }
 
-#define LINE_HEIGHT 30.0f
-#define PRMT_WIDTH  70.0f
-#define PRMT_TITLE  180.0f
-#define OFFSET_Y    12.0f
+
 // do refresh
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
