@@ -66,7 +66,7 @@
                        INT(275),INT(285),INT(295),INT(305),INT(315),INT(325),INT(335),INT(345),INT(355),INT(365),nil];
         
         self.AArray = [[NSArray alloc]initWithObjects:
-                       INT(30),INT(35),INT(40),INT(45),INT(50),INT(55),INT(60),INT(65),INT(70),nil];
+                       INT(30),INT(35),INT(40),INT(45),INT(50),INT(55),INT(60),INT(65),INT(70),INT(75),INT(80),INT(85),nil];
         self.RArray = [[NSArray alloc]initWithObjects:
                        INT(10),INT(11),INT(12),INT(13),INT(14),INT(15),INT(16),INT(17),INT(18),INT(19),INT(20),INT(21),INT(22),INT(23),INT(24),nil];
         
