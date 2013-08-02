@@ -99,8 +99,6 @@
 #define TYRE_X            (320.0f - TYRE_WIDTH)/2
 #define TYRE_Y            20.0f
 
-#define OPER_HEIGHT         160.0f
-
 #define PRMT_HEIGHT         230.0f
 #define PRMT_LITE_HEIGHT    50.0f
 #define BUTTON_VIEW_HEIGHT  44.0f
@@ -130,11 +128,11 @@
     self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, tyre_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
-    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, tyre_Y+tyre_Height, TOTAL_WIDTH, OPER_HEIGHT)];
+    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT, TOTAL_WIDTH, OPER_VIEW_HEIGHT)];
     self.operView.delegate = self;
     [self.view addSubview:self.operView];
     
-    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, tyre_Y+tyre_Height+OPER_HEIGHT, TOTAL_WIDTH, PRMT_HEIGHT)];
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT+OPER_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
     
@@ -262,6 +260,7 @@
             Yoffset = 150;
         }
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreView];
+        [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreBgView];
         [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.prmtView];
         self.isOffseted = NO;
@@ -272,6 +271,7 @@
             Yoffset = -150;
         }
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreView];
+        [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreBgView];
         [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.prmtView];
         self.isOffseted = YES;

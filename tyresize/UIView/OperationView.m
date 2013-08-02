@@ -25,6 +25,8 @@
 @property(strong, nonatomic)HandleView *wantAView;
 @property(strong, nonatomic)HandleView *wantRView;
 
+@property(strong, nonatomic)UIImageView *bgView;
+
 @property(strong, nonatomic)UILabel *nowTitle;
 @property(strong, nonatomic)UILabel *wantTitle;
 @property(strong, nonatomic)UIButton *lockNowButton;
@@ -43,6 +45,8 @@
 @synthesize wantWView;
 @synthesize wantAView;
 @synthesize wantRView;
+
+@synthesize bgView;
 
 @synthesize nowTitle;
 @synthesize wantTitle;
@@ -139,8 +143,13 @@
         self.wantAView.posIndex = WANTA_INDEX;
         self.wantRView.posIndex = WANTR_INDEX;
         
+        //BG View
+        self.bgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
+        self.bgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, OPER_VIEW_HEIGHT);
+        
         // add to view
         // add 晚的后计算
+        [self addSubview:self.bgView];
 
         [self addSubview:self.wantWView];
         [self addSubview:self.wantAView];

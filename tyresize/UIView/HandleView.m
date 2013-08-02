@@ -16,12 +16,15 @@
 @property(strong, nonatomic)UIButton *nextButton;
 @property(strong, nonatomic)UIButton *prevButton;
 @property(strong, nonatomic)OperationView *sView;
-
+@property(strong, nonatomic)NSArray *bgImageArray;
+@property(strong, nonatomic)UIImageView *handleBgView;
 @end
 
 @implementation HandleView
 @synthesize dataArray;
 @synthesize dataNumber;
+@synthesize bgImageArray;
+@synthesize handleBgView;
 
 @synthesize handleLabel;
 @synthesize nextButton;
@@ -35,7 +38,7 @@
 
 
 #define OFFSET_WIDTH    5.0f
-#define BUTTON_WIDTH    40.0f
+#define BUTTON_WIDTH    42.0f
 #define BUTTON_HEIGHT   30.0f
 #define LABEL_WIDTH     60.0f
 #define LABEL_X         BUTTON_WIDTH+OFFSET_WIDTH
@@ -62,11 +65,8 @@
         [self.handleLabel setFont:CUSTOMFONT];
         [self.handleLabel setTextAlignment:NSTextAlignmentCenter];
         [self.handleLabel setTextColor:REDCOLOR];
-        [self.handleLabel setBackgroundColor:HANDLEBGCOLOR];
-        [self.handleLabel.layer setMasksToBounds:YES];
-        [self.handleLabel.layer setCornerRadius:5.0f];
-        [self.handleLabel.layer setBorderColor:HANDLEBORDERCOLOR];
-        [self.handleLabel.layer setBorderWidth:1.0f];
+        [self.handleLabel setBackgroundColor:[UIColor clearColor]];
+
 
         
         //nextButton
@@ -77,6 +77,15 @@
         [self.nextButton setBackgroundColor:[UIColor clearColor]];
         [self.nextButton addTarget:self action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
         
+        // init bgImageArray
+        self.bgImageArray = [[NSArray alloc]initWithObjects:@"empty",
+            @"handle_lt_bg.png", @"handle_lm_bg.png", @"handle_lb_bg.png",
+            @"handle_rt_bg.png", @"handle_rm_bg.png", @"handle_rb_bg.png",
+            nil];
+        
+        self.handleBgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        
+        [self addSubview:self.handleBgView];
         [self addSubview:self.handleLabel];
         [self addSubview:self.prevButton];
         [self addSubview:self.nextButton];
@@ -93,6 +102,8 @@
     
     // 一开始让 now的参数起作用
     [self.delegate passStringValue:self.handleLabel.text andIndex:self.posIndex];
+    NSLog(@"index %@ posindex %d ",[self.bgImageArray objectAtIndex:self.posIndex],self.posIndex);
+    [self.handleBgView setImage:[UIImage imageNamed:[self.bgImageArray objectAtIndex:self.posIndex]]];
 
 }
 
