@@ -79,6 +79,8 @@
 #define TYRE_HEIGHT 160.0f
 #define TYRE_WIDTH  160.0f
 #define TOTAL_WIDTH 320.0f
+#define TYRE_VIEW_HEIGHT 215.0f
+#define NAV_BAR_HEIGHT 26.0f
 
 #define P_W tyreWidth
 #define P_A aspectRatio

@@ -63,7 +63,7 @@
         // Initialization code        
         self.WArray = [[NSArray alloc]initWithObjects:
                        INT(125),INT(135),INT(145),INT(155),INT(165),INT(175),INT(185),INT(195),INT(205),INT(215),INT(225),INT(235),INT(245),INT(255),INT(265),
-                       INT(275),INT(285),INT(295),INT(305),INT(315),INT(325),INT(335),INT(345),INT(355),INT(365),INT(375),INT(385),INT(395),INT(405),INT(415),INT(425),INT(480),INT(530),nil];
+                       INT(275),INT(285),INT(295),INT(305),INT(315),INT(325),INT(335),INT(345),INT(355),INT(365),INT(375),INT(385),INT(395),INT(405),nil];
         
         self.AArray = [[NSArray alloc]initWithObjects:
                        INT(25),INT(30),INT(35),INT(40),INT(45),INT(50),INT(55),INT(60),INT(65),INT(70),INT(75),INT(80),INT(85),nil];

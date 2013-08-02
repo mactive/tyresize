@@ -25,6 +25,9 @@
 		0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6611705DDC100A12128 /* back_button_bg@2x.png */; };
 		0480E6641705E54300A12128 /* tyresize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6631705E54300A12128 /* tyresize@2x.png */; };
 		0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6651705E7CD00A12128 /* green_line@2x.png */; };
+		04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */; };
+		04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */; };
+		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
 		04E89BDE16FED37100E7CB1F /* lock_status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E89BDC16FED37100E7CB1F /* lock_status@2x.png */; };
 		04E89BDF16FED37100E7CB1F /* lock_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
@@ -76,6 +79,10 @@
 		0480E6611705DDC100A12128 /* back_button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button_bg@2x.png"; sourceTree = "<group>"; };
 		0480E6631705E54300A12128 /* tyresize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyresize@2x.png"; sourceTree = "<group>"; };
 		0480E6651705E7CD00A12128 /* green_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_line@2x.png"; sourceTree = "<group>"; };
+		04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomNav.h"; sourceTree = "<group>"; };
+		04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomNav.m"; sourceTree = "<group>"; };
+		04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar_bg@2x.png"; sourceTree = "<group>"; };
+		04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyreView_bg@2x.png"; sourceTree = "<group>"; };
 		04E89BDC16FED37100E7CB1F /* lock_status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_status@2x.png"; sourceTree = "<group>"; };
 		04E89BDD16FED37100E7CB1F /* lock_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_btn@2x.png"; sourceTree = "<group>"; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +152,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		04CEECBE17AB4C5F00DCE91F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */,
+				04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		264F719016E9A3EE00E77FE0 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +206,7 @@
 				26C982D316E9AEF100295FAE /* KBViewController.m */,
 				047973C6172D9EB10037CD8B /* OtherViewController.h */,
 				047973C7172D9EB10037CD8B /* OtherViewController.m */,
+				04CEECBE17AB4C5F00DCE91F /* Category */,
 				042094B616FA09340019C12E /* UIView */,
 				04CD4CFF16F22593008BD23A /* Model */,
 				264F71BE16E9A48F00E77FE0 /* Resource */,
@@ -215,7 +232,9 @@
 		264F71BE16E9A48F00E77FE0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */,
 				0480E6611705DDC100A12128 /* back_button_bg@2x.png */,
+				04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */,
 				047973C9172DA3BA0037CD8B /* leonqin@2x.png */,
 				047973CA172DA3BA0037CD8B /* mactive@2x.png */,
 				0480E6651705E7CD00A12128 /* green_line@2x.png */,
@@ -314,6 +333,8 @@
 				0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */,
 				047973CB172DA3BA0037CD8B /* leonqin@2x.png in Resources */,
 				047973CC172DA3BA0037CD8B /* mactive@2x.png in Resources */,
+				04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */,
+				04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +355,7 @@
 				042094BF16FA1B6D0019C12E /* HandleView.m in Sources */,
 				042094C216FA230E0019C12E /* TyreView.m in Sources */,
 				047973C8172D9EB10037CD8B /* OtherViewController.m in Sources */,
+				04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
