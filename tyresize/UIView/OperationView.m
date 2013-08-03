@@ -29,7 +29,7 @@
 @property(strong, nonatomic)UIImageView *bgView;
 
 @property(strong, nonatomic)GradientLabel *nowTitle;
-@property(strong, nonatomic)UILabel *wantTitle;
+@property(strong, nonatomic)GradientLabel *wantTitle;
 @property(strong, nonatomic)UIButton *lockNowButton;
 @property(readwrite, nonatomic)BOOL isLockNowButton;
 
@@ -55,10 +55,11 @@
 @synthesize isLockNowButton;
 @synthesize delegate;
 
-#define LINE_HEIGHT         40.0f
+#define LINE_HEIGHT         36.0f
 #define OFFSET_X            5.0f
 #define HANDLE_WIDTH        134.0f
 #define HANDLE_HEIGHT       33.0f
+#define TITLE_HEIGHT        28.0f
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -76,21 +77,19 @@
                        INT(10),INT(11),INT(12),INT(13),INT(14),INT(15),INT(16),INT(17),INT(18),INT(19),INT(20),INT(21),INT(22),INT(23),INT(24),INT(25),INT(26),INT(27),INT(28),INT(29),INT(30),nil];
         
         // label
-        self.nowTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH/2, HANDLE_HEIGHT)];
+        self.nowTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH/2, TITLE_HEIGHT)];
         [self.nowTitle setBackgroundColor:[UIColor clearColor]];
         [self.nowTitle setTextAlignment:NSTextAlignmentCenter];
         [self.nowTitle setText:T(@"YOUR TYRE")];
         
-        self.wantTitle = [[UILabel alloc]initWithFrame:CGRectMake(TOTAL_WIDTH/2, 0, TOTAL_WIDTH/2, HANDLE_HEIGHT)];
+        self.wantTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(TOTAL_WIDTH/2, 0, TOTAL_WIDTH/2, TITLE_HEIGHT)];
         [self.wantTitle setBackgroundColor:[UIColor clearColor]];
         [self.wantTitle setTextAlignment:NSTextAlignmentCenter];
-        [self.wantTitle setFont:CUSTOMFONT];
-        [self.wantTitle setTextColor:GREENCOLOR];
-        [self.wantTitle setText:T(@"you want")];
+        [self.wantTitle setText:T(@"YOU WANT")];
         
         // lockNowButton
         self.lockNowButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.lockNowButton setFrame:CGRectMake(10, 0, HANDLE_HEIGHT, HANDLE_HEIGHT)];
+        [self.lockNowButton setFrame:CGRectMake(10, -30, HANDLE_HEIGHT, HANDLE_HEIGHT)];
         [self.lockNowButton setTitle:@"" forState:UIControlStateNormal];
         [self.lockNowButton setBackgroundImage:[UIImage imageNamed:@"lock_btn.png"] forState:UIControlStateNormal];
         [self.lockNowButton setBackgroundColor:[UIColor clearColor]];
@@ -99,20 +98,20 @@
 
         // now handle input datasource and frame
         
-        self.nowWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
+        self.nowWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, TITLE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.nowWView.dataArray = self.WArray;
-        self.nowAView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, LINE_HEIGHT + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
+        self.nowAView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, TITLE_HEIGHT+LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.nowAView.dataArray = self.AArray;
-        self.nowRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, LINE_HEIGHT*2 + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
+        self.nowRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X, TITLE_HEIGHT+LINE_HEIGHT*2, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.nowRView.dataArray = self.RArray;
         
         // want handle input datasource and frame
 
-        self.wantWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
+        self.wantWView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, TITLE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantWView.dataArray = self.WArray;
-        self.wantAView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
+        self.wantAView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, TITLE_HEIGHT+LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantAView.dataArray = self.AArray;
-        self.wantRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, LINE_HEIGHT*2 + LINE_HEIGHT, HANDLE_WIDTH, HANDLE_HEIGHT)];
+        self.wantRView = [[HandleView alloc]initWithFrame:CGRectMake(OFFSET_X+TOTAL_WIDTH/2, TITLE_HEIGHT+LINE_HEIGHT*2, HANDLE_WIDTH, HANDLE_HEIGHT)];
         self.wantRView.dataArray = self.RArray;
         
         // default now and want value 六个input的初始值
