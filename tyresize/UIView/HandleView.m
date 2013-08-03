@@ -38,11 +38,11 @@
 
 
 #define OFFSET_WIDTH    5.0f
-#define BUTTON_WIDTH    42.0f
+#define BUTTON_WIDTH    38.0f
 #define BUTTON_HEIGHT   30.0f
 #define LABEL_WIDTH     60.0f
 #define LABEL_X         BUTTON_WIDTH+OFFSET_WIDTH
-#define NEXT_BUTTON_X   BUTTON_WIDTH+OFFSET_WIDTH*2+LABEL_WIDTH
+#define NEXT_BUTTON_X   BUTTON_WIDTH+LABEL_WIDTH
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -83,7 +83,7 @@
             @"handle_rt_bg.png", @"handle_rm_bg.png", @"handle_rb_bg.png",
             nil];
         
-        self.handleBgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        self.handleBgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 29.0)];
         
         [self addSubview:self.handleBgView];
         [self addSubview:self.handleLabel];

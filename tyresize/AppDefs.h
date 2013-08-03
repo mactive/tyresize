@@ -74,6 +74,22 @@
 #define CUSTOMFONT [UIFont fontWithName:@"Museo" size:16.0f]
 #define LITTLECUSTOMFONT [UIFont fontWithName:@"Museo" size:13.0f]
 #define TINYCUSTOMFONT [UIFont fontWithName:@"Museo" size:11.0f]
+// font Gotham Family
+#define FONT_BOLD_15 [UIFont fontWithName:@"Gotham-Bold" size:15.0f]
+#define FONT_BLOCK_15 [UIFont fontWithName:@"Gotham-Black" size:15.0f]
+#define FONT_MEDIUM_12 [UIFont fontWithName:@"Gotham-Medium" size:12.0f]
+#define FONT_BOOK_12 [UIFont fontWithName:@"Gotham-Book" size:12.0f]
+
+#define FONT_LIGHT_15 [UIFont fontWithName:@"Gotham-Light" size:15.0f]
+#define FONT_LIGHT_12 [UIFont fontWithName:@"Gotham-Light" size:12.0f]
+
+
+
+
+// gradient
+#define kGradientStartColor	[UIColor colorWithRed:242.0f / 255.0f green:242.0f / 255.0f blue:242.0f / 255.0f alpha:1.0f]
+#define kGradientEndColor	[UIColor colorWithRed:156.0f / 255.0f green:156.0f / 255.0f blue:156.0f / 255.0f alpha:1.0f]
+// glow color
 
 // NSARRAY
 #define TYRE_HEIGHT 160.0f

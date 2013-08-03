@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0418414617AC8CC800D27C2F /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0418414117AC8CC800D27C2F /* Gotham-Black.otf */; };
+		0418414717AC8CC800D27C2F /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0418414217AC8CC800D27C2F /* Gotham-Bold.otf */; };
+		0418414817AC8CC800D27C2F /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0418414317AC8CC800D27C2F /* Gotham-Book.otf */; };
+		0418414917AC8CC800D27C2F /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0418414417AC8CC800D27C2F /* Gotham-Medium.otf */; };
+		0418414A17AC8CC800D27C2F /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0418414517AC8CC800D27C2F /* Museo500-Regular.otf */; };
+		0418414E17AC8D6600D27C2F /* GradientLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0418414D17AC8D6600D27C2F /* GradientLabel.m */; };
+		0418415017AC917300D27C2F /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0418414F17AC917300D27C2F /* Gotham-Light.otf */; };
 		042094A116F9EDBC0019C12E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042094A016F9EDBC0019C12E /* QuartzCore.framework */; };
 		042094A916F9F2DB0019C12E /* add_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A216F9F2DA0019C12E /* add_button@2x.png */; };
 		042094AA16F9F2DB0019C12E /* bottom_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042094A316F9F2DB0019C12E /* bottom_bg@2x.png */; };
@@ -18,7 +25,6 @@
 		042094BC16FA09340019C12E /* ParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094BA16FA09340019C12E /* ParameterView.m */; };
 		042094BF16FA1B6D0019C12E /* HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094BE16FA1B6D0019C12E /* HandleView.m */; };
 		042094C216FA230E0019C12E /* TyreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042094C116FA230E0019C12E /* TyreView.m */; };
-		0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */; };
 		042A94A017ABAEE3003A60D4 /* add_left_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042A949F17ABAEE3003A60D4 /* add_left_off@2x.png */; };
 		046A656417ABAD0300DBCEF7 /* handle_lb_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 046A655517ABAD0300DBCEF7 /* handle_lb_bg@2x.png */; };
 		046A656517ABAD0300DBCEF7 /* handle_lm_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 046A655617ABAD0300DBCEF7 /* handle_lm_bg@2x.png */; };
@@ -69,6 +75,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0418414117AC8CC800D27C2F /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
+		0418414217AC8CC800D27C2F /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		0418414317AC8CC800D27C2F /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
+		0418414417AC8CC800D27C2F /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
+		0418414517AC8CC800D27C2F /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
+		0418414C17AC8D6600D27C2F /* GradientLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientLabel.h; sourceTree = "<group>"; };
+		0418414D17AC8D6600D27C2F /* GradientLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientLabel.m; sourceTree = "<group>"; };
+		0418414F17AC917300D27C2F /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.otf"; sourceTree = "<group>"; };
 		042094A016F9EDBC0019C12E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		042094A216F9F2DA0019C12E /* add_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button@2x.png"; sourceTree = "<group>"; };
 		042094A316F9F2DB0019C12E /* bottom_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_bg@2x.png"; sourceTree = "<group>"; };
@@ -85,7 +99,6 @@
 		042094C016FA230E0019C12E /* TyreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyreView.h; sourceTree = "<group>"; };
 		042094C116FA230E0019C12E /* TyreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyreView.m; sourceTree = "<group>"; };
 		0427F61416F8C9A20001FF9D /* AppDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDefs.h; sourceTree = "<group>"; };
-		0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Museo500-Regular.otf"; sourceTree = "<group>"; };
 		042A949F17ABAEE3003A60D4 /* add_left_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_left_off@2x.png"; sourceTree = "<group>"; };
 		043C8142170368CA00BF5AA3 /* LockNowTyreDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockNowTyreDelegate.h; sourceTree = "<group>"; };
 		046A2D1B16FF068A00DFAB86 /* PassValueDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassValueDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +176,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0418414017AC8CC800D27C2F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				0418414117AC8CC800D27C2F /* Gotham-Black.otf */,
+				0418414F17AC917300D27C2F /* Gotham-Light.otf */,
+				0418414217AC8CC800D27C2F /* Gotham-Bold.otf */,
+				0418414317AC8CC800D27C2F /* Gotham-Book.otf */,
+				0418414417AC8CC800D27C2F /* Gotham-Medium.otf */,
+				0418414517AC8CC800D27C2F /* Museo500-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		0418414B17AC8CD600D27C2F /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				0418414C17AC8D6600D27C2F /* GradientLabel.h */,
+				0418414D17AC8D6600D27C2F /* GradientLabel.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
 		042094B616FA09340019C12E /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +278,7 @@
 				047973C6172D9EB10037CD8B /* OtherViewController.h */,
 				047973C7172D9EB10037CD8B /* OtherViewController.m */,
 				04CEECBE17AB4C5F00DCE91F /* Category */,
+				0418414B17AC8CD600D27C2F /* UILabel */,
 				042094B616FA09340019C12E /* UIView */,
 				04CD4CFF16F22593008BD23A /* Model */,
 				264F71BE16E9A48F00E77FE0 /* Resource */,
@@ -268,6 +304,7 @@
 		264F71BE16E9A48F00E77FE0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0418414017AC8CC800D27C2F /* Font */,
 				048010AF17ABBAAC00D872E5 /* operView_bg@2x.png */,
 				048010B117ABBE3900D872E5 /* handle_rb_bg@2x.png */,
 				048010B217ABBE3900D872E5 /* handle_rm_bg@2x.png */,
@@ -298,7 +335,6 @@
 				042094A616F9F2DB0019C12E /* tiny_up@2x.png */,
 				042094A716F9F2DB0019C12E /* tyre_inner@2x.png */,
 				042094A816F9F2DB0019C12E /* tyre_outer@2x.png */,
-				0427F61816F8D43B0001FF9D /* Museo500-Regular.otf */,
 				26C982C516E9AA1B00295FAE /* Icon.png */,
 				26C982C616E9AA1B00295FAE /* Icon@2x.png */,
 				264F71C016E9A48F00E77FE0 /* tyresize2.png */,
@@ -372,7 +408,6 @@
 				26C982C816E9AA1B00295FAE /* Icon@2x.png in Resources */,
 				26C982CA16E9AA2300295FAE /* Icon.png in Resources */,
 				26C982CC16E9AA2700295FAE /* Icon@2x.png in Resources */,
-				0427F61916F8D43B0001FF9D /* Museo500-Regular.otf in Resources */,
 				042094A916F9F2DB0019C12E /* add_button@2x.png in Resources */,
 				042094AA16F9F2DB0019C12E /* bottom_bg@2x.png in Resources */,
 				042094AC16F9F2DB0019C12E /* sub_button@2x.png in Resources */,
@@ -403,6 +438,12 @@
 				048010B417ABBE3900D872E5 /* handle_rb_bg@2x.png in Resources */,
 				048010B517ABBE3900D872E5 /* handle_rm_bg@2x.png in Resources */,
 				048010B617ABBE3900D872E5 /* handle_rt_bg@2x.png in Resources */,
+				0418414617AC8CC800D27C2F /* Gotham-Black.otf in Resources */,
+				0418414717AC8CC800D27C2F /* Gotham-Bold.otf in Resources */,
+				0418414817AC8CC800D27C2F /* Gotham-Book.otf in Resources */,
+				0418414917AC8CC800D27C2F /* Gotham-Medium.otf in Resources */,
+				0418414A17AC8CC800D27C2F /* Museo500-Regular.otf in Resources */,
+				0418415017AC917300D27C2F /* Gotham-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +498,7 @@
 				042094C216FA230E0019C12E /* TyreView.m in Sources */,
 				047973C8172D9EB10037CD8B /* OtherViewController.m in Sources */,
 				04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */,
+				0418414E17AC8D6600D27C2F /* GradientLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

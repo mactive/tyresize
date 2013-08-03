@@ -10,6 +10,7 @@
 #import "HandleView.h"
 #import "AppDelegate.h"
 #import "PassValueDelegate.h"
+#import "GradientLabel.h"
 
 @interface OperationView()
 
@@ -27,7 +28,7 @@
 
 @property(strong, nonatomic)UIImageView *bgView;
 
-@property(strong, nonatomic)UILabel *nowTitle;
+@property(strong, nonatomic)GradientLabel *nowTitle;
 @property(strong, nonatomic)UILabel *wantTitle;
 @property(strong, nonatomic)UIButton *lockNowButton;
 @property(readwrite, nonatomic)BOOL isLockNowButton;
@@ -56,8 +57,8 @@
 
 #define LINE_HEIGHT         40.0f
 #define OFFSET_X            5.0f
-#define HANDLE_WIDTH        150.0f
-#define HANDLE_HEIGHT       30.0f
+#define HANDLE_WIDTH        134.0f
+#define HANDLE_HEIGHT       33.0f
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -75,12 +76,10 @@
                        INT(10),INT(11),INT(12),INT(13),INT(14),INT(15),INT(16),INT(17),INT(18),INT(19),INT(20),INT(21),INT(22),INT(23),INT(24),INT(25),INT(26),INT(27),INT(28),INT(29),INT(30),nil];
         
         // label
-        self.nowTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH/2, HANDLE_HEIGHT)];
+        self.nowTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH/2, HANDLE_HEIGHT)];
         [self.nowTitle setBackgroundColor:[UIColor clearColor]];
         [self.nowTitle setTextAlignment:NSTextAlignmentCenter];
-        [self.nowTitle setFont:CUSTOMFONT];
-        [self.nowTitle setTextColor:GREENCOLOR];
-        [self.nowTitle setText:T(@"your tyre")];
+        [self.nowTitle setText:T(@"YOUR TYRE")];
         
         self.wantTitle = [[UILabel alloc]initWithFrame:CGRectMake(TOTAL_WIDTH/2, 0, TOTAL_WIDTH/2, HANDLE_HEIGHT)];
         [self.wantTitle setBackgroundColor:[UIColor clearColor]];
