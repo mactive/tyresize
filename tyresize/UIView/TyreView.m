@@ -57,8 +57,8 @@
 // 锁定your tyre 的时候绘制这跟线
 - (void)lockNowTyreRatio:(CGFloat)tyreRatio andHubRatio:(CGFloat)hubRatio
 {
-    [self drawCricleWithRadius:TYRE_WIDTH*tyreRatio/2 andColor:REDCOLOR onView:self.nowTyreCricle];
-    [self drawCricleWithRadius:TYRE_WIDTH*hubRatio/2 * HUB_DIA_BASE/TYRE_DIA_BASE andColor:[UIColor blueColor] onView:self.nowTyreCricle];
+    [self drawCricleWithRadius:TYRE_WIDTH*tyreRatio/2 andColor:ORANGE_LINE_COLOR onView:self.nowTyreCricle];
+    [self drawCricleWithRadius:TYRE_WIDTH*hubRatio/2 * HUB_DIA_BASE/TYRE_DIA_BASE andColor:ORANGE_LINE_COLOR onView:self.nowTyreCricle];
 }
 
 - (void)unlockNowTyre

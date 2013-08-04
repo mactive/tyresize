@@ -82,13 +82,9 @@
         
         // label
         self.nowTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(0, L_H , TOTAL_WIDTH/2, TITLE_HEIGHT)];
-        [self.nowTitle setBackgroundColor:[UIColor clearColor]];
-        [self.nowTitle setTextAlignment:NSTextAlignmentCenter];
         [self.nowTitle setText:T(@"YOUR TYRE")];
         
         self.wantTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(TOTAL_WIDTH/2, L_H, TOTAL_WIDTH/2, TITLE_HEIGHT)];
-        [self.wantTitle setBackgroundColor:[UIColor clearColor]];
-        [self.wantTitle setTextAlignment:NSTextAlignmentCenter];
         [self.wantTitle setText:T(@"YOU WANT")];
         
         // lockNowButton

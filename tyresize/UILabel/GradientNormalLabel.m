@@ -21,7 +21,10 @@
         self.shadowColor = [UIColor blackColor];
         self.shadowOffset = CGSizeMake(0.0f, 1.0f);
         self.shadowBlur = 1.0f;
-        self.font = FONT_BOOK_12;
+        self.font = FONT_MEDIUM_12;
+        
+        [self setTextAlignment:NSTextAlignmentCenter];
+        [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;
 }

@@ -14,7 +14,7 @@
 #import "ParameterView.h"
 #import "TyreView.h"
 
-#import "GradientLabel.h"
+#import "ColoredButton.h"
 
 @interface MainViewController ()
 // tyre view
@@ -22,9 +22,9 @@
 @property(strong, nonatomic)OperationView *operView;
 @property(strong, nonatomic)ParameterView *prmtView;
 @property(strong, nonatomic)UIView *buttonView;
-@property(strong, nonatomic)UIButton *switchBtn;
-@property(strong, nonatomic)UIButton *wikiBtn;
-@property(strong, nonatomic)UIButton *otherBtn;
+@property(strong, nonatomic)ColoredButton *switchBtn;
+@property(strong, nonatomic)ColoredButton *wikiBtn;
+@property(strong, nonatomic)ColoredButton *otherBtn;
 //some bg View
 @property(strong, nonatomic)UIImageView *tyreBgView;
 // main label
@@ -163,36 +163,21 @@
     [bg setImage:[UIImage imageNamed:@"btnView_bg.png"]];
 
     // switch
-    self.switchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.switchBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.switchBtn.frame= CGRectMake(0, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-    self.switchBtn.titleLabel.font = CUSTOMFONT;
-    
-    [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
-    [self.switchBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
-    [self.switchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateHighlighted];
+        [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
     [self.switchBtn addTarget:self action:@selector(switchAction) forControlEvents:UIControlEventTouchUpInside];
     
     // wiki
-    self.wikiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.wikiBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.wikiBtn.frame= CGRectMake(TOTAL_WIDTH/3, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-    self.wikiBtn.titleLabel.font = CUSTOMFONT;
-    self.wikiBtn.titleLabel = [[GradientLabel alloc]initWithFrame:self.wikiBtn.frame];
-    
-    [self.wikiBtn setTitle:T(@"Wiki") forState:UIControlStateNormal];
-    [self.wikiBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
-    [self.wikiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.wikiBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateHighlighted];
+    [self.wikiBtn setTitle:T(@"WIKI") forState:UIControlStateNormal];
     [self.wikiBtn addTarget:self action:@selector(wikiAction) forControlEvents:UIControlEventTouchUpInside];
     
     // other
-    self.otherBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.otherBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.otherBtn.frame= CGRectMake(TOTAL_WIDTH/3*2, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-    self.otherBtn.titleLabel.font = CUSTOMFONT;
-    [self.otherBtn setTitle:T(@"Other") forState:UIControlStateNormal];
-    [self.otherBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
-    [self.otherBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.otherBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateHighlighted];
+    [self.otherBtn setTitle:T(@"OTHER") forState:UIControlStateNormal];
     [self.otherBtn addTarget:self action:@selector(otherAction) forControlEvents:UIControlEventTouchUpInside];
     
     //

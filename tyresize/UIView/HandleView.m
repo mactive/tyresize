@@ -144,14 +144,9 @@
 - (void)setLockStatus:(BOOL)lockStatus
 {
         self.isLock = lockStatus;
-        [self.prevButton setHidden:lockStatus];
-        [self.nextButton setHidden:lockStatus];
+        [self.prevButton setHighlighted:lockStatus];
+        [self.nextButton setHighlighted:lockStatus];
     
-    if (lockStatus) {
-        [self.handleLabel setTextColor:RGBCOLOR(100, 100, 100)];
-    }else{
-        [self.handleLabel setTextColor:REDCOLOR];
-    }
 }
 
 /*

@@ -133,6 +133,7 @@ alpha:(a)]
 #define BLUE_INNERSHADOW_COLOR [UIColor colorWithRed:0.0f/255.0f green:6.0f/255.0f blue:255.0f/255.0f alpha:1]
 #define BLUE_GLOW_COLOR [UIColor colorWithRed:0.0f/255.0f green:68.0f/255.0f blue:202.0f/255.0f alpha:1]
 
+#define ORANGE_LINE_COLOR [UIColor colorWithRed:255.0f/255.0f green:198.0f/255.0f blue:0.0f/255.0f alpha:1]
 
 
 #define SEPCOLOR [UIColor colorWithRed:225.0f/255.0f green:225.0f/255.0f blue:225.0f/255.0f alpha:1]
