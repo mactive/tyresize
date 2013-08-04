@@ -76,7 +76,7 @@
 #define TINYCUSTOMFONT [UIFont fontWithName:@"Museo" size:11.0f]
 // font Gotham Family
 #define FONT_BOLD_15 [UIFont fontWithName:@"Gotham-Bold" size:15.0f]
-#define FONT_BLOCK_15 [UIFont fontWithName:@"Gotham-Black" size:15.0f]
+#define FONT_BLACK_15 [UIFont fontWithName:@"Gotham-Black" size:15.0f]
 #define FONT_MEDIUM_12 [UIFont fontWithName:@"Gotham-Medium" size:12.0f]
 #define FONT_BOOK_12 [UIFont fontWithName:@"Gotham-Book" size:12.0f]
 
@@ -97,6 +97,9 @@
 #define TOTAL_WIDTH 320.0f
 #define TYRE_VIEW_HEIGHT 177.0f
 #define OPER_VIEW_HEIGHT 217.0f //lock btn in the oper_view
+#define PRMT_VIEW_HEIGHT 195.0f 
+#define BUTTON_VIEW_HEIGHT  44.0f
+
 #define NAV_BAR_HEIGHT 26.0f
 
 #define P_W tyreWidth
@@ -121,6 +124,12 @@ alpha:(a)]
 #define HANDLEBORDERCOLOR [UIColor colorWithRed:228.0f/255.0f green:228.0f/255.0f blue:228.0f/255.0f alpha:1].CGColor
 #define HANDLEBGCOLOR [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1]
 #define DARKCOLOR [UIColor colorWithRed:57.0f/255.0f green:57.0f/255.0f blue:57.0f/255.0f alpha:1]
+
+#define ORANGECOLOR [UIColor colorWithRed:255.0f/255.0f green:236.0f/255.0f blue:76.0f/255.0f alpha:1]
+#define ORANGE_GLOW_COLOR [UIColor colorWithRed:255.0f/255.0f green:236.0f/255.0f blue:76.0f/255.0f alpha:0.4f]
+#define ORANGE_INNERSHADOW_COLOR [UIColor colorWithRed:239.0f/255.0f green:105.0f/255.0f blue:6.0f/255.0f alpha:1]
+#define BLUECOLOR [UIColor colorWithRed:144.0f/255.0f green:253.0f/255.0f blue:255.0f/255.0f alpha:1]
+#define BLUE_INNERSHADOW_COLOR [UIColor colorWithRed:0.0f/255.0f green:6.0f/255.0f blue:255.0f/255.0f alpha:1]
 
 
 

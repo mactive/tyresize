@@ -56,14 +56,15 @@
 @synthesize delegate;
 
 #define OFFSET_X            5.0f
+#define OFFSET_Y            5.0f
 #define HANDLE_WIDTH        135.0f
 #define HANDLE_HEIGHT       39.0f
-#define TITLE_HEIGHT        37.0f
+#define TITLE_HEIGHT        39.0f
 
 #define LOCK_WIDTH      54.0f
 #define LOCK_HEIGHT     38.0f
 #define L_H     LOCK_HEIGHT
-#define LINE_HEIGHT     (OFFSET_X + HANDLE_HEIGHT)
+#define LINE_HEIGHT     (OFFSET_Y + HANDLE_HEIGHT)
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -85,7 +86,7 @@
         [self.nowTitle setTextAlignment:NSTextAlignmentCenter];
         [self.nowTitle setText:T(@"YOUR TYRE")];
         
-        self.wantTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(TOTAL_WIDTH/2, L_H, TOTAL_WIDTH/2, L_H + TITLE_HEIGHT)];
+        self.wantTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(TOTAL_WIDTH/2, L_H, TOTAL_WIDTH/2, TITLE_HEIGHT)];
         [self.wantTitle setBackgroundColor:[UIColor clearColor]];
         [self.wantTitle setTextAlignment:NSTextAlignmentCenter];
         [self.wantTitle setText:T(@"YOU WANT")];

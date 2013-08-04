@@ -1,16 +1,14 @@
 //
-//  GradientLabel.m
+//  GradientNormalLabel.m
 //  tyresize
 //
-//  Created by mac on 13-8-3.
+//  Created by mac on 13-8-4.
 //  Copyright (c) 2013年 thinktube. All rights reserved.
 //
 
-#import "GradientLabel.h"
+#import "GradientNormalLabel.h"
 
-@implementation GradientLabel
-
-
+@implementation GradientNormalLabel
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -23,9 +21,8 @@
         self.shadowColor = [UIColor blackColor];
         self.shadowOffset = CGSizeMake(0.0f, 1.0f);
         self.shadowBlur = 1.0f;
-        self.font = FONT_BOLD_15;
+        self.font = FONT_BOOK_12;
     }
-
     return self;
 }
 

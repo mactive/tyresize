@@ -99,9 +99,6 @@
 #define TYRE_X            (320.0f - TYRE_WIDTH)/2
 #define TYRE_Y            20.0f
 
-#define PRMT_HEIGHT         230.0f
-#define PRMT_LITE_HEIGHT    50.0f
-#define BUTTON_VIEW_HEIGHT  44.0f
 
 - (void)viewDidLoad
 {
@@ -133,7 +130,7 @@
     self.operView.delegate = self;
     [self.view addSubview:self.operView];
     
-    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT+OPER_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_HEIGHT)];
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT+OPER_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
     
@@ -161,7 +158,7 @@
 {
     self.buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - NAV_BAR_HEIGHT -BUTTON_VIEW_HEIGHT, TOTAL_WIDTH, BUTTON_VIEW_HEIGHT)];
     UIImageView *bg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, BUTTON_VIEW_HEIGHT)];
-    [bg setImage:[UIImage imageNamed:@"bottom_bg.png"]];
+    [bg setImage:[UIImage imageNamed:@"btnView_bg.png"]];
 
     // switch
     self.switchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -170,7 +167,7 @@
     [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
     [self.switchBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
     [self.switchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.switchBtn setBackgroundColor:[UIColor clearColor]];
+    [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateHighlighted];
     [self.switchBtn addTarget:self action:@selector(switchAction) forControlEvents:UIControlEventTouchUpInside];
     
     // wiki
@@ -180,7 +177,7 @@
     [self.wikiBtn setTitle:T(@"Wiki") forState:UIControlStateNormal];
     [self.wikiBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
     [self.wikiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.wikiBtn setBackgroundColor:[UIColor clearColor]];
+    [self.wikiBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateHighlighted];
     [self.wikiBtn addTarget:self action:@selector(wikiAction) forControlEvents:UIControlEventTouchUpInside];
     
     // other
@@ -190,7 +187,7 @@
     [self.otherBtn setTitle:T(@"Other") forState:UIControlStateNormal];
     [self.otherBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
     [self.otherBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.otherBtn setBackgroundColor:[UIColor clearColor]];
+    [self.otherBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateHighlighted];
     [self.otherBtn addTarget:self action:@selector(otherAction) forControlEvents:UIControlEventTouchUpInside];
     
     //
@@ -211,7 +208,8 @@
     }
     
     [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
-    
+    [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
+     
     NSLog(@"switchAction: %@",self.curSystem );
     
     self.nowArray = [self calculationWithW:self.nowWFloat

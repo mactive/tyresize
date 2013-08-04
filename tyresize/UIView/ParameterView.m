@@ -59,6 +59,9 @@
         self.nowArray       = [[NSMutableArray alloc]init];
         self.wantArray      = [[NSMutableArray alloc]init];
         
+        self.bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
+        [self.bgView setImage:[UIImage imageNamed:@"prmtView_bg.png"]];
+        
     }
     return self;
 }
@@ -67,11 +70,14 @@
 // do refresh
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
+    [self addSubview:self.bgView];
+
 //    NSLog(@"willMoveToSuperview title");
     for(int i = 0; i < [self.PRMTMETIC count]; i++){
         UILabel *label = [[UILabel alloc]init];
         label.font = CUSTOMFONT;
         label.textColor = GREENCOLOR;
+        label.backgroundColor = [UIColor clearColor];
         label.text = [self.PRMTMETIC objectAtIndex:i];
         label.textAlignment = NSTextAlignmentCenter;
         [label setFrame:CGRectMake(PRMT_WIDTH, LINE_HEIGHT *i +OFFSET_Y, PRMT_TITLE, LINE_HEIGHT)];
@@ -103,9 +109,7 @@
         [self addSubview:label];
     }
     
-    self.bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, 7)];
-    [self.bgView setImage:[UIImage imageNamed:@"tiny_up.png"]];
-    [self addSubview:self.bgView];
+
 }
 
 -(void)refreshPrmtView:(NSString *)system

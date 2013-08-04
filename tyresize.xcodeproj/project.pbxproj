@@ -49,6 +49,13 @@
 		0497015817ADF3A70040995A /* SettingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497015717ADF3A70040995A /* SettingHelper.m */; };
 		0497015C17AE20F50040995A /* lock_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015A17AE20F50040995A /* lock_off@2x.png */; };
 		0497015D17AE20F50040995A /* lock_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015B17AE20F50040995A /* lock_on@2x.png */; };
+		0497016117AE2C8B0040995A /* btnOn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015E17AE2C8B0040995A /* btnOn_bg@2x.png */; };
+		0497016217AE2C8B0040995A /* btnView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015F17AE2C8B0040995A /* btnView_bg@2x.png */; };
+		0497016317AE2C8B0040995A /* prmtView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497016017AE2C8B0040995A /* prmtView_bg@2x.png */; };
+		0497016617AE2FC20040995A /* OrangeInnerAndGrowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016517AE2FC20040995A /* OrangeInnerAndGrowLabel.m */; };
+		0497016917AE300A0040995A /* GradientNormalLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016817AE300A0040995A /* GradientNormalLabel.m */; };
+		0497017017AE333B0040995A /* OrangeLabel.h in Resources */ = {isa = PBXBuildFile; fileRef = 0497016E17AE333B0040995A /* OrangeLabel.h */; };
+		0497017117AE333B0040995A /* OrangeLabel.m in Resources */ = {isa = PBXBuildFile; fileRef = 0497016F17AE333B0040995A /* OrangeLabel.m */; };
 		04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */; };
 		04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */; };
 		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
@@ -130,6 +137,15 @@
 		0497015717ADF3A70040995A /* SettingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingHelper.m; sourceTree = "<group>"; };
 		0497015A17AE20F50040995A /* lock_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_off@2x.png"; sourceTree = "<group>"; };
 		0497015B17AE20F50040995A /* lock_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_on@2x.png"; sourceTree = "<group>"; };
+		0497015E17AE2C8B0040995A /* btnOn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnOn_bg@2x.png"; sourceTree = "<group>"; };
+		0497015F17AE2C8B0040995A /* btnView_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnView_bg@2x.png"; sourceTree = "<group>"; };
+		0497016017AE2C8B0040995A /* prmtView_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prmtView_bg@2x.png"; sourceTree = "<group>"; };
+		0497016417AE2FC20040995A /* OrangeInnerAndGrowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrangeInnerAndGrowLabel.h; sourceTree = "<group>"; };
+		0497016517AE2FC20040995A /* OrangeInnerAndGrowLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrangeInnerAndGrowLabel.m; sourceTree = "<group>"; };
+		0497016717AE300A0040995A /* GradientNormalLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientNormalLabel.h; sourceTree = "<group>"; };
+		0497016817AE300A0040995A /* GradientNormalLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientNormalLabel.m; sourceTree = "<group>"; };
+		0497016E17AE333B0040995A /* OrangeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = OrangeLabel.h; sourceTree = "<group>"; };
+		0497016F17AE333B0040995A /* OrangeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = OrangeLabel.m; sourceTree = "<group>"; };
 		04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomNav.h"; sourceTree = "<group>"; };
 		04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomNav.m"; sourceTree = "<group>"; };
 		04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar_bg@2x.png"; sourceTree = "<group>"; };
@@ -201,6 +217,12 @@
 			children = (
 				0418414C17AC8D6600D27C2F /* GradientLabel.h */,
 				0418414D17AC8D6600D27C2F /* GradientLabel.m */,
+				0497016E17AE333B0040995A /* OrangeLabel.h */,
+				0497016F17AE333B0040995A /* OrangeLabel.m */,
+				0497016717AE300A0040995A /* GradientNormalLabel.h */,
+				0497016817AE300A0040995A /* GradientNormalLabel.m */,
+				0497016417AE2FC20040995A /* OrangeInnerAndGrowLabel.h */,
+				0497016517AE2FC20040995A /* OrangeInnerAndGrowLabel.m */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -315,6 +337,9 @@
 			children = (
 				0418414017AC8CC800D27C2F /* Font */,
 				048010AF17ABBAAC00D872E5 /* operView_bg@2x.png */,
+				0497015E17AE2C8B0040995A /* btnOn_bg@2x.png */,
+				0497015F17AE2C8B0040995A /* btnView_bg@2x.png */,
+				0497016017AE2C8B0040995A /* prmtView_bg@2x.png */,
 				0497015A17AE20F50040995A /* lock_off@2x.png */,
 				0497015B17AE20F50040995A /* lock_on@2x.png */,
 				048010B117ABBE3900D872E5 /* handle_rb_bg@2x.png */,
@@ -457,6 +482,11 @@
 				0418415017AC917300D27C2F /* Gotham-Light.otf in Resources */,
 				0497015C17AE20F50040995A /* lock_off@2x.png in Resources */,
 				0497015D17AE20F50040995A /* lock_on@2x.png in Resources */,
+				0497016117AE2C8B0040995A /* btnOn_bg@2x.png in Resources */,
+				0497016217AE2C8B0040995A /* btnView_bg@2x.png in Resources */,
+				0497016317AE2C8B0040995A /* prmtView_bg@2x.png in Resources */,
+				0497017017AE333B0040995A /* OrangeLabel.h in Resources */,
+				0497017117AE333B0040995A /* OrangeLabel.m in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +543,8 @@
 				04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */,
 				0418414E17AC8D6600D27C2F /* GradientLabel.m in Sources */,
 				0497015817ADF3A70040995A /* SettingHelper.m in Sources */,
+				0497016617AE2FC20040995A /* OrangeInnerAndGrowLabel.m in Sources */,
+				0497016917AE300A0040995A /* GradientNormalLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

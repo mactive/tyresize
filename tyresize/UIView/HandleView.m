@@ -10,10 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "OperationView.h"
 #import "SettingHelper.h"
+#import "OrangeInnerAndGrowLabel.h"
 
 @interface HandleView()
 
-@property(strong, nonatomic)UILabel *handleLabel;
+@property(strong, nonatomic)OrangeInnerAndGrowLabel *handleLabel;
 @property(strong, nonatomic)UIButton *nextButton;
 @property(strong, nonatomic)UIButton *prevButton;
 @property(strong, nonatomic)OperationView *sView;
@@ -67,10 +68,8 @@
         [self.prevButton addTarget:self action:@selector(prevAction:) forControlEvents:UIControlEventTouchUpInside];
         
         // label 
-        self.handleLabel = [[UILabel alloc]initWithFrame:CGRectMake(LABEL_X, 0, LABEL_WIDTH, BUTTON_HEIGHT)];
-        [self.handleLabel setFont:CUSTOMFONT];
+        self.handleLabel = [[OrangeInnerAndGrowLabel alloc]initWithFrame:CGRectMake(LABEL_X, 0, LABEL_WIDTH, BUTTON_HEIGHT)];
         [self.handleLabel setTextAlignment:NSTextAlignmentCenter];
-        [self.handleLabel setTextColor:REDCOLOR];
         [self.handleLabel setBackgroundColor:[UIColor clearColor]];
 
 
