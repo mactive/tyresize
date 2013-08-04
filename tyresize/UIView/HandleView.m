@@ -63,7 +63,6 @@
         self.prevButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.prevButton setFrame:CGRectMake(BUTTON_X, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT)];
         [self.prevButton setTitle:@"" forState:UIControlStateNormal];
-//        [self.prevButton setBackgroundImage:[UIImage imageNamed:@"sub_button.png"] forState:UIControlStateNormal];
         [self.prevButton setBackgroundColor:[UIColor clearColor]];
         [self.prevButton addTarget:self action:@selector(prevAction:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -80,12 +79,10 @@
         self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.nextButton setFrame:CGRectMake(NEXT_BUTTON_X, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT)];
         [self.nextButton setTitle:@"" forState:UIControlStateNormal];
-//        [self.nextButton setBackgroundImage:[UIImage imageNamed:@"add_button.png"] forState:UIControlStateNormal];
         [self.nextButton setBackgroundColor:[UIColor clearColor]];
         [self.nextButton addTarget:self action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        
-        
+        // bandle bg view
         self.handleBgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, BGVIEW_HEIGHT)];
         
         [self addSubview:self.handleBgView];
@@ -107,6 +104,8 @@
     [self.delegate passStringValue:self.handleLabel.text andIndex:self.posIndex];
 //    NSLog(@"index %@ posindex %d ",[self.bgImageArray objectAtIndex:self.posIndex],self.posIndex);
     [self.handleBgView setImage:[UIImage imageNamed:[[SettingHelper handleBG] objectAtIndex:self.posIndex]]];
+    
+    // 设置按钮的背景图
     [self.prevButton setBackgroundImage:[UIImage imageNamed:[[SettingHelper minusBtnOnBG] objectAtIndex:self.posIndex]]
                                forState:UIControlStateNormal];
     

@@ -109,10 +109,11 @@
 	// Do any additional setup after loading the view.
     self.title = T(@"tyresize");
     self.curSystem = USSYS;
+    [self.view setBackgroundColor:BGCOLOR];
     
     //BG View
     self.tyreBgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyreView_bg.png"]];
-    self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT);
+    self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT+38);
     [self.view addSubview:self.tyreBgView];
     
     CGFloat tyre_Y;

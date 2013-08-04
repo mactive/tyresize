@@ -95,8 +95,8 @@
 #define TYRE_HEIGHT 160.0f
 #define TYRE_WIDTH  160.0f
 #define TOTAL_WIDTH 320.0f
-#define TYRE_VIEW_HEIGHT 215.0f
-#define OPER_VIEW_HEIGHT 179.0f
+#define TYRE_VIEW_HEIGHT 177.0f
+#define OPER_VIEW_HEIGHT 217.0f //lock btn in the oper_view
 #define NAV_BAR_HEIGHT 26.0f
 
 #define P_W tyreWidth
@@ -114,7 +114,7 @@ alpha:(a)]
 #define HSVACOLOR(h,s,v,a) [UIColor colorWithHue:(h) saturation:(s) value:(v) alpha:(a)]
 
 #define RGBA(r,g,b,a) (r)/255.0f, (g)/255.0f, (b)/255.0f, (a)
-#define BGCOLOR [UIColor colorWithRed:255.0f/255.0 green:255.0/255.0 blue:253.0/255.0 alpha:1.0]
+#define BGCOLOR [UIColor colorWithRed:33.0f/255.0 green:35.0/255.0 blue:38.0/255.0 alpha:1.0]
 #define GREENCOLOR [UIColor colorWithRed:57.0f/255.0f green:181.0f/255.0f blue:74.0f/255.0f alpha:1]
 #define REDCOLOR [UIColor colorWithRed:237.0f/255.0f green:28.0f/255.0f blue:36.0f/255.0f alpha:1]
 #define GRAYCOLOR [UIColor colorWithRed:158.0f/255.0f green:158.0f/255.0f blue:158.0f/255.0f alpha:1]
