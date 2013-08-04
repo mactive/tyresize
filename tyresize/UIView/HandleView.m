@@ -10,11 +10,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "OperationView.h"
 #import "SettingHelper.h"
-#import "OrangeInnerAndGrowLabel.h"
-
+#import "ColoredLabel.h"
 @interface HandleView()
 
-@property(strong, nonatomic)OrangeInnerAndGrowLabel *handleLabel;
+@property(strong, nonatomic)ColoredLabel *handleLabel;
 @property(strong, nonatomic)UIButton *nextButton;
 @property(strong, nonatomic)UIButton *prevButton;
 @property(strong, nonatomic)OperationView *sView;
@@ -67,11 +66,8 @@
         [self.prevButton setBackgroundColor:[UIColor clearColor]];
         [self.prevButton addTarget:self action:@selector(prevAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        // label 
-        self.handleLabel = [[OrangeInnerAndGrowLabel alloc]initWithFrame:CGRectMake(LABEL_X, 0, LABEL_WIDTH, BUTTON_HEIGHT)];
-        [self.handleLabel setTextAlignment:NSTextAlignmentCenter];
-        [self.handleLabel setBackgroundColor:[UIColor clearColor]];
-
+        // label
+        self.handleLabel = [[ColoredLabel alloc]initWithFrame:CGRectMake(LABEL_X, BUTTON_Y, LABEL_WIDTH, BUTTON_HEIGHT)];
 
         
         //nextButton
@@ -116,6 +112,11 @@
     
     [self.nextButton setBackgroundImage:[UIImage imageNamed:[[SettingHelper addBtnOffBG] objectAtIndex:self.posIndex]]
                                forState:UIControlStateHighlighted];
+    
+    // 设置文字的颜色
+    if (self.posIndex > NOWR_INDEX ) { // NOWR_INDEX == 3
+        [self.handleLabel changeColor:@"BLUE"];
+    }
     
 
 }

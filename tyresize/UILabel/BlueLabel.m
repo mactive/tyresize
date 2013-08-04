@@ -1,14 +1,15 @@
 //
-//  InnerAndGrowLabel.m
+//  BlueLabel.m
 //  tyresize
 //
 //  Created by mac on 13-8-4.
 //  Copyright (c) 2013年 thinktube. All rights reserved.
 //
 
-#import "OrangeLabel.h"
+#import "BlueLabel.h"
 
-@implementation OrangeLabel
+@implementation BlueLabel
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -18,22 +19,21 @@
         self.font = FONT_BLACK_15;
         
         //glow gradient fill
-        self.shadowColor = ORANGECOLOR;
+        self.shadowColor = BLUECOLOR;
         self.shadowOffset = CGSizeMake(0.0f, 0.0f);
         self.shadowBlur = 1.5f;
-        self.textColor = ORANGECOLOR;
+        self.textColor = BLUECOLOR;
         self.innerShadowBlur = 1.5f;
-        self.innerShadowColor = ORANGE_INNERSHADOW_COLOR;
+        self.innerShadowColor = BLUECOLOR;
         self.innerShadowOffset = CGSizeMake(0.0f, 0.0f);
         
         [self setTextAlignment:NSTextAlignmentCenter];
         [self setBackgroundColor:[UIColor clearColor]];
         
     }
-
-
     return self;
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

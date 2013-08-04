@@ -46,16 +46,17 @@
 		0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6611705DDC100A12128 /* back_button_bg@2x.png */; };
 		0480E6641705E54300A12128 /* tyresize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6631705E54300A12128 /* tyresize@2x.png */; };
 		0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6651705E7CD00A12128 /* green_line@2x.png */; };
+		04880E6017AE34E000FA3851 /* BlueLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04880E5F17AE34E000FA3851 /* BlueLabel.m */; };
+		04880E6317AE389000FA3851 /* ColoredLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04880E6217AE389000FA3851 /* ColoredLabel.m */; };
+		04880E6617AE3C7E00FA3851 /* ColoredButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04880E6517AE3C7E00FA3851 /* ColoredButton.m */; };
 		0497015817ADF3A70040995A /* SettingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497015717ADF3A70040995A /* SettingHelper.m */; };
 		0497015C17AE20F50040995A /* lock_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015A17AE20F50040995A /* lock_off@2x.png */; };
 		0497015D17AE20F50040995A /* lock_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015B17AE20F50040995A /* lock_on@2x.png */; };
 		0497016117AE2C8B0040995A /* btnOn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015E17AE2C8B0040995A /* btnOn_bg@2x.png */; };
 		0497016217AE2C8B0040995A /* btnView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015F17AE2C8B0040995A /* btnView_bg@2x.png */; };
 		0497016317AE2C8B0040995A /* prmtView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497016017AE2C8B0040995A /* prmtView_bg@2x.png */; };
-		0497016617AE2FC20040995A /* OrangeInnerAndGrowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016517AE2FC20040995A /* OrangeInnerAndGrowLabel.m */; };
+		0497016617AE2FC20040995A /* OrangeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016517AE2FC20040995A /* OrangeLabel.m */; };
 		0497016917AE300A0040995A /* GradientNormalLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016817AE300A0040995A /* GradientNormalLabel.m */; };
-		0497017017AE333B0040995A /* OrangeLabel.h in Resources */ = {isa = PBXBuildFile; fileRef = 0497016E17AE333B0040995A /* OrangeLabel.h */; };
-		0497017117AE333B0040995A /* OrangeLabel.m in Resources */ = {isa = PBXBuildFile; fileRef = 0497016F17AE333B0040995A /* OrangeLabel.m */; };
 		04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */; };
 		04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */; };
 		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
@@ -133,6 +134,12 @@
 		0480E6611705DDC100A12128 /* back_button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button_bg@2x.png"; sourceTree = "<group>"; };
 		0480E6631705E54300A12128 /* tyresize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyresize@2x.png"; sourceTree = "<group>"; };
 		0480E6651705E7CD00A12128 /* green_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_line@2x.png"; sourceTree = "<group>"; };
+		04880E5E17AE34E000FA3851 /* BlueLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueLabel.h; sourceTree = "<group>"; };
+		04880E5F17AE34E000FA3851 /* BlueLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueLabel.m; sourceTree = "<group>"; };
+		04880E6117AE389000FA3851 /* ColoredLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredLabel.h; sourceTree = "<group>"; };
+		04880E6217AE389000FA3851 /* ColoredLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredLabel.m; sourceTree = "<group>"; };
+		04880E6417AE3C7E00FA3851 /* ColoredButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredButton.h; sourceTree = "<group>"; };
+		04880E6517AE3C7E00FA3851 /* ColoredButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredButton.m; sourceTree = "<group>"; };
 		0497015617ADF3A70040995A /* SettingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingHelper.h; sourceTree = "<group>"; };
 		0497015717ADF3A70040995A /* SettingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingHelper.m; sourceTree = "<group>"; };
 		0497015A17AE20F50040995A /* lock_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_off@2x.png"; sourceTree = "<group>"; };
@@ -140,12 +147,10 @@
 		0497015E17AE2C8B0040995A /* btnOn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnOn_bg@2x.png"; sourceTree = "<group>"; };
 		0497015F17AE2C8B0040995A /* btnView_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnView_bg@2x.png"; sourceTree = "<group>"; };
 		0497016017AE2C8B0040995A /* prmtView_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prmtView_bg@2x.png"; sourceTree = "<group>"; };
-		0497016417AE2FC20040995A /* OrangeInnerAndGrowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrangeInnerAndGrowLabel.h; sourceTree = "<group>"; };
-		0497016517AE2FC20040995A /* OrangeInnerAndGrowLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrangeInnerAndGrowLabel.m; sourceTree = "<group>"; };
+		0497016417AE2FC20040995A /* OrangeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrangeLabel.h; sourceTree = "<group>"; };
+		0497016517AE2FC20040995A /* OrangeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrangeLabel.m; sourceTree = "<group>"; };
 		0497016717AE300A0040995A /* GradientNormalLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientNormalLabel.h; sourceTree = "<group>"; };
 		0497016817AE300A0040995A /* GradientNormalLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientNormalLabel.m; sourceTree = "<group>"; };
-		0497016E17AE333B0040995A /* OrangeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = OrangeLabel.h; sourceTree = "<group>"; };
-		0497016F17AE333B0040995A /* OrangeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = OrangeLabel.m; sourceTree = "<group>"; };
 		04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomNav.h"; sourceTree = "<group>"; };
 		04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomNav.m"; sourceTree = "<group>"; };
 		04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar_bg@2x.png"; sourceTree = "<group>"; };
@@ -215,14 +220,18 @@
 		0418414B17AC8CD600D27C2F /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
+				04880E6417AE3C7E00FA3851 /* ColoredButton.h */,
+				04880E6517AE3C7E00FA3851 /* ColoredButton.m */,
 				0418414C17AC8D6600D27C2F /* GradientLabel.h */,
 				0418414D17AC8D6600D27C2F /* GradientLabel.m */,
-				0497016E17AE333B0040995A /* OrangeLabel.h */,
-				0497016F17AE333B0040995A /* OrangeLabel.m */,
 				0497016717AE300A0040995A /* GradientNormalLabel.h */,
 				0497016817AE300A0040995A /* GradientNormalLabel.m */,
-				0497016417AE2FC20040995A /* OrangeInnerAndGrowLabel.h */,
-				0497016517AE2FC20040995A /* OrangeInnerAndGrowLabel.m */,
+				04880E6117AE389000FA3851 /* ColoredLabel.h */,
+				04880E6217AE389000FA3851 /* ColoredLabel.m */,
+				0497016417AE2FC20040995A /* OrangeLabel.h */,
+				0497016517AE2FC20040995A /* OrangeLabel.m */,
+				04880E5E17AE34E000FA3851 /* BlueLabel.h */,
+				04880E5F17AE34E000FA3851 /* BlueLabel.m */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -485,8 +494,6 @@
 				0497016117AE2C8B0040995A /* btnOn_bg@2x.png in Resources */,
 				0497016217AE2C8B0040995A /* btnView_bg@2x.png in Resources */,
 				0497016317AE2C8B0040995A /* prmtView_bg@2x.png in Resources */,
-				0497017017AE333B0040995A /* OrangeLabel.h in Resources */,
-				0497017117AE333B0040995A /* OrangeLabel.m in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,8 +550,11 @@
 				04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */,
 				0418414E17AC8D6600D27C2F /* GradientLabel.m in Sources */,
 				0497015817ADF3A70040995A /* SettingHelper.m in Sources */,
-				0497016617AE2FC20040995A /* OrangeInnerAndGrowLabel.m in Sources */,
+				0497016617AE2FC20040995A /* OrangeLabel.m in Sources */,
 				0497016917AE300A0040995A /* GradientNormalLabel.m in Sources */,
+				04880E6017AE34E000FA3851 /* BlueLabel.m in Sources */,
+				04880E6317AE389000FA3851 /* ColoredLabel.m in Sources */,
+				04880E6617AE3C7E00FA3851 /* ColoredButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

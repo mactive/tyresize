@@ -126,10 +126,12 @@ alpha:(a)]
 #define DARKCOLOR [UIColor colorWithRed:57.0f/255.0f green:57.0f/255.0f blue:57.0f/255.0f alpha:1]
 
 #define ORANGECOLOR [UIColor colorWithRed:255.0f/255.0f green:236.0f/255.0f blue:76.0f/255.0f alpha:1]
-#define ORANGE_GLOW_COLOR [UIColor colorWithRed:255.0f/255.0f green:236.0f/255.0f blue:76.0f/255.0f alpha:0.4f]
 #define ORANGE_INNERSHADOW_COLOR [UIColor colorWithRed:239.0f/255.0f green:105.0f/255.0f blue:6.0f/255.0f alpha:1]
+#define ORANGE_GLOW_COLOR [UIColor colorWithRed:252.0f/255.0f green:242.0f/255.0f blue:174.0f/255.0f alpha:0.4f]
+
 #define BLUECOLOR [UIColor colorWithRed:144.0f/255.0f green:253.0f/255.0f blue:255.0f/255.0f alpha:1]
 #define BLUE_INNERSHADOW_COLOR [UIColor colorWithRed:0.0f/255.0f green:6.0f/255.0f blue:255.0f/255.0f alpha:1]
+#define BLUE_GLOW_COLOR [UIColor colorWithRed:0.0f/255.0f green:68.0f/255.0f blue:202.0f/255.0f alpha:1]
 
 
 

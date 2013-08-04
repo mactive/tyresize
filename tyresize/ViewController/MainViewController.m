@@ -14,6 +14,8 @@
 #import "ParameterView.h"
 #import "TyreView.h"
 
+#import "GradientLabel.h"
+
 @interface MainViewController ()
 // tyre view
 @property(strong, nonatomic)TyreView *tyreView;
@@ -164,6 +166,7 @@
     self.switchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.switchBtn.frame= CGRectMake(0, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
     self.switchBtn.titleLabel.font = CUSTOMFONT;
+    
     [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
     [self.switchBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
     [self.switchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -174,6 +177,8 @@
     self.wikiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.wikiBtn.frame= CGRectMake(TOTAL_WIDTH/3, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
     self.wikiBtn.titleLabel.font = CUSTOMFONT;
+    self.wikiBtn.titleLabel = [[GradientLabel alloc]initWithFrame:self.wikiBtn.frame];
+    
     [self.wikiBtn setTitle:T(@"Wiki") forState:UIControlStateNormal];
     [self.wikiBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
     [self.wikiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];

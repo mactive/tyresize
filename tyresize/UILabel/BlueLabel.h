@@ -1,5 +1,5 @@
 //
-//  InnerAndGrowLabel.h
+//  BlueLabel.h
 //  tyresize
 //
 //  Created by mac on 13-8-4.
@@ -8,6 +8,6 @@
 
 #import "FXLabel.h"
 
-@interface OrangeLabel : FXLabel
+@interface BlueLabel : FXLabel
 
 @end
