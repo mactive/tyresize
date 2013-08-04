@@ -143,9 +143,10 @@
 
 - (void)setLockStatus:(BOOL)lockStatus
 {
-        self.isLock = lockStatus;
-        [self.prevButton setHighlighted:lockStatus];
-        [self.nextButton setHighlighted:lockStatus];
+    self.isLock = lockStatus;
+    
+    [self.nextButton setEnabled:!lockStatus];
+    [self.prevButton setEnabled:!lockStatus];
     
 }
 
