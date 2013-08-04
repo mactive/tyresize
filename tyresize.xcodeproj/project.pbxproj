@@ -46,6 +46,7 @@
 		0480E6621705DDC100A12128 /* back_button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6611705DDC100A12128 /* back_button_bg@2x.png */; };
 		0480E6641705E54300A12128 /* tyresize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6631705E54300A12128 /* tyresize@2x.png */; };
 		0480E6661705E7CD00A12128 /* green_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480E6651705E7CD00A12128 /* green_line@2x.png */; };
+		0497015817ADF3A70040995A /* SettingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497015717ADF3A70040995A /* SettingHelper.m */; };
 		04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */; };
 		04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */; };
 		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
@@ -123,6 +124,8 @@
 		0480E6611705DDC100A12128 /* back_button_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button_bg@2x.png"; sourceTree = "<group>"; };
 		0480E6631705E54300A12128 /* tyresize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyresize@2x.png"; sourceTree = "<group>"; };
 		0480E6651705E7CD00A12128 /* green_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_line@2x.png"; sourceTree = "<group>"; };
+		0497015617ADF3A70040995A /* SettingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingHelper.h; sourceTree = "<group>"; };
+		0497015717ADF3A70040995A /* SettingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingHelper.m; sourceTree = "<group>"; };
 		04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomNav.h"; sourceTree = "<group>"; };
 		04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomNav.m"; sourceTree = "<group>"; };
 		04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar_bg@2x.png"; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 		04CEECBE17AB4C5F00DCE91F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				0497015617ADF3A70040995A /* SettingHelper.h */,
+				0497015717ADF3A70040995A /* SettingHelper.m */,
 				04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */,
 				04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */,
 			);
@@ -499,6 +504,7 @@
 				047973C8172D9EB10037CD8B /* OtherViewController.m in Sources */,
 				04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */,
 				0418414E17AC8D6600D27C2F /* GradientLabel.m in Sources */,
+				0497015817ADF3A70040995A /* SettingHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

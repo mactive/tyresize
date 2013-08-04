@@ -55,12 +55,12 @@
 @synthesize isLockNowButton;
 @synthesize delegate;
 
-#define LINE_HEIGHT         36.0f
 #define OFFSET_X            5.0f
-#define HANDLE_WIDTH        134.0f
-#define HANDLE_HEIGHT       33.0f
-#define TITLE_HEIGHT        28.0f
+#define HANDLE_WIDTH        135.0f
+#define HANDLE_HEIGHT       39.0f
+#define TITLE_HEIGHT        37.0f
 
+#define LINE_HEIGHT         OFFSET_X + HANDLE_HEIGHT
 
 - (id)initWithFrame:(CGRect)frame
 {

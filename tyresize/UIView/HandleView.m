@@ -9,6 +9,7 @@
 #import "HandleView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "OperationView.h"
+#import "SettingHelper.h"
 
 @interface HandleView()
 
@@ -17,13 +18,15 @@
 @property(strong, nonatomic)UIButton *prevButton;
 @property(strong, nonatomic)OperationView *sView;
 @property(strong, nonatomic)NSArray *bgImageArray;
+@property(strong, nonatomic)NSArray *addBtnBgImageArray;
+@property(strong, nonatomic)NSArray *minusBtnBgImageArray;
 @property(strong, nonatomic)UIImageView *handleBgView;
 @end
 
 @implementation HandleView
 @synthesize dataArray;
 @synthesize dataNumber;
-@synthesize bgImageArray;
+@synthesize bgImageArray,addBtnBgImageArray, minusBtnBgImageArray;
 @synthesize handleBgView;
 
 @synthesize handleLabel;
@@ -37,13 +40,17 @@
 @synthesize delegate;
 
 
-#define OFFSET_WIDTH    5.0f
-#define BUTTON_WIDTH    38.0f
-#define BUTTON_HEIGHT   30.0f
-#define LABEL_WIDTH     60.0f
-#define LABEL_X         BUTTON_WIDTH+OFFSET_WIDTH
-#define NEXT_BUTTON_X   BUTTON_WIDTH+LABEL_WIDTH
+#define BUTTON_WIDTH    41.0f
+#define BUTTON_HEIGHT   35.0f
+#define BUTTON_X        2.5f
+#define BUTTON_Y        3.5f
 
+#define LABEL_WIDTH     48.0f
+#define LABEL_X         BUTTON_X+BUTTON_WIDTH
+
+#define NEXT_BUTTON_X   BUTTON_X+BUTTON_WIDTH+LABEL_WIDTH
+
+#define BGVIEW_HEIGHT 35.0f
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -54,9 +61,9 @@
         
         //prevButton
         self.prevButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.prevButton setFrame:CGRectMake(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT)];
+        [self.prevButton setFrame:CGRectMake(BUTTON_X, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT)];
         [self.prevButton setTitle:@"" forState:UIControlStateNormal];
-        [self.prevButton setBackgroundImage:[UIImage imageNamed:@"sub_button.png"] forState:UIControlStateNormal];
+//        [self.prevButton setBackgroundImage:[UIImage imageNamed:@"sub_button.png"] forState:UIControlStateNormal];
         [self.prevButton setBackgroundColor:[UIColor clearColor]];
         [self.prevButton addTarget:self action:@selector(prevAction:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -71,19 +78,15 @@
         
         //nextButton
         self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.nextButton setFrame:CGRectMake(NEXT_BUTTON_X, 0, BUTTON_WIDTH, BUTTON_HEIGHT)];
+        [self.nextButton setFrame:CGRectMake(NEXT_BUTTON_X, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT)];
         [self.nextButton setTitle:@"" forState:UIControlStateNormal];
-        [self.nextButton setBackgroundImage:[UIImage imageNamed:@"add_button.png"] forState:UIControlStateNormal];
+//        [self.nextButton setBackgroundImage:[UIImage imageNamed:@"add_button.png"] forState:UIControlStateNormal];
         [self.nextButton setBackgroundColor:[UIColor clearColor]];
         [self.nextButton addTarget:self action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        // init bgImageArray
-        self.bgImageArray = [[NSArray alloc]initWithObjects:@"empty",
-            @"handle_lt_bg.png", @"handle_lm_bg.png", @"handle_lb_bg.png",
-            @"handle_rt_bg.png", @"handle_rm_bg.png", @"handle_rb_bg.png",
-            nil];
         
-        self.handleBgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 29.0)];
+        
+        self.handleBgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, BGVIEW_HEIGHT)];
         
         [self addSubview:self.handleBgView];
         [self addSubview:self.handleLabel];
@@ -102,8 +105,20 @@
     
     // 一开始让 now的参数起作用
     [self.delegate passStringValue:self.handleLabel.text andIndex:self.posIndex];
-    NSLog(@"index %@ posindex %d ",[self.bgImageArray objectAtIndex:self.posIndex],self.posIndex);
-    [self.handleBgView setImage:[UIImage imageNamed:[self.bgImageArray objectAtIndex:self.posIndex]]];
+//    NSLog(@"index %@ posindex %d ",[self.bgImageArray objectAtIndex:self.posIndex],self.posIndex);
+    [self.handleBgView setImage:[UIImage imageNamed:[[SettingHelper handleBG] objectAtIndex:self.posIndex]]];
+    [self.prevButton setBackgroundImage:[UIImage imageNamed:[[SettingHelper minusBtnOnBG] objectAtIndex:self.posIndex]]
+                               forState:UIControlStateNormal];
+    
+    [self.prevButton setBackgroundImage:[UIImage imageNamed:[[SettingHelper minusBtnOffBG] objectAtIndex:self.posIndex]]
+                               forState:UIControlStateHighlighted];
+    
+    [self.nextButton setBackgroundImage:[UIImage imageNamed:[[SettingHelper addBtnOnBG] objectAtIndex:self.posIndex]]
+                               forState:UIControlStateNormal];
+    
+    [self.nextButton setBackgroundImage:[UIImage imageNamed:[[SettingHelper addBtnOffBG] objectAtIndex:self.posIndex]]
+                               forState:UIControlStateHighlighted];
+    
 
 }
 
