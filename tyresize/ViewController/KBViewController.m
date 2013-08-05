@@ -70,8 +70,6 @@
     // bottom detail view
     [self initDetailView];
     
-
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
