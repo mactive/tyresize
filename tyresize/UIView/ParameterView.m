@@ -7,6 +7,8 @@
 //
 
 #import "ParameterView.h"
+#import "GradientNormalLabel.h"
+#import "ColoredLabel.h"
 
 @interface ParameterView()
 @property(strong, nonatomic)NSArray *PRMTIMPERIAL;
@@ -30,7 +32,7 @@
 #define PRMT_WIDTH  70.0f
 #define PRMT_TITLE  180.0f
 #define OFFSET_Y    12.0f
-
+#define OFFSET_X    20.0f
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -59,6 +61,9 @@
         self.nowArray       = [[NSMutableArray alloc]init];
         self.wantArray      = [[NSMutableArray alloc]init];
         
+        self.bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
+        [self.bgView setImage:[UIImage imageNamed:@"prmtView_bg.png"]];
+        
     }
     return self;
 }
@@ -67,25 +72,22 @@
 // do refresh
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
+    [self addSubview:self.bgView];
+
 //    NSLog(@"willMoveToSuperview title");
     for(int i = 0; i < [self.PRMTMETIC count]; i++){
-        UILabel *label = [[UILabel alloc]init];
-        label.font = CUSTOMFONT;
-        label.textColor = GREENCOLOR;
-        label.text = [self.PRMTMETIC objectAtIndex:i];
-        label.textAlignment = NSTextAlignmentCenter;
+        GradientNormalLabel *label = [[GradientNormalLabel alloc]init];
         [label setFrame:CGRectMake(PRMT_WIDTH, LINE_HEIGHT *i +OFFSET_Y, PRMT_TITLE, LINE_HEIGHT)];
+        label.text = [self.PRMTMETIC objectAtIndex:i];
         [self.sysTitleArray addObject:label];
         [self addSubview:label];
     }
     
 //    NSLog(@"willMoveToSuperview now para");
     for(int i = 0; i < [self.PRMTMETIC count]; i++){
-        UILabel *label = [[UILabel alloc]init];
-        label.font = CUSTOMFONT;
-        label.textColor = GRAYCOLOR;
-        label.textAlignment = NSTextAlignmentCenter;
-        [label setFrame:CGRectMake(0, LINE_HEIGHT * i +OFFSET_Y, PRMT_WIDTH, LINE_HEIGHT)];
+        ColoredLabel *label = [[ColoredLabel alloc]init];
+        [label setFrame:CGRectMake(OFFSET_X, LINE_HEIGHT * i +OFFSET_Y, PRMT_WIDTH, LINE_HEIGHT)];
+        [label setFont:FONT_MEDIUM_12];
         label.text = T(@"---");
         [self.nowArray addObject:label];
         [self addSubview:label];
@@ -93,19 +95,16 @@
     
 //    NSLog(@"willMoveToSuperview want para");
     for(int i = 0; i < [self.PRMTMETIC count]; i++){
-        UILabel *label = [[UILabel alloc]init];
-        label.font = CUSTOMFONT;
-        label.textColor = GREENCOLOR;
-        label.textAlignment = NSTextAlignmentCenter;
-        [label setFrame:CGRectMake(PRMT_WIDTH+PRMT_TITLE, LINE_HEIGHT *i + OFFSET_Y, PRMT_WIDTH, LINE_HEIGHT)];
+        ColoredLabel *label = [[ColoredLabel alloc]init];
+        [label setFont:FONT_MEDIUM_12];
+        [label changeColor:@"BLUE"];
+        [label setFrame:CGRectMake(TOTAL_WIDTH-OFFSET_X-PRMT_WIDTH, LINE_HEIGHT *i + OFFSET_Y, PRMT_WIDTH, LINE_HEIGHT)];
         label.text = T(@"---");
         [self.wantArray addObject:label];
         [self addSubview:label];
     }
     
-    self.bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, 7)];
-    [self.bgView setImage:[UIImage imageNamed:@"tiny_up.png"]];
-    [self addSubview:self.bgView];
+
 }
 
 -(void)refreshPrmtView:(NSString *)system

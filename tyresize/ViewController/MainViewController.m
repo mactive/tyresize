@@ -14,15 +14,19 @@
 #import "ParameterView.h"
 #import "TyreView.h"
 
+#import "ColoredButton.h"
+
 @interface MainViewController ()
 // tyre view
 @property(strong, nonatomic)TyreView *tyreView;
 @property(strong, nonatomic)OperationView *operView;
 @property(strong, nonatomic)ParameterView *prmtView;
 @property(strong, nonatomic)UIView *buttonView;
-@property(strong, nonatomic)UIButton *switchBtn;
-@property(strong, nonatomic)UIButton *wikiBtn;
-@property(strong, nonatomic)UIButton *otherBtn;
+@property(strong, nonatomic)ColoredButton *switchBtn;
+@property(strong, nonatomic)ColoredButton *wikiBtn;
+@property(strong, nonatomic)ColoredButton *otherBtn;
+//some bg View
+@property(strong, nonatomic)UIImageView *tyreBgView;
 // main label
 @property(strong, nonatomic)UILabel *leftTitle;
 @property(strong, nonatomic)UILabel *rightTitle;
@@ -62,6 +66,8 @@
 @synthesize prmtView;
 @synthesize buttonView;
 @synthesize switchBtn, wikiBtn, otherBtn;
+//background view
+@synthesize tyreBgView;
 //value
 @synthesize nowWFloat;
 @synthesize nowAFloat;
@@ -95,11 +101,6 @@
 #define TYRE_X            (320.0f - TYRE_WIDTH)/2
 #define TYRE_Y            20.0f
 
-#define OPER_HEIGHT         160.0f
-
-#define PRMT_HEIGHT         230.0f
-#define PRMT_LITE_HEIGHT    50.0f
-#define BUTTON_VIEW_HEIGHT  44.0f
 
 - (void)viewDidLoad
 {
@@ -107,6 +108,12 @@
 	// Do any additional setup after loading the view.
     self.title = T(@"tyresize");
     self.curSystem = USSYS;
+    [self.view setBackgroundColor:BGCOLOR];
+    
+    //BG View
+    self.tyreBgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyreView_bg.png"]];
+    self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT+38);
+    [self.view addSubview:self.tyreBgView];
     
     CGFloat tyre_Y;
     CGFloat tyre_Height;
@@ -121,12 +128,12 @@
     self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, tyre_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
-    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, tyre_Y+tyre_Height+OPER_HEIGHT, TOTAL_WIDTH, PRMT_HEIGHT)];
-    [self.view addSubview:self.prmtView];
-    
-    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, tyre_Y+tyre_Height, TOTAL_WIDTH, OPER_HEIGHT)];
+    self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT, TOTAL_WIDTH, OPER_VIEW_HEIGHT)];
     self.operView.delegate = self;
     [self.view addSubview:self.operView];
+    
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT+OPER_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
+    [self.view addSubview:self.prmtView];
     
     
     self.tyreSwipeGR = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleTyreSwipe:)];
@@ -141,6 +148,8 @@
     self.nowArray   = [[NSArray alloc]init];
     self.wantArray  = [[NSArray alloc]init];
     
+
+    // three button bottom
     [self initButtonView];
 
 
@@ -149,38 +158,26 @@
 // init button view
 - (void)initButtonView
 {
-    self.buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-BUTTON_VIEW_HEIGHT, TOTAL_WIDTH, BUTTON_VIEW_HEIGHT)];
+    self.buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - NAV_BAR_HEIGHT -BUTTON_VIEW_HEIGHT, TOTAL_WIDTH, BUTTON_VIEW_HEIGHT)];
     UIImageView *bg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, BUTTON_VIEW_HEIGHT)];
-    [bg setImage:[UIImage imageNamed:@"bottom_bg.png"]];
+    [bg setImage:[UIImage imageNamed:@"btnView_bg.png"]];
 
     // switch
-    self.switchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.switchBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.switchBtn.frame= CGRectMake(0, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-    self.switchBtn.titleLabel.font = CUSTOMFONT;
-    [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
-    [self.switchBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
-    [self.switchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.switchBtn setBackgroundColor:[UIColor clearColor]];
+        [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
     [self.switchBtn addTarget:self action:@selector(switchAction) forControlEvents:UIControlEventTouchUpInside];
     
     // wiki
-    self.wikiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.wikiBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.wikiBtn.frame= CGRectMake(TOTAL_WIDTH/3, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-    self.wikiBtn.titleLabel.font = CUSTOMFONT;
-    [self.wikiBtn setTitle:T(@"Wiki") forState:UIControlStateNormal];
-    [self.wikiBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
-    [self.wikiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.wikiBtn setBackgroundColor:[UIColor clearColor]];
+    [self.wikiBtn setTitle:T(@"WIKI") forState:UIControlStateNormal];
     [self.wikiBtn addTarget:self action:@selector(wikiAction) forControlEvents:UIControlEventTouchUpInside];
     
     // other
-    self.otherBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.otherBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.otherBtn.frame= CGRectMake(TOTAL_WIDTH/3*2, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-    self.otherBtn.titleLabel.font = CUSTOMFONT;
-    [self.otherBtn setTitle:T(@"Other") forState:UIControlStateNormal];
-    [self.otherBtn setTitleColor:GRAYCOLOR forState:UIControlStateNormal];
-    [self.otherBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.otherBtn setBackgroundColor:[UIColor clearColor]];
+    [self.otherBtn setTitle:T(@"OTHER") forState:UIControlStateNormal];
     [self.otherBtn addTarget:self action:@selector(otherAction) forControlEvents:UIControlEventTouchUpInside];
     
     //
@@ -201,7 +198,8 @@
     }
     
     [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
-    
+    [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
+     
     NSLog(@"switchAction: %@",self.curSystem );
     
     self.nowArray = [self calculationWithW:self.nowWFloat
@@ -251,6 +249,7 @@
             Yoffset = 150;
         }
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreView];
+        [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreBgView];
         [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.prmtView];
         self.isOffseted = NO;
@@ -261,6 +260,7 @@
             Yoffset = -150;
         }
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreView];
+        [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreBgView];
         [self moveYOffest:Yoffset andDelay:0.05 withView:self.operView];
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.prmtView];
         self.isOffseted = YES;
@@ -289,7 +289,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
     
     [self.prmtView addGestureRecognizer:self.prmtTapGR];
     
@@ -298,7 +297,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
 
 }
 

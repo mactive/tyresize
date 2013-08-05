@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "UINavigationBar+CustomNav.h"
 
 @implementation AppDelegate
 
@@ -28,10 +29,17 @@
     UINavigationController *mainController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
     self.mainViewController.managedObjectContext = _managedObjectContext;
     
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar_bg.png"] forBarMetrics:UIBarMetricsDefault];
+
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window addSubview:self.mainViewController.view];
     [self.window setRootViewController:mainController];
+    
+    
     
     // [self checkIOSVersion];    
     [self.window makeKeyAndVisible];
