@@ -143,7 +143,7 @@
         
         //BG View
         self.bgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
-        self.bgView.frame = CGRectMake(0, L_H , TOTAL_WIDTH, OPER_VIEW_HEIGHT-L_H);
+        self.bgView.frame = CGRectMake(0, L_H-16 , TOTAL_WIDTH, OPER_VIEW_HEIGHT-L_H+16);
         
 //        [self setBackgroundColor:[UIColor colorWithRed:33.0f green:35.0f blue:38.0f alpha:1.0]];
         [self setBackgroundColor:[UIColor clearColor]];

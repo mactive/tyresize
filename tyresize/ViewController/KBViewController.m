@@ -7,13 +7,14 @@
 //
 
 #import "KBViewController.h"
+#import "GradientLabel.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface KBViewController ()
 @property(strong, nonatomic)UIImageView *tempImage;
 @property(strong, nonatomic)UIView *detailView;
-@property(strong, nonatomic)UILabel *detailTitle;
-@property(strong, nonatomic)UILabel *detailContent;
+@property(strong, nonatomic)GradientLabel *detailTitle;
+@property(strong, nonatomic)GradientLabel *detailContent;
 @property(strong, nonatomic)UIButton *backButton;
 @property(strong, nonatomic)UIButton *button1;
 @property(strong, nonatomic)UIButton *button2;
@@ -88,7 +89,7 @@
     self.detailView.backgroundColor = BGCOLOR;
     
     // detailTitle
-    self.detailTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 45, 24)];
+    self.detailTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(10, 10, 45, 24)];
     self.detailTitle.backgroundColor = HANDLEBGCOLOR;
     self.detailTitle.layer.borderColor = HANDLEBORDERCOLOR;
     self.detailTitle.layer.borderWidth = 1.0f;
@@ -98,7 +99,7 @@
     self.detailTitle.textColor = DARKCOLOR;
     
     // detail content
-    self.detailContent = [[UILabel alloc]initWithFrame:CGRectMake(70, 15, MAX_WIDTH, 20)];
+    self.detailContent = [[GradientLabel alloc]initWithFrame:CGRectMake(70, 15, MAX_WIDTH, 20)];
     self.detailContent.backgroundColor = [UIColor clearColor];
     self.detailContent.numberOfLines = 0;
     self.detailContent.font = TINYCUSTOMFONT;
@@ -118,7 +119,7 @@
     NSString *content;
     switch (index) {
         case 1:
-            title       = T(@"195");
+            title       = T(@"直径");
             content     = T(@"Nomainal section width \nMeasure Unit: mm");
             break;
         case 2:
