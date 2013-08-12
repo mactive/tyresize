@@ -27,7 +27,6 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
     self.curSystem = USSYS;
     // 3 view controller
 
@@ -51,12 +50,11 @@
                                         navController2,
                                         navController3,
                                         nil];
-    tabBarController.selectedIndex = 0;
-//    [tabBarController.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"btnOn_bg.png"]];
-
+//    [navController1.view setFrame:CGRectMake(0, 0, TOTAL_HEIGHT, TOTAL_HEIGHT-44)];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor redColor];
+    NSLog(@"%@",NSStringFromCGRect(navController1.view.frame));
     [self.window addSubview:tabBarController.view];
     [self.window setRootViewController:tabBarController];
 
