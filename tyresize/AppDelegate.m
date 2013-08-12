@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "KBViewController.h"
+#import "OtherViewController.h"
+
 #import "UINavigationBar+CustomNav.h"
+#import "MCTabBarController.h"
 
 @implementation AppDelegate
 
@@ -16,6 +20,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize mainViewController;
+@synthesize kbViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,23 +28,37 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    // mainMenuViewController
-    
+    // 3 view controller
+
     self.mainViewController = [[MainViewController alloc]initWithNibName:nil bundle:nil];
-    UINavigationController *mainController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
     self.mainViewController.managedObjectContext = _managedObjectContext;
+    self.kbViewController = [[KBViewController alloc]initWithNibName:nil bundle:nil];
+    self.otherViewController = [[OtherViewController alloc]initWithNibName:nil bundle:nil];
     
     
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
+    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:self.kbViewController];
+    UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:self.otherViewController];
 
     
+    // TabBarController
+    MCTabBarController *tabBarController = [[MCTabBarController alloc]initWithNibName:nil bundle:nil];
+    tabBarController.viewControllers = [[NSArray alloc]initWithObjects:
+                                        navController1,
+                                        navController2,
+                                        navController3,
+                                        nil];
+    tabBarController.selectedIndex = 0;
+//    [tabBarController.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"btnOn_bg.png"]];
+
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window addSubview:self.mainViewController.view];
-    [self.window setRootViewController:mainController];
-    
-    
+    [self.window addSubview:tabBarController.view];
+    [self.window setRootViewController:tabBarController];
+
     
     // [self checkIOSVersion];    
     [self.window makeKeyAndVisible];

@@ -43,6 +43,7 @@
 		04880E6017AE34E000FA3851 /* BlueLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04880E5F17AE34E000FA3851 /* BlueLabel.m */; };
 		04880E6317AE389000FA3851 /* ColoredLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04880E6217AE389000FA3851 /* ColoredLabel.m */; };
 		04880E6617AE3C7E00FA3851 /* ColoredButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04880E6517AE3C7E00FA3851 /* ColoredButton.m */; };
+		049585EE17B9362100031292 /* MCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049585ED17B9362100031292 /* MCTabBarController.m */; };
 		0497015817ADF3A70040995A /* SettingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497015717ADF3A70040995A /* SettingHelper.m */; };
 		0497015C17AE20F50040995A /* lock_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015A17AE20F50040995A /* lock_off@2x.png */; };
 		0497015D17AE20F50040995A /* lock_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497015B17AE20F50040995A /* lock_on@2x.png */; };
@@ -51,6 +52,13 @@
 		0497016317AE2C8B0040995A /* prmtView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497016017AE2C8B0040995A /* prmtView_bg@2x.png */; };
 		0497016617AE2FC20040995A /* OrangeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016517AE2FC20040995A /* OrangeLabel.m */; };
 		0497016917AE300A0040995A /* GradientNormalLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016817AE300A0040995A /* GradientNormalLabel.m */; };
+		04A75D0817B91BC100CB7EE6 /* Wiki_note@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0117B91BC100CB7EE6 /* Wiki_note@2x.png */; };
+		04A75D0917B91BC100CB7EE6 /* down_arraw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0217B91BC100CB7EE6 /* down_arraw@2x.png */; };
+		04A75D0A17B91BC100CB7EE6 /* big_tyre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0317B91BC100CB7EE6 /* big_tyre@2x.png */; };
+		04A75D0B17B91BC100CB7EE6 /* shadow_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0417B91BC100CB7EE6 /* shadow_hover@2x.png */; };
+		04A75D0C17B91BC100CB7EE6 /* wiki_btn_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0517B91BC100CB7EE6 /* wiki_btn_off@2x.png */; };
+		04A75D0D17B91BC100CB7EE6 /* wiki_btn_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0617B91BC100CB7EE6 /* wiki_btn_on@2x.png */; };
+		04A75D0E17B91BC100CB7EE6 /* wiki_detail_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0717B91BC100CB7EE6 /* wiki_detail_bg@2x.png */; };
 		04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */; };
 		04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */; };
 		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
@@ -124,6 +132,8 @@
 		04880E6217AE389000FA3851 /* ColoredLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredLabel.m; sourceTree = "<group>"; };
 		04880E6417AE3C7E00FA3851 /* ColoredButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredButton.h; sourceTree = "<group>"; };
 		04880E6517AE3C7E00FA3851 /* ColoredButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredButton.m; sourceTree = "<group>"; };
+		049585EC17B9362100031292 /* MCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCTabBarController.h; path = ViewController/MCTabBarController.h; sourceTree = "<group>"; };
+		049585ED17B9362100031292 /* MCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCTabBarController.m; path = ViewController/MCTabBarController.m; sourceTree = "<group>"; };
 		0497015617ADF3A70040995A /* SettingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingHelper.h; sourceTree = "<group>"; };
 		0497015717ADF3A70040995A /* SettingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingHelper.m; sourceTree = "<group>"; };
 		0497015A17AE20F50040995A /* lock_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock_off@2x.png"; sourceTree = "<group>"; };
@@ -135,6 +145,13 @@
 		0497016517AE2FC20040995A /* OrangeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrangeLabel.m; sourceTree = "<group>"; };
 		0497016717AE300A0040995A /* GradientNormalLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientNormalLabel.h; sourceTree = "<group>"; };
 		0497016817AE300A0040995A /* GradientNormalLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientNormalLabel.m; sourceTree = "<group>"; };
+		04A75D0117B91BC100CB7EE6 /* Wiki_note@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wiki_note@2x.png"; sourceTree = "<group>"; };
+		04A75D0217B91BC100CB7EE6 /* down_arraw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arraw@2x.png"; sourceTree = "<group>"; };
+		04A75D0317B91BC100CB7EE6 /* big_tyre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big_tyre@2x.png"; sourceTree = "<group>"; };
+		04A75D0417B91BC100CB7EE6 /* shadow_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow_hover@2x.png"; sourceTree = "<group>"; };
+		04A75D0517B91BC100CB7EE6 /* wiki_btn_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wiki_btn_off@2x.png"; sourceTree = "<group>"; };
+		04A75D0617B91BC100CB7EE6 /* wiki_btn_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wiki_btn_on@2x.png"; sourceTree = "<group>"; };
+		04A75D0717B91BC100CB7EE6 /* wiki_detail_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wiki_detail_bg@2x.png"; sourceTree = "<group>"; };
 		04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomNav.h"; sourceTree = "<group>"; };
 		04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomNav.m"; sourceTree = "<group>"; };
 		04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar_bg@2x.png"; sourceTree = "<group>"; };
@@ -297,6 +314,8 @@
 				26C982D316E9AEF100295FAE /* KBViewController.m */,
 				047973C6172D9EB10037CD8B /* OtherViewController.h */,
 				047973C7172D9EB10037CD8B /* OtherViewController.m */,
+				049585EC17B9362100031292 /* MCTabBarController.h */,
+				049585ED17B9362100031292 /* MCTabBarController.m */,
 				04CEECBE17AB4C5F00DCE91F /* Category */,
 				0418414B17AC8CD600D27C2F /* UILabel */,
 				042094B616FA09340019C12E /* UIView */,
@@ -326,6 +345,13 @@
 			children = (
 				0418414017AC8CC800D27C2F /* Font */,
 				048010AF17ABBAAC00D872E5 /* operView_bg@2x.png */,
+				04A75D0117B91BC100CB7EE6 /* Wiki_note@2x.png */,
+				04A75D0217B91BC100CB7EE6 /* down_arraw@2x.png */,
+				04A75D0317B91BC100CB7EE6 /* big_tyre@2x.png */,
+				04A75D0417B91BC100CB7EE6 /* shadow_hover@2x.png */,
+				04A75D0517B91BC100CB7EE6 /* wiki_btn_off@2x.png */,
+				04A75D0617B91BC100CB7EE6 /* wiki_btn_on@2x.png */,
+				04A75D0717B91BC100CB7EE6 /* wiki_detail_bg@2x.png */,
 				0497015E17AE2C8B0040995A /* btnOn_bg@2x.png */,
 				0497015F17AE2C8B0040995A /* btnView_bg@2x.png */,
 				0497016017AE2C8B0040995A /* prmtView_bg@2x.png */,
@@ -454,6 +480,13 @@
 				0497016117AE2C8B0040995A /* btnOn_bg@2x.png in Resources */,
 				0497016217AE2C8B0040995A /* btnView_bg@2x.png in Resources */,
 				0497016317AE2C8B0040995A /* prmtView_bg@2x.png in Resources */,
+				04A75D0817B91BC100CB7EE6 /* Wiki_note@2x.png in Resources */,
+				04A75D0917B91BC100CB7EE6 /* down_arraw@2x.png in Resources */,
+				04A75D0A17B91BC100CB7EE6 /* big_tyre@2x.png in Resources */,
+				04A75D0B17B91BC100CB7EE6 /* shadow_hover@2x.png in Resources */,
+				04A75D0C17B91BC100CB7EE6 /* wiki_btn_off@2x.png in Resources */,
+				04A75D0D17B91BC100CB7EE6 /* wiki_btn_on@2x.png in Resources */,
+				04A75D0E17B91BC100CB7EE6 /* wiki_detail_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +548,7 @@
 				04880E6017AE34E000FA3851 /* BlueLabel.m in Sources */,
 				04880E6317AE389000FA3851 /* ColoredLabel.m in Sources */,
 				04880E6617AE3C7E00FA3851 /* ColoredButton.m in Sources */,
+				049585EE17B9362100031292 /* MCTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

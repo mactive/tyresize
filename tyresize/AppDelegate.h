@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @class MainViewController;
+@class KBViewController;
+@class OtherViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,6 +20,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) MainViewController *mainViewController;
+@property (strong, nonatomic) KBViewController *kbViewController;
+@property (strong, nonatomic) OtherViewController *otherViewController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

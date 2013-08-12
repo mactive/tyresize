@@ -12,6 +12,7 @@
 #define M_APPLEID 623336978
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
+#define TOTAL_HEIGHT [[UIScreen mainScreen] bounds].size.height
 // unit transfrom
 #define IN_MM 25.4f
 #define FT_CM 30.48f
