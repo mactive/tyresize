@@ -21,13 +21,14 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize mainViewController;
 @synthesize kbViewController;
+@synthesize curSystem;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
+    self.curSystem = USSYS;
     // 3 view controller
 
     self.mainViewController = [[MainViewController alloc]initWithNibName:nil bundle:nil];

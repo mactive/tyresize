@@ -22,6 +22,7 @@
 @property (strong, nonatomic) MainViewController *mainViewController;
 @property (strong, nonatomic) KBViewController *kbViewController;
 @property (strong, nonatomic) OtherViewController *otherViewController;
+@property (strong, nonatomic) NSString *curSystem;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

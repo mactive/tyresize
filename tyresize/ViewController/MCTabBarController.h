@@ -10,4 +10,6 @@
 
 @interface MCTabBarController : UITabBarController
 
+
+- (void)changeViewController:(id) sender;
 @end

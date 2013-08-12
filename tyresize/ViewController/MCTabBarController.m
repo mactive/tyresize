@@ -8,6 +8,9 @@
 
 #import "MCTabBarController.h"
 #import "ColoredButton.h"
+#import "AppDelegate.h"
+#import "MainViewController.h"
+
 @interface MCTabBarController ()
 
 @property(strong, nonatomic)UIImageView *tabBarView;
@@ -28,10 +31,6 @@
     if (self) {
         // Custom initialization
         self.tabBar.hidden = YES;
-
-//        [self.tabBar setBackgroundImage:[UIImage imageNamed:@"btnView_bg.png"]];
-//        [self.tabBar setFrame:CGRectMake(0, TOTAL_HEIGHT-44, TOTAL_WIDTH, 44)];
-//        [self.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"btnOn_bg.png"]];
         
     }
     return self;
@@ -48,24 +47,26 @@
     // switch
     self.switchBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.switchBtn.frame= CGRectMake(0, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-    [self.switchBtn setTitle:@"dd" forState:UIControlStateNormal];
-    [self.switchBtn addTarget:self action:@selector(switchAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.switchBtn setTitle:T([self appDelegate].curSystem) forState:UIControlStateNormal];
     
     // wiki
     self.wikiBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.wikiBtn.frame= CGRectMake(TOTAL_WIDTH/3, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
     [self.wikiBtn setTitle:T(@"WIKI") forState:UIControlStateNormal];
-    [self.wikiBtn addTarget:self action:@selector(wikiAction) forControlEvents:UIControlEventTouchUpInside];
     
     // other
     self.otherBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.otherBtn.frame= CGRectMake(TOTAL_WIDTH/3*2, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
     [self.otherBtn setTitle:T(@"OTHER") forState:UIControlStateNormal];
-    [self.otherBtn addTarget:self action:@selector(otherAction) forControlEvents:UIControlEventTouchUpInside];
     
     self.switchBtn.tag = 0;
-    self.wikiBtn.tag = 0;
-    self.otherBtn.tag = 0;
+    self.wikiBtn.tag = 1;
+    self.otherBtn.tag = 2;
+    
+    
+    [self.switchBtn addTarget:self action:@selector(changeViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [self.wikiBtn   addTarget:self action:@selector(changeViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [self.otherBtn  addTarget:self action:@selector(changeViewController:) forControlEvents:UIControlEventTouchUpInside];
     //
     
     [self.tabBarView addSubview:self.switchBtn];
@@ -78,7 +79,33 @@
 {
     UIButton *button = (UIButton *) sender;
     self.selectedIndex = button.tag;
+    if (button.tag == 0) {
+        
+        // mainviewcontroller switchaction
+        for (UINavigationController *v in self.viewControllers)
+        {
+            UIViewController *vc = v.topViewController;
+            
+            if ([vc isKindOfClass:[MainViewController class]])
+            {
+                [(MainViewController *)vc switchAction];
+            }
+        }
+        
+        // change button title
+        if ([[self appDelegate].curSystem isEqualToString:UKSYS]) {
+            [self appDelegate].curSystem = USSYS;
+        }else{
+            [self appDelegate].curSystem = UKSYS;
+        }
+        
+        [self.switchBtn setTitle:[self appDelegate].curSystem forState:UIControlStateNormal];
+        [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
+        
+        NSLog(@"switchAction: %@",[self appDelegate].curSystem );
+    }
 }
+
 
 
 - (void)viewDidLoad
@@ -94,5 +121,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (AppDelegate *)appDelegate
+{
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+
 
 @end

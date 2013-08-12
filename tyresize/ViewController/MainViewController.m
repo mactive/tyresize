@@ -106,8 +106,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = T(@"tyresize");
-    self.curSystem = USSYS;
     [self.view setBackgroundColor:BGCOLOR];
     
     //BG View
@@ -150,11 +148,12 @@
     
 
     // three button bottom
-    [self initButtonView];
+//    [self initButtonView];
 
 
 }
 
+/*
 // init button view
 - (void)initButtonView
 {
@@ -165,7 +164,7 @@
     // switch
     self.switchBtn = [ColoredButton buttonWithType:UIButtonTypeCustom];
     self.switchBtn.frame= CGRectMake(0, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
-        [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
+    [self.switchBtn setTitle:[self appDelegate].curSystem forState:UIControlStateNormal];
     [self.switchBtn addTarget:self action:@selector(switchAction) forControlEvents:UIControlEventTouchUpInside];
     
     // wiki
@@ -188,20 +187,11 @@
     [self.view addSubview:self.buttonView];
 
 }
+*/
 #pragma mark - bottom button actions
+
 - (void)switchAction
-{
-    if ([self.curSystem isEqualToString:UKSYS]) {
-        self.curSystem = USSYS;
-    }else{
-        self.curSystem = UKSYS;
-    }
-    
-    [self.switchBtn setTitle:self.curSystem forState:UIControlStateNormal];
-    [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
-     
-    NSLog(@"switchAction: %@",self.curSystem );
-    
+{    
     self.nowArray = [self calculationWithW:self.nowWFloat
                                       andA:self.nowAFloat
                                       andR:self.nowRFloat
@@ -214,9 +204,8 @@
                                     andType:@"want"];
     
     [self.prmtView changeWantPrmt:self.wantArray];
-    [self.prmtView refreshPrmtView:self.curSystem];
+    [self.prmtView refreshPrmtView:[self appDelegate].curSystem];
 
-    
 }
 
 - (void)wikiAction
@@ -353,7 +342,7 @@
     CGFloat speedo = 0.f;
     CGFloat speed = 0.f;
     
-    if ([self.curSystem isEqualToString:UKSYS]) {
+    if ([[self appDelegate].curSystem isEqualToString:UKSYS]) {
         sidewall    = sidewall / IN_MM;
         radius      = radius / IN_MM;
         diameter    = diameter / IN_MM;
@@ -362,7 +351,7 @@
         self.handleHubRatio = RFloat / HUB_DIA_BASE * IN_MM;
         self.handleTyreRatio = diameter / TYRE_DIA_BASE *IN_MM;
 
-    }else if ([self.curSystem isEqualToString:USSYS]){
+    }else if ([[self appDelegate].curSystem isEqualToString:USSYS]){
         rotations   = 1000000  / circumference;
         self.handleHubRatio = RFloat * IN_MM / HUB_DIA_BASE;
         self.handleTyreRatio = diameter / TYRE_DIA_BASE;
@@ -395,9 +384,9 @@
     if (self.nowPrmtD > 0 && self.wantPrmtD > 0) {
         speedo  = self.wantPrmtD / self.nowPrmtD *100;
         
-        if ([self.curSystem isEqualToString:UKSYS]) {
+        if ([[self appDelegate].curSystem isEqualToString:UKSYS]) {
             speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
-        }else if ([self.curSystem isEqualToString:USSYS]){
+        }else if ([[self appDelegate].curSystem isEqualToString:USSYS]){
             speed   = 100.0f * self.wantPrmtD / self.nowPrmtD ;
         }
     }

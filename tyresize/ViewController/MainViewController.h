@@ -13,4 +13,6 @@
 @interface MainViewController : UIViewController<PassValueDelegate,LockNowTyreDelegate>
 @property(strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+-(void)switchAction;
+
 @end
