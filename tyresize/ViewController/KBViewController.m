@@ -9,24 +9,28 @@
 #import "KBViewController.h"
 #import "GradientLabel.h"
 #import <QuartzCore/QuartzCore.h>
+#import "KBButton.h"
+#import "GradientNormalLabel.h"
 
 @interface KBViewController ()
 @property(strong, nonatomic)UIImageView *tempImage;
+@property(strong, nonatomic)UIView *actionView;
 @property(strong, nonatomic)UIView *detailView;
 @property(strong, nonatomic)GradientLabel *detailTitle;
 @property(strong, nonatomic)GradientLabel *detailContent;
-@property(strong, nonatomic)UIButton *backButton;
-@property(strong, nonatomic)UIButton *button1;
-@property(strong, nonatomic)UIButton *button2;
-@property(strong, nonatomic)UIButton *button3;
-@property(strong, nonatomic)UIButton *button4;
-@property(strong, nonatomic)UIButton *button5;
-@property(strong, nonatomic)UIButton *button6;
+@property(strong, nonatomic)UIImageView *tyreBgView;
+@property(strong, nonatomic)KBButton *button1;
+@property(strong, nonatomic)KBButton *button2;
+@property(strong, nonatomic)KBButton *button3;
+@property(strong, nonatomic)KBButton *button4;
+@property(strong, nonatomic)KBButton *button5;
+@property(strong, nonatomic)KBButton *button6;
 @end
 
 @implementation KBViewController
+@synthesize tyreBgView;
 @synthesize tempImage;
-@synthesize backButton;
+@synthesize actionView;
 @synthesize detailView, detailTitle, detailContent;
 @synthesize button1, button2, button3, button4, button5, button6;
 
@@ -47,24 +51,20 @@
     [super viewDidLoad];
     CGFloat offsetY;
     if (IS_IPHONE_5) {
-        offsetY =  40.0f;
+        offsetY =  20.0f;
     }else{
-        offsetY = 20.0f;
+        offsetY = 10.0f;
     }
-	// Do any additional setup after loading the view.
-    self.tempImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyresize.png"]];
-    self.tempImage.frame = CGRectMake(0, offsetY, 320, 340);
-    [self.view addSubview:self.tempImage];
     
-    self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.backButton setFrame:CGRectMake(15, 15, 60, 28)];
-    [self.backButton setTitle:T(@"back") forState:UIControlStateNormal];
-    [self.backButton setTitleColor:DARKCOLOR forState:UIControlStateNormal];
-    [self.backButton setTitleEdgeInsets:UIEdgeInsetsMake(2, 10, 0, 0)];
-    [self.backButton.titleLabel setFont:CUSTOMFONT];
-    [self.backButton setBackgroundImage:[UIImage imageNamed:@"back_button_bg.png"] forState:UIControlStateNormal];
-    [self.backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.backButton];
+    //BG View
+    self.tyreBgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyreView_bg.png"]];
+    self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT+38);
+    [self.view addSubview:self.tyreBgView];
+    
+	// Do any additional setup after loading the view.
+    self.tempImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"big_tyre.png"]];
+    self.tempImage.frame = CGRectMake(0, offsetY, 304, 304);
+    [self.view addSubview:self.tempImage];
     
     // init alpha button
     [self initButtons];
@@ -154,7 +154,7 @@
     [self.detailContent setFrame:CGRectMake(70, 15, MAX_WIDTH, size.height)];
     [self.detailTitle setText:title];
     [self.detailContent setText:content];
-    CGFloat offsetY = size.height - 20 + DETAIL_HEIGHT ;
+    CGFloat offsetY = size.height + DETAIL_HEIGHT ;
     [self moveYPosition:offsetY andDelay:0 withView:self.detailView];
 }
 
@@ -174,27 +174,48 @@
     [UIView commitAnimations];
 }
 
+#define BTN_WIDTH   45.0f
+#define BTN_HEIGHT  60.0f
+#define Y_OFFSET    25.0f
+#define X_OFFSET    10.0f
+#define X_I         51.0f
+
 - (void)initButtons
 {
     CGFloat y_button;
-
+    
     if (IS_IPHONE_5) {
         y_button = 200.0f;
     }else{
         y_button = 180.0f;
     }
-    self.button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.button3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.button4 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.button5 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.button6 = [UIButton buttonWithType:UIButtonTypeCustom];
-//    self.button1.backgroundColor = GRAYCOLOR;
-//    self.button2.backgroundColor = GRAYCOLOR;
-//    self.button3.backgroundColor = GRAYCOLOR;
-//    self.button4.backgroundColor = GRAYCOLOR;
-//    self.button5.backgroundColor = GRAYCOLOR;
-//    self.button6.backgroundColor = GRAYCOLOR;
+    
+    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
+    
+    //BG View
+    UIImageView *bgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
+    bgView.frame = CGRectMake(0, 0 , TOTAL_WIDTH, PRMT_VIEW_HEIGHT);
+    
+    // Note View
+    UIImageView *noteView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Wiki_note.png"]];
+    noteView.frame = CGRectMake(0, 96.0f , TOTAL_WIDTH, 77.0f);
+    
+    // GradientNormalLabel
+    GradientNormalLabel *label1 = [[GradientNormalLabel alloc]initWithFrame:CGRectMake(10, 180, 50, 10)];
+    label1.text = T(@"195 mm");
+    [label1 setFont:FONT_MEDIUM_9];
+    
+    [bgView addSubview:label1];
+    [bgView addSubview:noteView];
+
+    [self.actionView addSubview:bgView];
+    
+    self.button1 = [KBButton buttonWithType:UIButtonTypeCustom];
+    self.button2 = [KBButton buttonWithType:UIButtonTypeCustom];
+    self.button3 = [KBButton buttonWithType:UIButtonTypeCustom];
+    self.button4 = [KBButton buttonWithType:UIButtonTypeCustom];
+    self.button5 = [KBButton buttonWithType:UIButtonTypeCustom];
+    self.button6 = [KBButton buttonWithType:UIButtonTypeCustom];
     
     [self.button1 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.button2 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -203,6 +224,13 @@
     [self.button5 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.button6 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.button1 setTitle:T(@"195") forState:UIControlStateNormal];
+    [self.button2 setTitle:T(@"55") forState:UIControlStateNormal];
+    [self.button3 setTitle:T(@"R") forState:UIControlStateNormal];
+    [self.button4 setTitle:T(@"16") forState:UIControlStateNormal];
+    [self.button5 setTitle:T(@"87") forState:UIControlStateNormal];
+    [self.button6 setTitle:T(@"V") forState:UIControlStateNormal];
+    
     self.button1.tag = 1;
     self.button2.tag = 2;
     self.button3.tag = 3;
@@ -210,20 +238,21 @@
     self.button5.tag = 5;
     self.button6.tag = 6;
     
-    [self.button1 setFrame:CGRectMake(10, y_button, 50, 40)];
-    [self.button2 setFrame:CGRectMake(75, y_button, 45, 40)];
-    [self.button3 setFrame:CGRectMake(125, y_button, 35, 40)];
-    [self.button4 setFrame:CGRectMake(170, y_button, 45, 40)];
-    [self.button5 setFrame:CGRectMake(220, y_button, 45, 40)];
-    [self.button6 setFrame:CGRectMake(270, y_button, 45, 40)];
-
+    [self.button1 setFrame:CGRectMake(X_OFFSET, Y_OFFSET, BTN_WIDTH, BTN_HEIGHT)];
+    [self.button2 setFrame:CGRectMake(X_OFFSET + X_I, Y_OFFSET, BTN_WIDTH, BTN_HEIGHT)];
+    [self.button3 setFrame:CGRectMake(X_OFFSET + X_I*2, Y_OFFSET, BTN_WIDTH, BTN_HEIGHT)];
+    [self.button4 setFrame:CGRectMake(X_OFFSET + X_I*3, Y_OFFSET, BTN_WIDTH, BTN_HEIGHT)];
+    [self.button5 setFrame:CGRectMake(X_OFFSET + X_I*4, Y_OFFSET, BTN_WIDTH, BTN_HEIGHT)];
+    [self.button6 setFrame:CGRectMake(X_OFFSET + X_I*5, Y_OFFSET, BTN_WIDTH, BTN_HEIGHT)];
     
-    [self.view addSubview:self.button1];
-    [self.view addSubview:self.button2];
-    [self.view addSubview:self.button3];
-    [self.view addSubview:self.button4];
-    [self.view addSubview:self.button5];
-    [self.view addSubview:self.button6];
+    [self.actionView addSubview:self.button1];
+    [self.actionView addSubview:self.button2];
+    [self.actionView addSubview:self.button3];
+    [self.actionView addSubview:self.button4];
+    [self.actionView addSubview:self.button5];
+    [self.actionView addSubview:self.button6];
+    
+    [self.view addSubview:self.actionView];
 }
 
 - (void)buttonAction:(UIButton *)sender

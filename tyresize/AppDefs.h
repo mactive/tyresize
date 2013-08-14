@@ -79,6 +79,7 @@
 #define FONT_BOLD_15 [UIFont fontWithName:@"Gotham-Bold" size:15.0f]
 #define FONT_BLACK_15 [UIFont fontWithName:@"Gotham-Black" size:15.0f]
 #define FONT_MEDIUM_12 [UIFont fontWithName:@"Gotham-Medium" size:12.0f]
+#define FONT_MEDIUM_9 [UIFont fontWithName:@"Gotham-Medium" size:9.0f]
 #define FONT_BOOK_12 [UIFont fontWithName:@"Gotham-Book" size:12.0f]
 
 #define FONT_LIGHT_15 [UIFont fontWithName:@"Gotham-Light" size:15.0f]

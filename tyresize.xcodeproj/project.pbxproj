@@ -52,6 +52,7 @@
 		0497016317AE2C8B0040995A /* prmtView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0497016017AE2C8B0040995A /* prmtView_bg@2x.png */; };
 		0497016617AE2FC20040995A /* OrangeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016517AE2FC20040995A /* OrangeLabel.m */; };
 		0497016917AE300A0040995A /* GradientNormalLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0497016817AE300A0040995A /* GradientNormalLabel.m */; };
+		049C738317BBCB2A0012B18D /* KBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C738217BBCB2A0012B18D /* KBButton.m */; };
 		04A75D0817B91BC100CB7EE6 /* Wiki_note@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0117B91BC100CB7EE6 /* Wiki_note@2x.png */; };
 		04A75D0917B91BC100CB7EE6 /* down_arraw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0217B91BC100CB7EE6 /* down_arraw@2x.png */; };
 		04A75D0A17B91BC100CB7EE6 /* big_tyre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0317B91BC100CB7EE6 /* big_tyre@2x.png */; };
@@ -145,6 +146,8 @@
 		0497016517AE2FC20040995A /* OrangeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrangeLabel.m; sourceTree = "<group>"; };
 		0497016717AE300A0040995A /* GradientNormalLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientNormalLabel.h; sourceTree = "<group>"; };
 		0497016817AE300A0040995A /* GradientNormalLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientNormalLabel.m; sourceTree = "<group>"; };
+		049C738117BBCB2A0012B18D /* KBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBButton.h; sourceTree = "<group>"; };
+		049C738217BBCB2A0012B18D /* KBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBButton.m; sourceTree = "<group>"; };
 		04A75D0117B91BC100CB7EE6 /* Wiki_note@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wiki_note@2x.png"; sourceTree = "<group>"; };
 		04A75D0217B91BC100CB7EE6 /* down_arraw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_arraw@2x.png"; sourceTree = "<group>"; };
 		04A75D0317B91BC100CB7EE6 /* big_tyre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big_tyre@2x.png"; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 		0418414B17AC8CD600D27C2F /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
+				049C738117BBCB2A0012B18D /* KBButton.h */,
+				049C738217BBCB2A0012B18D /* KBButton.m */,
 				04880E6417AE3C7E00FA3851 /* ColoredButton.h */,
 				04880E6517AE3C7E00FA3851 /* ColoredButton.m */,
 				0418414C17AC8D6600D27C2F /* GradientLabel.h */,
@@ -549,6 +554,7 @@
 				04880E6317AE389000FA3851 /* ColoredLabel.m in Sources */,
 				04880E6617AE3C7E00FA3851 /* ColoredButton.m in Sources */,
 				049585EE17B9362100031292 /* MCTabBarController.m in Sources */,
+				049C738317BBCB2A0012B18D /* KBButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

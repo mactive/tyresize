@@ -1,19 +1,21 @@
 //
-//  ColoredButton.m
+//  KBButton.m
 //  tyresize
 //
-//  Created by mac on 13-8-4.
+//  Created by mac on 13-8-14.
 //  Copyright (c) 2013年 thinktube. All rights reserved.
 //
 
-#import "ColoredButton.h"
+#import "KBButton.h"
 #import "GradientLabel.h"
 
-@interface ColoredButton()
+@interface KBButton()
+
 @property(strong, nonatomic)GradientLabel *onLabel;
 
 @end
-@implementation ColoredButton
+
+@implementation KBButton
 @synthesize onLabel;
 
 - (id)initWithFrame:(CGRect)frame
@@ -21,29 +23,27 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-
-
-        [self setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateHighlighted];
-        self.onLabel = [[GradientLabel alloc]init];
-
+        [self setBackgroundImage:[UIImage imageNamed:@"wiki_btn_off.png"] forState:UIControlStateHighlighted];
+        [self setBackgroundImage:[UIImage imageNamed:@"wiki_btn_on.png"] forState:UIControlStateNormal];
+        
+        self.onLabel = [[GradientLabel alloc]init];       
+        
         [self addSubview:self.onLabel];
-        [self.onLabel setHidden:YES];
-
-
     }
     return self;
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
-    [self.onLabel setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-
+    [self.onLabel setFrame:CGRectMake(0, 10, self.frame.size.width, 20)];
+    
 }
 
--(void)setTitle:(NSString *)title forState:(UIControlState)state
+
+- (void)setTitle:(NSString *)title forState:(UIControlState)state
 {
     if (state == UIControlStateNormal) {
-        [self.onLabel setHidden:NO];
+//        [self.onLabel setHidden:NO];
         self.onLabel.text = title;
     }
 }
