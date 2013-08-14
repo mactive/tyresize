@@ -41,7 +41,8 @@
     UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
     UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:self.kbViewController];
     UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:self.otherViewController];
-
+    
+    [navController1.view setFrame:CGRectMake(0, 0, TOTAL_HEIGHT, TOTAL_HEIGHT)];
     
     // TabBarController
     MCTabBarController *tabBarController = [[MCTabBarController alloc]initWithNibName:nil bundle:nil];
@@ -50,10 +51,10 @@
                                         navController2,
                                         navController3,
                                         nil];
-//    [navController1.view setFrame:CGRectMake(0, 0, TOTAL_HEIGHT, TOTAL_HEIGHT-44)];
+    [tabBarController.view setFrame:CGRectMake(0, 0, TOTAL_WIDTH, 30)];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor redColor];
+    self.window.backgroundColor = DARKCOLOR;
     NSLog(@"%@",NSStringFromCGRect(navController1.view.frame));
     [self.window addSubview:tabBarController.view];
     [self.window setRootViewController:tabBarController];
