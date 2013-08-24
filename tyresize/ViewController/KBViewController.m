@@ -14,6 +14,7 @@
 
 @interface KBViewController ()
 @property(strong, nonatomic)UIImageView *tempImage;
+@property(strong, nonatomic)UIImageView *manualView;
 @property(strong, nonatomic)UIView *actionView;
 @property(strong, nonatomic)UIView *detailView;
 @property(strong, nonatomic)GradientLabel *detailTitle;
@@ -28,6 +29,7 @@
 @end
 
 @implementation KBViewController
+@synthesize manualView;
 @synthesize tyreBgView;
 @synthesize tempImage;
 @synthesize actionView;
@@ -192,24 +194,8 @@
     
     self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
     
-    //BG View
-    UIImageView *bgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
-    bgView.frame = CGRectMake(0, 0 , TOTAL_WIDTH, PRMT_VIEW_HEIGHT);
-    
-    // Note View
-    UIImageView *noteView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Wiki_note.png"]];
-    noteView.frame = CGRectMake(0, 96.0f , TOTAL_WIDTH, 77.0f);
-    
-    // GradientNormalLabel
-    GradientNormalLabel *label1 = [[GradientNormalLabel alloc]initWithFrame:CGRectMake(10, 180, 50, 10)];
-    label1.text = T(@"195 mm");
-    [label1 setFont:FONT_MEDIUM_9];
-    
-    [bgView addSubview:label1];
-    [bgView addSubview:noteView];
+    [self initManualView];
 
-    [self.actionView addSubview:bgView];
-    
     self.button1 = [KBButton buttonWithType:UIButtonTypeCustom];
     self.button2 = [KBButton buttonWithType:UIButtonTypeCustom];
     self.button3 = [KBButton buttonWithType:UIButtonTypeCustom];
@@ -253,6 +239,33 @@
     [self.actionView addSubview:self.button6];
     
     [self.view addSubview:self.actionView];
+    
+}
+
+- (void)initManualView{
+    
+    //BG View
+    self.manualView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
+    self.manualView.frame = CGRectMake(0, 0 , TOTAL_WIDTH, PRMT_VIEW_HEIGHT);
+    
+    // Note View
+    UIImageView *noteView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Wiki_note.png"]];
+    noteView.frame = CGRectMake(0, 96.0f , TOTAL_WIDTH, 77.0f);
+    
+    [self.manualView addSubview:noteView];
+    
+    
+    // GradientNormalLabel    
+    GradientNormalLabel *label1 = [[GradientNormalLabel alloc]initWithFrame:CGRectMake(10, 180, 50, 10)];
+    label1.text = T(@"195 mm /n 195 mm /n 195 mm");
+    [label1 setFont:FONT_MEDIUM_9];
+    
+    [self.manualView addSubview:label1];
+    
+    
+    
+    // add to parent view
+    [self.actionView addSubview:self.manualView];
 }
 
 - (void)buttonAction:(UIButton *)sender
