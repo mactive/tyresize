@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KBButton.h"
 #import "GradientNormalLabel.h"
+#import "MultilineView.h"
 
 @interface KBViewController ()
 @property(strong, nonatomic)UIImageView *tempImage;
@@ -121,7 +122,7 @@
     NSString *content;
     switch (index) {
         case 1:
-            title       = T(@"直径");
+            title       = T(@"195");
             content     = T(@"Nomainal section width \nMeasure Unit: mm");
             break;
         case 2:
@@ -151,7 +152,7 @@
     
     CGSize size = [(content ? content : @"") sizeWithFont:TINYCUSTOMFONT
                                         constrainedToSize:CGSizeMake(MAX_WIDTH, 9999)
-                                            lineBreakMode:UILineBreakModeWordWrap];
+                                            lineBreakMode:NSLineBreakByWordWrapping];
 
     [self.detailContent setFrame:CGRectMake(70, 15, MAX_WIDTH, size.height)];
     [self.detailTitle setText:title];
@@ -251,18 +252,42 @@
     // Note View
     UIImageView *noteView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Wiki_note.png"]];
     noteView.frame = CGRectMake(0, 96.0f , TOTAL_WIDTH, 77.0f);
-    
     [self.manualView addSubview:noteView];
     
     
-    // GradientNormalLabel    
-    GradientNormalLabel *label1 = [[GradientNormalLabel alloc]initWithFrame:CGRectMake(10, 180, 50, 10)];
-    label1.text = T(@"195 mm /n 195 mm /n 195 mm");
-    [label1 setFont:FONT_MEDIUM_9];
     
-    [self.manualView addSubview:label1];
+    //////////////////////////////////////////////////////////////////////////
+    // cook different manual title [title array] [position array]
+    //////////////////////////////////////////////////////////////////////////
     
+    NSArray *titleArray = [NSArray arrayWithObjects:
+                           T(@"199mm"),
+                           T(@"55%"),
+                           T(@"Radial\nConstraction"),
+                           T(@"16inches"),
+                           T(@"Load\nopacity\nof tyre"),
+                           T(@"Speed\nSymbol\nmaximum\nspeed"), nil];
     
+    NSArray *positionArray = [NSArray arrayWithObjects:
+                              [NSValue valueWithCGRect:CGRectMake(15,180,50,10)],
+                              [NSValue valueWithCGRect:CGRectMake(75,180,50,10)],
+                              [NSValue valueWithCGRect:CGRectMake(110,93,80,20)],
+                              [NSValue valueWithCGRect:CGRectMake(168,180,50,10)],
+                              [NSValue valueWithCGRect:CGRectMake(220,93,60,30)],
+                              [NSValue valueWithCGRect:CGRectMake(270,93,70,40)],nil];
+    
+    for (int i = 0; i < titleArray.count; i++) {
+        // GradientNormalLabel
+        CGRect someRect = [[positionArray objectAtIndex:i] CGRectValue];
+
+        MultilineView *label1 = [[MultilineView alloc]initWithFrame:someRect];
+        label1.multiLineText = [titleArray objectAtIndex:i];
+        label1.textAlign = NSTextAlignmentLeft;
+        [self.manualView addSubview:label1];
+    }
+    
+
+
     
     // add to parent view
     [self.actionView addSubview:self.manualView];

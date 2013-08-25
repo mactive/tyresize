@@ -60,9 +60,11 @@
 		04A75D0C17B91BC100CB7EE6 /* wiki_btn_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0517B91BC100CB7EE6 /* wiki_btn_off@2x.png */; };
 		04A75D0D17B91BC100CB7EE6 /* wiki_btn_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0617B91BC100CB7EE6 /* wiki_btn_on@2x.png */; };
 		04A75D0E17B91BC100CB7EE6 /* wiki_detail_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A75D0717B91BC100CB7EE6 /* wiki_detail_bg@2x.png */; };
+		04CE58CB17C90BFF00C7221F /* MultilineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE58CA17C90BFF00C7221F /* MultilineLabel.m */; };
 		04CEECC117AB4C5F00DCE91F /* UINavigationBar+CustomNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */; };
 		04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */; };
 		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
+		04EBBC0F17CA45CF00DE1148 /* MultilineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBBC0E17CA45CF00DE1148 /* MultilineView.m */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
 		264F719F16E9A3EE00E77FE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719E16E9A3EE00E77FE0 /* Foundation.framework */; };
 		264F71A116E9A3EE00E77FE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F71A016E9A3EE00E77FE0 /* CoreGraphics.framework */; };
@@ -155,10 +157,14 @@
 		04A75D0517B91BC100CB7EE6 /* wiki_btn_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wiki_btn_off@2x.png"; sourceTree = "<group>"; };
 		04A75D0617B91BC100CB7EE6 /* wiki_btn_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wiki_btn_on@2x.png"; sourceTree = "<group>"; };
 		04A75D0717B91BC100CB7EE6 /* wiki_detail_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wiki_detail_bg@2x.png"; sourceTree = "<group>"; };
+		04CE58C917C90BFF00C7221F /* MultilineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineLabel.h; sourceTree = "<group>"; };
+		04CE58CA17C90BFF00C7221F /* MultilineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineLabel.m; sourceTree = "<group>"; };
 		04CEECBF17AB4C5F00DCE91F /* UINavigationBar+CustomNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomNav.h"; sourceTree = "<group>"; };
 		04CEECC017AB4C5F00DCE91F /* UINavigationBar+CustomNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomNav.m"; sourceTree = "<group>"; };
 		04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar_bg@2x.png"; sourceTree = "<group>"; };
 		04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyreView_bg@2x.png"; sourceTree = "<group>"; };
+		04EBBC0D17CA45CF00DE1148 /* MultilineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineView.h; sourceTree = "<group>"; };
+		04EBBC0E17CA45CF00DE1148 /* MultilineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineView.m; sourceTree = "<group>"; };
 		1CC5B0A105C840CA862CA764 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264F719C16E9A3EE00E77FE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -228,6 +234,10 @@
 				0418414D17AC8D6600D27C2F /* GradientLabel.m */,
 				0497016717AE300A0040995A /* GradientNormalLabel.h */,
 				0497016817AE300A0040995A /* GradientNormalLabel.m */,
+				04CE58C917C90BFF00C7221F /* MultilineLabel.h */,
+				04CE58CA17C90BFF00C7221F /* MultilineLabel.m */,
+				04EBBC0D17CA45CF00DE1148 /* MultilineView.h */,
+				04EBBC0E17CA45CF00DE1148 /* MultilineView.m */,
 				04880E6117AE389000FA3851 /* ColoredLabel.h */,
 				04880E6217AE389000FA3851 /* ColoredLabel.m */,
 				0497016417AE2FC20040995A /* OrangeLabel.h */,
@@ -555,6 +565,8 @@
 				04880E6617AE3C7E00FA3851 /* ColoredButton.m in Sources */,
 				049585EE17B9362100031292 /* MCTabBarController.m in Sources */,
 				049C738317BBCB2A0012B18D /* KBButton.m in Sources */,
+				04CE58CB17C90BFF00C7221F /* MultilineLabel.m in Sources */,
+				04EBBC0F17CA45CF00DE1148 /* MultilineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

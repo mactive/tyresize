@@ -146,6 +146,13 @@ alpha:(a)]
 #define SEPCOLOR1 [UIColor colorWithRed:182.0/255.0 green:192.0/255.0 blue:200.0/255.0 alpha:1.0]
 #define SEPCOLOR2 [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0]
 
+// ENUMs
+typedef enum _MultilineTextAlign{
+    //以下是枚举成员
+    AlignLeft = NSTextAlignmentLeft,
+    AlignCenter = NSTextAlignmentCenter,
+    AlignRight = NSTextAlignmentRight
+}MultilineTextAlign;
 
 
 #pragma mark - Core Data
