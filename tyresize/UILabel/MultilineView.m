@@ -9,35 +9,35 @@
 #import "MultilineView.h"
 #import "GradientNormalLabel.h"
 
-@interface MultilineView()
-@property(assign, nonatomic)CGRect viewFrame;
-
-@end
 
 @implementation MultilineView
 @synthesize multiLineText;
-@synthesize viewFrame;
 @synthesize textAlign;
+@synthesize font;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.viewFrame = frame;
     }
     return self;
 }
 
 - (void)setMultiLineText:(NSString *)multiLineText
 {
+    // refresh subview
+    [self.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+
+    
     NSArray *array = [multiLineText componentsSeparatedByString:@"\n"]; //从字符\n中分隔成2个元素的数组
-    CGFloat cellHeight = self.viewFrame.size.height / array.count;
+    CGFloat cellHeight = self.frame.size.height / array.count;
     
     for (int i = 0; i < array.count ; i++) {
         GradientNormalLabel *label = [[GradientNormalLabel alloc]initWithFrame:
-                                       CGRectMake(0, cellHeight * i , self.viewFrame.size.width, cellHeight )];
-        [label setFont:FONT_MEDIUM_9];
+                                       CGRectMake(0, cellHeight * i , self.frame.size.width, cellHeight )];
+
+        label.font = self.font ?  self.font : FONT_MEDIUM_9 ;
         label.text = [array objectAtIndex:i];
         label.textAlignment = self.textAlign;
         [self addSubview:label];

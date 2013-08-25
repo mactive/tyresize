@@ -12,5 +12,6 @@
 
 @property(nonatomic, strong)NSString *multiLineText;
 @property(nonatomic, assign)NSTextAlignment textAlign;
+@property(nonatomic, assign)UIFont *font;
 
 @end

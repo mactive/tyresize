@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KBButton.h"
 #import "GradientNormalLabel.h"
+#import "ColoredLabel.h"
 #import "MultilineView.h"
 
 @interface KBViewController ()
@@ -18,8 +19,9 @@
 @property(strong, nonatomic)UIImageView *manualView;
 @property(strong, nonatomic)UIView *actionView;
 @property(strong, nonatomic)UIView *detailView;
-@property(strong, nonatomic)GradientLabel *detailTitle;
-@property(strong, nonatomic)GradientLabel *detailContent;
+@property(strong, nonatomic)UIScrollView *detailScrollView;
+@property(strong, nonatomic)ColoredLabel *detailTitle;
+@property(strong, nonatomic)MultilineView *detailContent;
 @property(strong, nonatomic)UIImageView *tyreBgView;
 @property(strong, nonatomic)KBButton *button1;
 @property(strong, nonatomic)KBButton *button2;
@@ -35,10 +37,18 @@
 @synthesize tempImage;
 @synthesize actionView;
 @synthesize detailView, detailTitle, detailContent;
+@synthesize detailScrollView;
 @synthesize button1, button2, button3, button4, button5, button6;
 
-#define MAX_WIDTH 220
-#define DETAIL_HEIGHT 50.0
+#define MAX_WIDTH   200.0f
+#define DETAIL_HEIGHT 100.0f
+#define BTN_WIDTH   45.0f
+#define BTN_HEIGHT  60.0f
+#define Y_OFFSET    25.0f
+#define X_OFFSET    10.0f
+#define X_I         51.0f
+#define GAP_HEIGHT  20.0f
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +71,7 @@
     
     //BG View
     self.tyreBgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyreView_bg.png"]];
-    self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT+38);
+    self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT);
     [self.view addSubview:self.tyreBgView];
     
 	// Do any additional setup after loading the view.
@@ -79,44 +89,41 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self refreshDetailViewWithIndex:1];
+    [self refreshDetailViewWithIndex:1 willRotate:YES];
 }
+
+#define DETAIL_Y 40.0f
 
 - (void)initDetailView
 {
-    self.detailView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - DETAIL_HEIGHT, TOTAL_WIDTH, DETAIL_HEIGHT)];
+    self.detailView = [[UIView alloc]initWithFrame:
+                       CGRectMake(0, TYRE_VIEW_HEIGHT+ PRMT_VIEW_HEIGHT - GAP_HEIGHT, TOTAL_WIDTH, DETAIL_HEIGHT)];
+    // bgview
+    UIImageView *bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, 250)];
+    [bgView setImage:[UIImage imageNamed:@"wiki_detail_bg.png"]];
     
-    // line
-    UIImageView *lineView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 1, TOTAL_WIDTH, 1)];
-    [lineView setImage:[UIImage imageNamed:@"green_line.png"]];
-    self.detailView.backgroundColor = BGCOLOR;
-    
+    self.detailScrollView = [[UIScrollView alloc]initWithFrame:
+                             CGRectMake(0, 7, TOTAL_WIDTH, TOTAL_HEIGHT - TYRE_VIEW_HEIGHT - PRMT_VIEW_HEIGHT - 55.0f)];
+    self.detailScrollView.contentOffset = CGPointMake(0, 20.0f);
     // detailTitle
-    self.detailTitle = [[GradientLabel alloc]initWithFrame:CGRectMake(10, 10, 45, 24)];
-    self.detailTitle.backgroundColor = HANDLEBGCOLOR;
-    self.detailTitle.layer.borderColor = HANDLEBORDERCOLOR;
-    self.detailTitle.layer.borderWidth = 1.0f;
-    self.detailTitle.layer.cornerRadius = 5.0f;
-    self.detailTitle.textAlignment = NSTextAlignmentCenter;
-    self.detailTitle.font = LITTLECUSTOMFONT;
-    self.detailTitle.textColor = DARKCOLOR;
+    self.detailTitle = [[ColoredLabel alloc]init];
+    [self.detailTitle setFrame:CGRectMake(15, DETAIL_Y, 80, 44)];
+    [self.detailTitle setFont:FONT_MEDIUM_40];
     
     // detail content
-    self.detailContent = [[GradientLabel alloc]initWithFrame:CGRectMake(70, 15, MAX_WIDTH, 20)];
-    self.detailContent.backgroundColor = [UIColor clearColor];
-    self.detailContent.numberOfLines = 0;
-    self.detailContent.font = TINYCUSTOMFONT;
-    self.detailContent.textAlignment = NSTextAlignmentLeft;
-    self.detailContent.textColor = GREENCOLOR;
+    self.detailContent = [[MultilineView alloc] initWithFrame:CGRectZero];
+    self.detailContent.textAlign = NSTextAlignmentLeft;
     
-    [self.detailView addSubview:lineView];
-    [self.detailView addSubview:self.detailTitle];
-    [self.detailView addSubview:self.detailContent];
+    // view inherit
+    [self.detailScrollView addSubview:self.detailTitle];
+    [self.detailScrollView addSubview:self.detailContent];
+    [self.detailView addSubview:bgView];
+    [self.detailView addSubview:self.detailScrollView];
     
     [self.view addSubview:self.detailView];
 }
 
-- (void)refreshDetailViewWithIndex:(NSInteger)index
+- (void)refreshDetailViewWithIndex:(NSInteger)index willRotate:(BOOL)rotate
 {
     NSString *title;
     NSString *content;
@@ -139,7 +146,7 @@
             break;
         case 5:
             title       = T(@"87");
-            content     = T(@"Load opacity of one tyre\n89 = 1,279 pounds\n88 = 1,235 pounds\n87 = 1,201 pounds\n86 = 1,168 pounds\n85 = 1,135 pounds\nTypically, the load indexes of the tires used on passenger cars and light trucks range from 70 to 110.\n87 * 4 > car weight + people's weight");
+            content     = T(@"Load opacity of one tyre\n89 = 1,279 pounds\n88 = 1,235 pounds\n87 = 1,201 pounds\n86 = 1,168 pounds\n85 = 1,135 pounds\nTypically, the load indexes of the\ntires used on passenger cars\nand light trucks range from\n70 to 110.\n87 * 4 > car weight + people's \nweight");
             break;
         case 6:
             title       = T(@"V");
@@ -150,15 +157,36 @@
     }
     
     
-    CGSize size = [(content ? content : @"") sizeWithFont:TINYCUSTOMFONT
+    CGSize size = [(content ? content : @"") sizeWithFont:FONT_BOOK_12
                                         constrainedToSize:CGSizeMake(MAX_WIDTH, 9999)
                                             lineBreakMode:NSLineBreakByWordWrapping];
 
-    [self.detailContent setFrame:CGRectMake(70, 15, MAX_WIDTH, size.height)];
+    [self.detailContent setFrame:CGRectMake(100, DETAIL_Y, MAX_WIDTH, size.height )];
+    [self.detailContent setFont:FONT_BOOK_12];
+    [self.detailContent setMultiLineText:content];
     [self.detailTitle setText:title];
-    [self.detailContent setText:content];
-    CGFloat offsetY = size.height + DETAIL_HEIGHT ;
-    [self moveYPosition:offsetY andDelay:0 withView:self.detailView];
+    
+    CGFloat contentHeight = size.height + DETAIL_Y * 2;
+        [self.detailScrollView setContentSize:CGSizeMake(TOTAL_WIDTH, contentHeight )];
+
+    // Rotate the tyre
+    if (rotate) {
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionNone
+                         animations:^{
+                             self.tempImage.transform = CGAffineTransformRotate(self.tempImage.transform, M_PI / 8);
+                         }
+                         completion:nil];
+    }
+    
+    
+
+    
+    
+    
+    
+    
+//    CGFloat offsetY = size.height + DETAIL_HEIGHT ;
+//    [self moveYPosition:offsetY andDelay:0 withView:self.detailView];
 }
 
 - (void)moveYPosition:(CGFloat)position andDelay:(CGFloat)delay withView:(UIView *)targetView
@@ -177,11 +205,6 @@
     [UIView commitAnimations];
 }
 
-#define BTN_WIDTH   45.0f
-#define BTN_HEIGHT  60.0f
-#define Y_OFFSET    25.0f
-#define X_OFFSET    10.0f
-#define X_I         51.0f
 
 - (void)initButtons
 {
@@ -193,7 +216,7 @@
         y_button = 180.0f;
     }
     
-    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
+    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT- GAP_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
     
     [self initManualView];
 
@@ -286,9 +309,6 @@
         [self.manualView addSubview:label1];
     }
     
-
-
-    
     // add to parent view
     [self.actionView addSubview:self.manualView];
 }
@@ -296,7 +316,7 @@
 - (void)buttonAction:(UIButton *)sender
 {
     NSLog(@"sender %d",sender.tag);
-    [self refreshDetailViewWithIndex:sender.tag];
+    [self refreshDetailViewWithIndex:sender.tag willRotate:YES];
 }
 
 - (void)backAction
