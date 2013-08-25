@@ -97,14 +97,14 @@
 - (void)initDetailView
 {
     self.detailView = [[UIView alloc]initWithFrame:
-                       CGRectMake(0, TYRE_VIEW_HEIGHT+ PRMT_VIEW_HEIGHT - GAP_HEIGHT, TOTAL_WIDTH, DETAIL_HEIGHT)];
+                       CGRectMake(0, TYRE_VIEW_HEIGHT+ OPER_VIEW_HEIGHT - GAP_HEIGHT*2, TOTAL_WIDTH, DETAIL_HEIGHT)];
     // bgview
     UIImageView *bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, 250)];
     [bgView setImage:[UIImage imageNamed:@"wiki_detail_bg.png"]];
     
     self.detailScrollView = [[UIScrollView alloc]initWithFrame:
-                             CGRectMake(0, 7, TOTAL_WIDTH, TOTAL_HEIGHT - TYRE_VIEW_HEIGHT - PRMT_VIEW_HEIGHT - 55.0f)];
-    self.detailScrollView.contentOffset = CGPointMake(0, 20.0f);
+                             CGRectMake(0, 7, TOTAL_WIDTH, TOTAL_HEIGHT - TYRE_VIEW_HEIGHT - OPER_VIEW_HEIGHT - GAP_HEIGHT )];
+    self.detailScrollView.contentOffset = CGPointMake(0, GAP_HEIGHT);
     // detailTitle
     self.detailTitle = [[ColoredLabel alloc]init];
     [self.detailTitle setFrame:CGRectMake(15, DETAIL_Y, 80, 44)];
@@ -208,15 +208,8 @@
 
 - (void)initButtons
 {
-    CGFloat y_button;
     
-    if (IS_IPHONE_5) {
-        y_button = 200.0f;
-    }else{
-        y_button = 180.0f;
-    }
-    
-    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT- GAP_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
+    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT- GAP_HEIGHT, TOTAL_WIDTH, OPER_VIEW_HEIGHT)];
     
     [self initManualView];
 
@@ -270,7 +263,7 @@
     
     //BG View
     self.manualView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
-    self.manualView.frame = CGRectMake(0, 0 , TOTAL_WIDTH, PRMT_VIEW_HEIGHT);
+    self.manualView.frame = CGRectMake(0, 0 , TOTAL_WIDTH, OPER_VIEW_HEIGHT);
     
     // Note View
     UIImageView *noteView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Wiki_note.png"]];
