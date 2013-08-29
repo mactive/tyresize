@@ -99,7 +99,7 @@
 #define TYRE_HEIGHT 160.0f
 #define TYRE_WIDTH  160.0f
 #define TOTAL_WIDTH 320.0f
-#define TYRE_VIEW_HEIGHT 177.0f
+//#define TYRE_VIEW_HEIGHT 177.0f
 #define TYRE_VIEW_HEIGHT (IS_IPHONE_5 ? 177.0f:120.0f)
 #define OPER_VIEW_HEIGHT 217.0f //lock btn in the oper_view
 #define PRMT_VIEW_HEIGHT 223.0f 
@@ -139,7 +139,7 @@ alpha:(a)]
 #define BLUE_GLOW_COLOR [UIColor colorWithRed:0.0f/255.0f green:68.0f/255.0f blue:202.0f/255.0f alpha:1]
 
 #define ORANGE_LINE_COLOR [UIColor colorWithRed:255.0f/255.0f green:198.0f/255.0f blue:0.0f/255.0f alpha:1]
-
+#define YELLOW_DOT_COLOR  [UIColor colorWithRed:251.0f/255.0f green:203.0f/255.0f blue:58.0f/255.0f alpha:1]
 
 #define SEPCOLOR [UIColor colorWithRed:225.0f/255.0f green:225.0f/255.0f blue:225.0f/255.0f alpha:1]
 #define TEXTFIELD_BGCOLOR [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1]

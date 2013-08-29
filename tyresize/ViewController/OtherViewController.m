@@ -53,6 +53,7 @@
 #define DETAIL_WIDTH    280.0f
 #define DETAIL_HEIGHT   260.0f
 #define DETAIL_X        20.0f
+#define SLIDER_NOTE_HEIGHT 40.0f
 
 - (void)initDetailView
 {
@@ -69,6 +70,13 @@
     self.detailTitle.textColor = GREENCOLOR;
     self.detailTitle.numberOfLines = 0;
     self.detailTitle.text = T(@"We are a interactive Team in Beijing, China.\nFocus on iOS App and Web App");
+    
+//    T(@"With tyre wiki you can know the detail of parameter.");
+//    T(@"Click list data to view more 5 lines.");
+//    T(@"Lock your tyre first and change you want.");
+//    T(@"Metric and Imperial system switch.");
+//    T(@"The most Easy-to-use tyre calculator,and UI friendly.");
+    
     
     
     // detail content
