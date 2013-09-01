@@ -100,7 +100,7 @@
 #define TYRE_WIDTH  160.0f
 #define TOTAL_WIDTH 320.0f
 //#define TYRE_VIEW_HEIGHT 177.0f
-#define TYRE_VIEW_HEIGHT (IS_IPHONE_5 ? 177.0f:120.0f)
+#define TYRE_VIEW_HEIGHT (IS_IPHONE_5 ? 177.0f : 120.0f)
 #define OPER_VIEW_HEIGHT 217.0f //lock btn in the oper_view
 #define PRMT_VIEW_HEIGHT 223.0f 
 #define BUTTON_VIEW_HEIGHT  44.0f

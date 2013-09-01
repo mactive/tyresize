@@ -8,11 +8,12 @@
 
 #import "OtherViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "REPagedScrollView.h"
+#import "GCPagedScrollView.h"
 #import "ScrollCellUIView.h"
 
-@interface OtherViewController ()
-@property(strong, nonatomic)REPagedScrollView *scrollView;
+
+@interface OtherViewController ()<UIScrollViewAccessibilityDelegate>
+@property(strong, nonatomic)GCPagedScrollView *scrollView;
 @property(strong, nonatomic)NSArray *scrollTitleArray;
 @property(strong, nonatomic)NSArray *scrollImageArray;
 
@@ -21,7 +22,7 @@
 @end
 
 
-#define GAP_HEIGHT  0.0f
+#define GAP_HEIGHT  18.0f
 
 
 @implementation OtherViewController
@@ -46,11 +47,6 @@
     
     [self initScrollView];
     
-    // line
-    UIImageView *lineView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 80, TOTAL_WIDTH, 1)];
-    [lineView setImage:[UIImage imageNamed:@"green_line.png"]];
-    [self.view addSubview:lineView];
-    
     [self initActionView];
     [self initDetailView];
 }
@@ -73,18 +69,37 @@
                              @"slider_5.png",
                              nil];
     
-    CGRect scrollFrame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT-GAP_HEIGHT);
-    self.scrollView = [[REPagedScrollView alloc] initWithFrame:scrollFrame];
-    [self.view addSubview:self.scrollView];
+    CGRect scrollFrame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT + GAP_HEIGHT*2 );
+    self.scrollView = [[GCPagedScrollView alloc] initWithFrame:scrollFrame];
+    self.scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    self.scrollView.backgroundColor = BGCOLOR;
+    self.scrollView.minimumZoomScale = 1; //最小到0.3倍
+    self.scrollView.maximumZoomScale = 3.0; //最大到3倍
+    self.scrollView.clipsToBounds = YES;
+    self.scrollView.scrollEnabled = YES;
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.delegate = self;
+    [self.scrollView removeAllContentSubviews];
+    
+    NSLog(@"scrollFrame: %@",NSStringFromCGRect(scrollFrame));
+
     
     for (int i = 0 ; i < [self.scrollImageArray count]; i++) {
-        ScrollCellUIView *page = [[ScrollCellUIView alloc] initWithFrame:scrollFrame];
+        ScrollCellUIView *page = [[ScrollCellUIView alloc]
+                                  initWithFrame:CGRectMake(0, 0, 320, scrollFrame.size.height)];
         page.title = [self.scrollTitleArray objectAtIndex:i];
         page.bgImage = [UIImage imageNamed:[self.scrollImageArray objectAtIndex:i]];
+//        CGFloat red = i * 50.0f;
+//        NSLog(@"red %f",red);
+//        page.backgroundColor = [UIColor colorWithRed:red green:100 blue:100 alpha:1];
         
-        [self.scrollView addPage:page];
-
+        [self.scrollView addContentSubview:page];
+        
+//        [self.scrollView addSubview:page];
     }
+
+    [self.view addSubview:self.scrollView];
+
 }
 
 

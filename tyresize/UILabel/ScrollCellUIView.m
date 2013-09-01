@@ -15,7 +15,7 @@
 
 @end
 
-#define SCROLL_Y    85.0f
+#define SCROLL_Y    115.0f
 #define SCROLL_HEIGHT    40.0f
 
 
@@ -32,14 +32,15 @@
     if (self) {
         // Initialization code
         self.bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        [self.bgImageView setContentMode:UIViewContentModeScaleAspectFill];
+        [self.bgImageView setContentMode:UIViewContentModeScaleAspectFit];
         [self addSubview:self.bgImageView];
         
         self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, SCROLL_Y, frame.size.width, SCROLL_HEIGHT)];
-        self.titleLabel.font = FONT_LIGHT_15;
+        self.titleLabel.font = FONT_BOOK_12;
+        self.titleLabel.textColor = [UIColor whiteColor];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-        [self addSubview:self.bgImageView];
+        [self addSubview:self.titleLabel];
     }
     return self;
 }

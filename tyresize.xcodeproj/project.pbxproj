@@ -65,6 +65,7 @@
 		04CEECC417AB4D9B00DCE91F /* navigationBar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC317AB4D9B00DCE91F /* navigationBar_bg@2x.png */; };
 		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
 		04EBBC0F17CA45CF00DE1148 /* MultilineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBBC0E17CA45CF00DE1148 /* MultilineView.m */; };
+		04EF7CA017D2C1DA007F762E /* GCPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF7C9817D2C1DA007F762E /* GCPagedScrollView.m */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
 		264F719F16E9A3EE00E77FE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719E16E9A3EE00E77FE0 /* Foundation.framework */; };
 		264F71A116E9A3EE00E77FE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F71A016E9A3EE00E77FE0 /* CoreGraphics.framework */; };
@@ -175,6 +176,8 @@
 		04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tyreView_bg@2x.png"; sourceTree = "<group>"; };
 		04EBBC0D17CA45CF00DE1148 /* MultilineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineView.h; sourceTree = "<group>"; };
 		04EBBC0E17CA45CF00DE1148 /* MultilineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineView.m; sourceTree = "<group>"; };
+		04EF7C9717D2C1DA007F762E /* GCPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPagedScrollView.h; sourceTree = "<group>"; };
+		04EF7C9817D2C1DA007F762E /* GCPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPagedScrollView.m; sourceTree = "<group>"; };
 		1CC5B0A105C840CA862CA764 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264F719C16E9A3EE00E77FE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -305,6 +308,23 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		04EF7C9517D2C1DA007F762E /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				04EF7C9617D2C1DA007F762E /* GCPagedScrollView */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		04EF7C9617D2C1DA007F762E /* GCPagedScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				04EF7C9717D2C1DA007F762E /* GCPagedScrollView.h */,
+				04EF7C9817D2C1DA007F762E /* GCPagedScrollView.m */,
+			);
+			path = GCPagedScrollView;
+			sourceTree = "<group>";
+		};
 		264F719016E9A3EE00E77FE0 = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +374,7 @@
 				047973C7172D9EB10037CD8B /* OtherViewController.m */,
 				049585EC17B9362100031292 /* MCTabBarController.h */,
 				049585ED17B9362100031292 /* MCTabBarController.m */,
+				04EF7C9517D2C1DA007F762E /* ThirdParty */,
 				04CEECBE17AB4C5F00DCE91F /* Category */,
 				0418414B17AC8CD600D27C2F /* UILabel */,
 				042094B616FA09340019C12E /* UIView */,
@@ -609,6 +630,7 @@
 				04CE58CB17C90BFF00C7221F /* MultilineLabel.m in Sources */,
 				04EBBC0F17CA45CF00DE1148 /* MultilineView.m in Sources */,
 				2666CB3A17D0219700AA399E /* ScrollCellUIView.m in Sources */,
+				04EF7CA017D2C1DA007F762E /* GCPagedScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
