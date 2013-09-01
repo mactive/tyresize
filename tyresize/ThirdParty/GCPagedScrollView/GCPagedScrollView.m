@@ -54,7 +54,6 @@ const CGFloat GCPagedScrollViewPageControlHeight = 24.0;
         [aPageControl setPageControlStyle:PageControlStyleDefault];
         [aPageControl setCoreNormalColor:[UIColor colorWithWhite:1.0f alpha:0.6f]];
         [aPageControl setCoreSelectedColor:YELLOW_DOT_COLOR];
-//        [aPageControl setPageControlStyle:PageControlStyleWithPageNumber];
         [aPageControl setUserInteractionEnabled:NO];
         [self addSubview:aPageControl];
 

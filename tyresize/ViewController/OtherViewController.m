@@ -18,6 +18,7 @@
 @property(strong, nonatomic)NSArray *scrollImageArray;
 
 @property(strong, nonatomic)UIView *actionView;
+@property(strong, nonatomic)UIView *detailView;
 
 @end
 
@@ -30,6 +31,7 @@
 @synthesize scrollView;
 @synthesize scrollImageArray, scrollTitleArray;
 @synthesize actionView;
+@synthesize detailView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +50,7 @@
     [self initScrollView];
     
     [self initActionView];
+    
     [self initDetailView];
 }
 
@@ -99,13 +102,16 @@
     }
 
     [self.view addSubview:self.scrollView];
-
+    
 }
 
 
 - (void)initActionView
 {
-    
+    // custom button
+    // button button slected slect
+    // button.iconImage
+    // button action
 }
 
 - (void)initDetailView
