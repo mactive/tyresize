@@ -66,6 +66,7 @@
 		04CEECC617AB549300DCE91F /* tyreView_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CEECC517AB549300DCE91F /* tyreView_bg@2x.png */; };
 		04EBBC0F17CA45CF00DE1148 /* MultilineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBBC0E17CA45CF00DE1148 /* MultilineView.m */; };
 		04EF7CA017D2C1DA007F762E /* GCPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF7C9817D2C1DA007F762E /* GCPagedScrollView.m */; };
+		263C503917D56B70006050BE /* AvatarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C503817D56B70006050BE /* AvatarButton.m */; };
 		264F719D16E9A3EE00E77FE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719C16E9A3EE00E77FE0 /* UIKit.framework */; };
 		264F719F16E9A3EE00E77FE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F719E16E9A3EE00E77FE0 /* Foundation.framework */; };
 		264F71A116E9A3EE00E77FE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264F71A016E9A3EE00E77FE0 /* CoreGraphics.framework */; };
@@ -179,6 +180,8 @@
 		04EF7C9717D2C1DA007F762E /* GCPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPagedScrollView.h; sourceTree = "<group>"; };
 		04EF7C9817D2C1DA007F762E /* GCPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPagedScrollView.m; sourceTree = "<group>"; };
 		1CC5B0A105C840CA862CA764 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		263C503717D56B70006050BE /* AvatarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarButton.h; sourceTree = "<group>"; };
+		263C503817D56B70006050BE /* AvatarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarButton.m; sourceTree = "<group>"; };
 		264F719916E9A3EE00E77FE0 /* tyresize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tyresize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264F719C16E9A3EE00E77FE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		264F719E16E9A3EE00E77FE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -254,6 +257,8 @@
 				049C738217BBCB2A0012B18D /* KBButton.m */,
 				04880E6417AE3C7E00FA3851 /* ColoredButton.h */,
 				04880E6517AE3C7E00FA3851 /* ColoredButton.m */,
+				263C503717D56B70006050BE /* AvatarButton.h */,
+				263C503817D56B70006050BE /* AvatarButton.m */,
 				0418414C17AC8D6600D27C2F /* GradientLabel.h */,
 				0418414D17AC8D6600D27C2F /* GradientLabel.m */,
 				0497016717AE300A0040995A /* GradientNormalLabel.h */,
@@ -631,6 +636,7 @@
 				04EBBC0F17CA45CF00DE1148 /* MultilineView.m in Sources */,
 				2666CB3A17D0219700AA399E /* ScrollCellUIView.m in Sources */,
 				04EF7CA017D2C1DA007F762E /* GCPagedScrollView.m in Sources */,
+				263C503917D56B70006050BE /* AvatarButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

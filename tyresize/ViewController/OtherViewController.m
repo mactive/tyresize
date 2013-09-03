@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "GCPagedScrollView.h"
 #import "ScrollCellUIView.h"
+#import "AvatarButton.h"
 
 
 @interface OtherViewController ()<UIScrollViewAccessibilityDelegate>
@@ -89,12 +90,9 @@
     
     for (int i = 0 ; i < [self.scrollImageArray count]; i++) {
         ScrollCellUIView *page = [[ScrollCellUIView alloc]
-                                  initWithFrame:CGRectMake(0, 0, 320, scrollFrame.size.height)];
+                                  initWithFrame:scrollFrame];
         page.title = [self.scrollTitleArray objectAtIndex:i];
         page.bgImage = [UIImage imageNamed:[self.scrollImageArray objectAtIndex:i]];
-//        CGFloat red = i * 50.0f;
-//        NSLog(@"red %f",red);
-//        page.backgroundColor = [UIColor colorWithRed:red green:100 blue:100 alpha:1];
         
         [self.scrollView addContentSubview:page];
         
@@ -108,10 +106,27 @@
 
 - (void)initActionView
 {
+    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT- GAP_HEIGHT, TOTAL_WIDTH, OPER_VIEW_HEIGHT)];
+    
+    //BG View
+    UIImageView *activeBGView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
+    activeBGView.frame = CGRectMake(0, 0 , TOTAL_WIDTH, OPER_VIEW_HEIGHT);
+    [self.actionView addSubview:activeBGView];
+    
     // custom button
     // button button slected slect
     // button.iconImage
     // button action
+    
+    AvatarButton *button = [AvatarButton buttonWithType:UIButtonTypeCustom];
+    [button setFrame:CGRectMake(20, 20, 116, 120)];
+    [button addTarget:self action:@selector(actionAvatar) forControlEvents:UIControlEventTouchUpInside];
+    [button setSelected:YES];
+    [self.actionView addSubview:button];
+    
+    
+    [self.view addSubview:self.actionView];
+
 }
 
 - (void)initDetailView
