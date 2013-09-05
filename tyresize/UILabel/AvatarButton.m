@@ -39,11 +39,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.avatarView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, BUTTON_SQUARE, BUTTON_SQUARE)];
-        self.iconView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ICON_SQUARE, ICON_SQUARE)];
+        self.avatarView = [[UIImageView alloc]initWithFrame:
+                           CGRectMake(0, 0, BUTTON_SQUARE, BUTTON_SQUARE)];
+        
+        self.iconView = [[UIImageView alloc]initWithFrame:
+                         CGRectMake(BUTTON_SQUARE-ICON_SQUARE/2, - ICON_SQUARE/2, ICON_SQUARE, ICON_SQUARE)];
         
         self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, frame.size.width, 20)];
-        self.titleLabel = [[GradientNormalLabel alloc]initWithFrame:CGRectMake(0, BUTTON_SQUARE, frame.size.width, 20)];
+        
+        self.titleLabel = [[GradientNormalLabel alloc]initWithFrame:
+                           CGRectMake(0, BUTTON_SQUARE, frame.size.width, 20)];
         
         [self addSubview:self.avatarView];
         [self addSubview:self.iconView];
@@ -55,15 +60,10 @@
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
-    [self.avatarView setImage:[UIImage imageNamed:@"mactive_avatar.png"]];
-    [self.iconView setImage:[UIImage imageNamed:@"designer_icon.png"]];
-    self.nameLabel.text = T(@"Mactive");
-    self.titleLabel.text = T(@"iOS Developer");
-}
-
-- (void)setHighlighted:(BOOL)highlighted
-{
-    NSLog(@"HIGHLIGHTED");
+//    [self.avatarView setImage:[UIImage imageNamed:@"mactive_avatar.png"]];
+//    [self.iconView setImage:[UIImage imageNamed:@"designer_icon.png"]];
+//    self.nameLabel.text = T(@"Mactive");
+//    self.titleLabel.text = T(@"iOS Developer");
 }
 
 - (void)setSelected:(BOOL)selected
@@ -72,9 +72,27 @@
         NSLog(@"selected");
         [self drawCricleLine];
     }
-
 }
 
+- (void)setAvatarImage:(UIImage *)_avatarImage
+{
+    [self.avatarView setImage:_avatarImage];
+}
+
+- (void)setIconImage:(UIImage *)_iconImage
+{
+    [self.iconView setImage:_iconImage];
+}
+
+- (void)setName:(NSString *)nameString
+{
+    self.nameLabel.text = nameString;
+}
+
+- (void)setTitle:(NSString *)titleString
+{
+    self.titleLabel.text = titleString;
+}
 
 
 
