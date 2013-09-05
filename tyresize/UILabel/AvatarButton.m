@@ -20,11 +20,11 @@
 
 
 #define BUTTON_RADIUS   53.0f
-#define BUTTON_SQUARE   106.0f
-#define ICON_SQUARE     35.0f
+#define BUTTON_SQUARE   80.0f
+#define ICON_SQUARE     25.0f
 
-#define CRICLE_SQUARE   116.0f
-#define CRICLE_RADIUS   58.0f
+#define CRICLE_SQUARE   90.0f
+#define CRICLE_RADIUS   45.0f
 
 
 @implementation AvatarButton
@@ -43,9 +43,9 @@
                            CGRectMake(0, 0, BUTTON_SQUARE, BUTTON_SQUARE)];
         
         self.iconView = [[UIImageView alloc]initWithFrame:
-                         CGRectMake(BUTTON_SQUARE-ICON_SQUARE/2, - ICON_SQUARE/2, ICON_SQUARE, ICON_SQUARE)];
+                         CGRectMake(BUTTON_SQUARE-ICON_SQUARE, 0 , ICON_SQUARE, ICON_SQUARE)];
         
-        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, frame.size.width, 20)];
+        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50.0f, frame.size.width, 20)];
         
         self.titleLabel = [[GradientNormalLabel alloc]initWithFrame:
                            CGRectMake(0, BUTTON_SQUARE, frame.size.width, 20)];

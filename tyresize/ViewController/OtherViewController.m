@@ -110,14 +110,14 @@
 }
 
 
-#define AVATAR_X 20.0f
-#define AVATAR_Y 20.0f
-#define AVATAR_WIDTH 116.0f
+#define AVATAR_X 10.0f
+#define AVATAR_Y 50.0f
+#define AVATAR_WIDTH 100.0f
 #define AVATAR_HEIGHT 120.0f
 
 - (void)initActionView
 {
-    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT- GAP_HEIGHT, TOTAL_WIDTH, OPER_VIEW_HEIGHT)];
+    self.actionView = [[UIView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT- GAP_HEIGHT*2, TOTAL_WIDTH, OPER_VIEW_HEIGHT)];
     
     //BG View
     UIImageView *activeBGView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
@@ -132,10 +132,11 @@
     self.developerAvatar = [AvatarButton buttonWithType:UIButtonTypeCustom];
     [self.developerAvatar setFrame:CGRectMake(AVATAR_X, AVATAR_Y, AVATAR_WIDTH, AVATAR_HEIGHT)];
     [self.developerAvatar addTarget:self action:@selector(actionAvatar:) forControlEvents:UIControlEventTouchUpInside];
-    [self.developerAvatar setName:T(@"Mactive")];
-    [self.developerAvatar setTitle:T(@"iOS Developer")];
+
     [self.developerAvatar setAvatarImage:[UIImage imageNamed:@"mactive_avatar.png"]];
     [self.developerAvatar setIconImage:[UIImage imageNamed:@"developer_icon.png"]];
+    [self.developerAvatar setName:T(@"Mactive")];
+    [self.developerAvatar setTitle:T(@"iOS Developer")];
     self.developerAvatar.tag = DEVELOPER_TAG;
     
     
