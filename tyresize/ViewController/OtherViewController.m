@@ -110,7 +110,7 @@
 }
 
 
-#define AVATAR_X 10.0f
+#define AVATAR_X 15.0f
 #define AVATAR_Y 50.0f
 #define AVATAR_WIDTH 100.0f
 #define AVATAR_HEIGHT 120.0f
@@ -136,7 +136,7 @@
     [self.developerAvatar setAvatarImage:[UIImage imageNamed:@"mactive_avatar.png"]];
     [self.developerAvatar setIconImage:[UIImage imageNamed:@"developer_icon.png"]];
     [self.developerAvatar setName:T(@"Mactive")];
-    [self.developerAvatar setTitle:T(@"iOS Developer")];
+    [self.developerAvatar setTitle:T(@"Developer")];
     self.developerAvatar.tag = DEVELOPER_TAG;
     
     
@@ -152,7 +152,7 @@
     self.counselorAvatar = [AvatarButton buttonWithType:UIButtonTypeCustom];
     [self.counselorAvatar setFrame:CGRectMake(AVATAR_X+AVATAR_WIDTH*2, AVATAR_Y, AVATAR_WIDTH, AVATAR_HEIGHT)];
     [self.counselorAvatar addTarget:self action:@selector(actionAvatar:) forControlEvents:UIControlEventTouchUpInside];
-    [self.counselorAvatar setName:T(@"Kuang Wenjun")];
+    [self.counselorAvatar setName:T(@"laofozhu")];
     [self.counselorAvatar setTitle:T(@"Counselor")];
     [self.counselorAvatar setAvatarImage:[UIImage imageNamed:@"kuangwenjun_avatar.png"]];
     [self.counselorAvatar setIconImage:[UIImage imageNamed:@"counselor_icon.png"]];

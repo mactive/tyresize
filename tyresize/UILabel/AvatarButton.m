@@ -45,18 +45,26 @@
         self.iconView = [[UIImageView alloc]initWithFrame:
                          CGRectMake(BUTTON_SQUARE-ICON_SQUARE, 0 , ICON_SQUARE, ICON_SQUARE)];
         
-        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50.0f, frame.size.width, 20)];
+        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50.0f, BUTTON_SQUARE, 20)];
+        [self.nameLabel setBackgroundColor:[UIColor clearColor]];
+        [self.nameLabel setTextColor:[UIColor whiteColor]];
+        [self.nameLabel setFont:FONT_BOOK_12];
+        [self.nameLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.nameLabel setNumberOfLines:0];
         
         self.titleLabel = [[GradientNormalLabel alloc]initWithFrame:
-                           CGRectMake(0, BUTTON_SQUARE, frame.size.width, 20)];
+                           CGRectMake(0, BUTTON_SQUARE, BUTTON_SQUARE, 20)];
         
         [self addSubview:self.avatarView];
         [self addSubview:self.iconView];
         [self addSubview:self.nameLabel];
         [self addSubview:self.titleLabel];
+
+
     }
     return self;
 }
+
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
