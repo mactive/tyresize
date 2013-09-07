@@ -66,6 +66,7 @@
     [self initActionView];
     
     [self initDetailView];
+
 }
 
 - (void)initScrollView{
@@ -275,7 +276,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self actionAvatar:self.developerAvatar];
+
+    //three avatarButton tag 1 2 3
+    int r = arc4random() % 3;
+    r = r+1;
+    
+    [self actionAvatar:(AvatarButton *)[self.actionView viewWithTag:r]];
 }
 
 - (void)didReceiveMemoryWarning

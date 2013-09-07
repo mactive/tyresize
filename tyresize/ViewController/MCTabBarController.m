@@ -20,6 +20,9 @@
 
 @end
 
+#define SWITCH_BUTTON_TAG   0
+#define WIKI_BUTTON_TAG     1
+#define OTHER_BUTTON_TAG    2
 @implementation MCTabBarController
 
 @synthesize tabBarView;
@@ -59,9 +62,9 @@
     self.otherBtn.frame= CGRectMake(TOTAL_WIDTH/3*2, 0, TOTAL_WIDTH/3, BUTTON_VIEW_HEIGHT);
     [self.otherBtn setTitle:T(@"OTHER") forState:UIControlStateNormal];
     
-    self.switchBtn.tag = 0;
-    self.wikiBtn.tag = 1;
-    self.otherBtn.tag = 2;
+    self.switchBtn.tag = SWITCH_BUTTON_TAG;
+    self.wikiBtn.tag = WIKI_BUTTON_TAG;
+    self.otherBtn.tag = OTHER_BUTTON_TAG;
     
     
     [self.switchBtn addTarget:self action:@selector(changeViewController:) forControlEvents:UIControlEventTouchUpInside];
@@ -79,8 +82,9 @@
 {
     UIButton *button = (UIButton *) sender;
     self.selectedIndex = button.tag;
-    if (button.tag == 0) {
-        
+
+    if (button.tag == SWITCH_BUTTON_TAG) {
+        [self clearAllSelected];
         // mainviewcontroller switchaction
         for (UINavigationController *v in self.viewControllers)
         {
@@ -104,6 +108,23 @@
         
         NSLog(@"switchAction: %@",[self appDelegate].curSystem );
     }
+
+    if (button.tag == WIKI_BUTTON_TAG) {
+        [self clearAllSelected];
+        [self.wikiBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
+    }
+    
+    if (button.tag == OTHER_BUTTON_TAG) {
+        [self clearAllSelected];
+        [self.otherBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)clearAllSelected
+{
+    [self.switchBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.wikiBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.otherBtn setBackgroundImage:nil forState:UIControlStateNormal];
 }
 
 

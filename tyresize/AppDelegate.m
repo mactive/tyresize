@@ -52,7 +52,7 @@
                                         navController3,
                                         nil];
     [tabBarController.view setFrame:CGRectMake(0, 0, TOTAL_WIDTH, 30)];
-    [tabBarController setSelectedIndex:2];
+//    [tabBarController setSelectedIndex:2];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = DARKCOLOR;
