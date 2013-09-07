@@ -16,11 +16,13 @@
 @property(strong, nonatomic)UIImageView *iconView;
 @property(strong, nonatomic)UILabel *nameLabel;
 @property(strong, nonatomic)GradientNormalLabel *titleLabel;
+@property(strong, nonatomic)UIView *cricleView;
 @end
 
 
 #define BUTTON_RADIUS   53.0f
 #define BUTTON_SQUARE   80.0f
+#define BUTTON_HEIGHT   20.0f
 #define ICON_SQUARE     25.0f
 
 #define CRICLE_SQUARE   90.0f
@@ -33,6 +35,7 @@
 @synthesize name,title;
 @synthesize avatarView, iconView;
 @synthesize nameLabel, titleLabel;
+@synthesize cricleView;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -45,7 +48,7 @@
         self.iconView = [[UIImageView alloc]initWithFrame:
                          CGRectMake(BUTTON_SQUARE-ICON_SQUARE, 0 , ICON_SQUARE, ICON_SQUARE)];
         
-        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 50.0f, BUTTON_SQUARE, 20)];
+        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, BUTTON_SQUARE - BUTTON_HEIGHT-5, BUTTON_SQUARE, BUTTON_HEIGHT)];
         [self.nameLabel setBackgroundColor:[UIColor clearColor]];
         [self.nameLabel setTextColor:[UIColor whiteColor]];
         [self.nameLabel setFont:FONT_BOOK_12];
@@ -53,13 +56,23 @@
         [self.nameLabel setNumberOfLines:0];
         
         self.titleLabel = [[GradientNormalLabel alloc]initWithFrame:
-                           CGRectMake(0, BUTTON_SQUARE, BUTTON_SQUARE, 20)];
+                           CGRectMake(0, BUTTON_SQUARE+5, BUTTON_SQUARE, 20)];
         
+        self.cricleView = [[UIView alloc]initWithFrame:CGRectMake(-5.0f, -5.0f, CRICLE_SQUARE, CRICLE_SQUARE)];
+                
+        
+        [self.avatarView setUserInteractionEnabled:NO];
+        [self.cricleView setUserInteractionEnabled:NO];
+        [self.iconView setUserInteractionEnabled:NO];
+        [self.nameLabel setUserInteractionEnabled:NO];
+        [self.titleLabel setUserInteractionEnabled:NO];
+        
+        
+        [self addSubview:self.cricleView];
         [self addSubview:self.avatarView];
         [self addSubview:self.iconView];
-        [self addSubview:self.nameLabel];
+//        [self addSubview:self.nameLabel];
         [self addSubview:self.titleLabel];
-
 
     }
     return self;
@@ -78,7 +91,11 @@
 {
     if (selected) {
         NSLog(@"selected");
-        [self drawCricleLine];
+        [self drawCricleWithRadius:CRICLE_RADIUS andColor:ORANGE_LINE_COLOR onView:self.cricleView];
+    }else{
+        for (CALayer *object in self.cricleView.layer.sublayers) {
+            [object removeFromSuperlayer];
+        }
     }
 }
 
@@ -103,10 +120,35 @@
 }
 
 
-
-- (void)drawCricleLine
+- (void)drawCricleWithRadius:(CGFloat)radius andColor:(UIColor *)borderColor onView:(UIView *)targetView
 {
+    // clean all sublayers
+    //    targetView.layer.sublayers = nil;
     
+    // Draw tyre cricle
+    CAShapeLayer *circle = [CAShapeLayer layer];
+    circle.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius)
+                                             cornerRadius:radius].CGPath;
+    // left top point
+    circle.position = CGPointMake(CGRectGetWidth(targetView.frame)/2 - radius,
+                                  CGRectGetHeight(targetView.frame)/2 - radius);
+    // Configure the apperence of the circle
+    circle.fillColor = [UIColor clearColor].CGColor;
+    circle.strokeColor = borderColor.CGColor;
+    circle.lineWidth = 1;
+    
+
+    
+    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    pathAnimation.duration = 0.3f;
+    pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+    pathAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    pathAnimation.repeatCount = 1;
+//    pathAnimation.autoreverses = YES;
+    [circle addAnimation:pathAnimation forKey:@"strokeEnd"];
+    
+    // Add to parent layer
+    [targetView.layer addSublayer:circle];
 }
 
 /*
