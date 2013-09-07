@@ -81,7 +81,6 @@
 - (void)changeViewController:(id) sender
 {
     UIButton *button = (UIButton *) sender;
-    self.selectedIndex = button.tag;
 
     if (button.tag == SWITCH_BUTTON_TAG) {
         [self clearAllSelected];
@@ -96,15 +95,15 @@
             }
         }
         
-        // change button title
-        if ([[self appDelegate].curSystem isEqualToString:UKSYS]) {
-            [self appDelegate].curSystem = UKSYS;
-        }else{
-            [self appDelegate].curSystem = USSYS;
-        }
-        
         [self.switchBtn setTitle:[self appDelegate].curSystem forState:UIControlStateNormal];
         [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
+        
+        // change button title
+        if ([[self appDelegate].curSystem isEqualToString:UKSYS] ) {
+            [self appDelegate].curSystem = USSYS;
+        }else{
+            [self appDelegate].curSystem = UKSYS;
+        }
         
         NSLog(@"switchAction: %@",[self appDelegate].curSystem );
     }
@@ -118,6 +117,10 @@
         [self clearAllSelected];
         [self.otherBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
     }
+    
+    // change the tabbarview
+    self.selectedIndex = button.tag;
+
 }
 
 - (void)clearAllSelected
@@ -134,7 +137,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self initButtons];
-
 }
 
 - (void)didReceiveMemoryWarning

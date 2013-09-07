@@ -118,7 +118,7 @@
 }
 
 #define AVATAR_X 15.0f
-#define AVATAR_Y 40.0f
+#define AVATAR_Y (IS_IPHONE_5 ? 50.0f : 40.0f )
 #define AVATAR_WIDTH 100.0f
 #define AVATAR_HEIGHT 120.0f
 #define DETAIL_HEIGHT 100.0f

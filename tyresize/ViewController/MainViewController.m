@@ -139,7 +139,8 @@
 
     // three button bottom
 //    [self initButtonView];
-
+    
+    [self switchAction];
 
 }
 
