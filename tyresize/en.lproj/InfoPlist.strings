@@ -1,2 +1,2 @@
-/* Localized versions of Info.plist keys */
-
+/* AppDefs.h */
+"PRODUCT_NAME" = "TyreSize";

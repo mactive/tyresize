@@ -73,7 +73,7 @@
     
     self.scrollTitleArray = [[NSArray alloc]initWithObjects:
                              T(@"With tyre wiki you can know the detail of parameter."),
-                             T(@"Click list data to view more 5 lines."),
+                             T(@"Click list data to view more 7 lines."),
                              T(@"Lock your tyre first and change you want."),
                              T(@"Metric and Imperial system switch."),
                              T(@"The most Easy-to-use tyre calculator,and UI friendly."),
@@ -226,11 +226,11 @@
             break;
         case 2:
             title       = T(@"Leon Qin");
-            content     = T(@"Sidewall Percent\nsidewall = width * 55%");
+            content     = T(@"Leon Qin Summary");
             break;
         case 3:
             title       = T(@"Laofozhu");
-            content     = T(@"Radial Constration");
+            content     = T(@"Laofozhu Summary");
             break;
         default:
             break;

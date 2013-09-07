@@ -30,7 +30,7 @@
 // main label
 @property(strong, nonatomic)UILabel *leftTitle;
 @property(strong, nonatomic)UILabel *rightTitle;
-@property(strong, nonatomic)NSString *curSystem;
+//@property(strong, nonatomic)NSString *curSystem;
 
 // value
 @property(assign, nonatomic)CGFloat nowWFloat;
@@ -223,9 +223,9 @@
 
     if (self.isOffseted) {
         if (IS_IPHONE_5) {
-            Yoffset = 90;
+            Yoffset = 120;
         }else{
-            Yoffset = 150;
+            Yoffset = 180;
         }
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreView];
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.tyreBgView];
@@ -234,9 +234,9 @@
         self.isOffseted = NO;
     }else{
         if (IS_IPHONE_5) {
-            Yoffset = -90;
+            Yoffset = -120;
         }else{
-            Yoffset = -150;
+            Yoffset = -180;
         }
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreView];
         [self moveYOffest:Yoffset andDelay:0.0 withView:self.tyreBgView];

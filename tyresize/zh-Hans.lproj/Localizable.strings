@@ -1,0 +1,201 @@
+/* 
+  Localizable.strings
+  tyresize
+
+  Created by mac on 13-9-7.
+  Copyright (c) 2013年 thinktube. All rights reserved.
+*/
+/* UIView/OperationView.m 86 */
+"YOUR TYRE" = "现在的";
+
+/* UIView/OperationView.m 89 */
+"YOU WANT" = "想要的";
+
+/* UIView/ParameterView.m 43 */
+"Sidewall(in)" = "侧壁(英寸)";
+
+/* UIView/ParameterView.m 44 */
+"Radius(in)" = "半径(英寸)";
+
+/* UIView/ParameterView.m 45 */
+"Diamter(in)" = "直径(英寸)";
+
+/* UIView/ParameterView.m 46 */
+"Circumference(in)" = "周长(英寸)";
+
+/* UIView/ParameterView.m 47 */
+"Rotations/Mile" = "圈数/英里";
+
+/* UIView/ParameterView.m 48 */
+"Speedo Diff(%)" = "速度表差别(%)";
+
+/* UIView/ParameterView.m 49 */
+"Speed@60mph" = "速度@60英里/h";
+
+/* UIView/ParameterView.m 52 */
+"Sidewall(mm)" = "侧壁(毫米)";
+
+/* UIView/ParameterView.m 53 */
+"Radius(mm)" = "半径(毫米)";
+
+/* UIView/ParameterView.m 54 */
+"Diamter(mm)" = "直径(毫米)";
+
+/* UIView/ParameterView.m 55 */
+"Circumference(mm)" = "周长(毫米)";
+
+/* UIView/ParameterView.m 56 */
+"Rotations/KM" = "圈数/公里";
+
+/* UIView/ParameterView.m 57 */
+"Speedo Diff(%)" = "速度表差别";
+
+/* UIView/ParameterView.m 58 */
+"Speed@100kph" = "速度@100公里/h";
+
+/* UIView/ParameterView.m 91 */
+"---" = "---";
+
+/* UIView/ParameterView.m 102 */
+"---" = "---";
+
+/* UIView/ParameterView.m 131 */
+"---" = "---";
+
+/* ViewController/KBViewController.m 126 */
+"195" = "195";
+
+/* ViewController/KBViewController.m 127 */
+"Nomainal section width \nMeasure Unit: mm" = "轮胎宽度 \n单位: 毫米";
+
+/* ViewController/KBViewController.m 130 */
+"55" = "55";
+
+/* ViewController/KBViewController.m 131 */
+"Sidewall Percent\nsidewall = width * 55%" = "侧壁厚度百分比 \n侧壁厚度 = 轮胎宽度 * 55%";
+
+/* ViewController/KBViewController.m 134 */
+"R" = "R";
+
+/* ViewController/KBViewController.m 135 */
+"Radial Constration" = "轮圈直径";
+
+/* ViewController/KBViewController.m 138 */
+"16" = "16";
+
+/* ViewController/KBViewController.m 139 */
+"Radial Constration\nMeasure Unit: inches" = "轮圈直径\n单位: 英寸";
+
+/* ViewController/KBViewController.m 142 */
+"87" = "87";
+
+/* ViewController/KBViewController.m 143 */
+"Load opacity of one tyre\n89 = 1,279 pounds\n88 = 1,235 pounds\n87 = 1,201 pounds\n86 = 1,168 pounds\n85 = 1,135 pounds\nTypically, the load indexes of the\ntires used on passenger cars\nand light trucks range from\n70 to 110.\n87 * 4 > car weight + people's \nweight" = "每只轮胎载重量\n89 = 1,279 磅\n88 = 1,235 磅\n87 = 1,201 磅\n86 = 1,168 磅\n85 = 1,135 磅\n通常普通房车和轻卡,\n这个参数在70-110之间.\n87 * 4 > 车重 + 乘客重量";
+
+/* ViewController/KBViewController.m 146 */
+"V" = "V";
+
+/* ViewController/KBViewController.m 147 */
+"Speed symbol maximum speed\n\nL  120KM/h\nQ  160KM/h\nR  170KM/h\nS  180KM/h\nH  210KM/h\nV  240KM/h\nW  270KM/h\nY  300KM/h" = "最高时速上限\n\nL  120KM/h\nQ  160KM/h\nR  170KM/h\nS  180KM/h\nH  210KM/h\nV  240KM/h\nW  270KM/h\nY  300KM/h";
+
+/* ViewController/KBViewController.m 224 */
+"195" = "195";
+
+/* ViewController/KBViewController.m 225 */
+"55" = "55";
+
+/* ViewController/KBViewController.m 226 */
+"R" = "R";
+
+/* ViewController/KBViewController.m 227 */
+"16" = "16";
+
+/* ViewController/KBViewController.m 228 */
+"87" = "87";
+
+/* ViewController/KBViewController.m 229 */
+"V" = "V";
+
+/* ViewController/KBViewController.m 274 */
+"199mm" = "199毫米";
+
+/* ViewController/KBViewController.m 275 */
+"55%" = "55%";
+
+/* ViewController/KBViewController.m 276 */
+"Radial\nConstruction" = "轮圈直径";
+
+/* ViewController/KBViewController.m 277 */
+"16inches" = "16英寸";
+
+/* ViewController/KBViewController.m 278 */
+"Load\nopacity\nof tyre" = "轮胎\n载重量";
+
+/* ViewController/KBViewController.m 279 */
+"Speed\nSymbol\nmaximum\nspeed" = "最高\n时速\n上限";
+
+/* ViewController/MCTabBarController.m 58 */
+"WIKI" = "百科";
+
+/* ViewController/MCTabBarController.m 63 */
+"OTHER" = "我们";
+
+/* ViewController/MainViewController.m 163 */
+"WIKI" = "百科";
+
+/* ViewController/MainViewController.m 169 */
+"OTHER" = "介绍";
+
+/* ViewController/OtherViewController.m 75 */
+"With tyre wiki you can know the detail of parameter." = "更换前后,轮胎详细参数对比.";
+
+/* ViewController/OtherViewController.m 76 */
+"Click list data to view more 7 lines." = "详细参数多达7行.";
+
+/* ViewController/OtherViewController.m 77 */
+"Lock your tyre first and change you want." = "锁定你现在的轮胎,调整你想要的";
+
+/* ViewController/OtherViewController.m 78 */
+"Metric and Imperial system switch." = "公制英制切换";
+
+/* ViewController/OtherViewController.m 79 */
+"The most Easy-to-use tyre calculator,and UI friendly." = "操作流畅,用户友好.";
+
+/* ViewController/OtherViewController.m 151 */
+"Mactive" = "Mactive";
+
+/* ViewController/OtherViewController.m 152 */
+"Developer" = "iOS 开发者";
+
+/* ViewController/OtherViewController.m 161 */
+"Leon Qin" = "Leon Qin";
+
+/* ViewController/OtherViewController.m 162 */
+" Designer" = "UI/UX 设计师";
+
+/* ViewController/OtherViewController.m 172 */
+"laofozhu" = "laofozhu";
+
+/* ViewController/OtherViewController.m 173 */
+"Counselor" = "专业顾问";
+
+/* ViewController/OtherViewController.m 224 */
+"Mactive" = "Mactive";
+
+/* ViewController/OtherViewController.m 225 */
+"Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard" = "Thinktube.Inc 创始人, \n轮胎计算器 & 宝宝来画画 制作人.\n手艺人和互动设计师,\n暴雪RTS脑残粉";
+
+/* ViewController/OtherViewController.m 228 */
+"Leon Qin" = "Leon Qin";
+
+/* ViewController/OtherViewController.m 229 */
+"Leon Qin Summary" = "Leon Qin Summary";
+
+/* ViewController/OtherViewController.m 232 */
+"Laofozhu" = "Laofozhu";
+
+/* ViewController/OtherViewController.m 233 */
+"Laofozhu Summary" = "硬派4X4死忠\n拿相机的电影摄影师\n阅读新手\n喜欢回忆旅行";
+
+"IMPERIAL" = "英制";
+"METRIC" = "公制";

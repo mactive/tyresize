@@ -98,9 +98,9 @@
         
         // change button title
         if ([[self appDelegate].curSystem isEqualToString:UKSYS]) {
-            [self appDelegate].curSystem = USSYS;
-        }else{
             [self appDelegate].curSystem = UKSYS;
+        }else{
+            [self appDelegate].curSystem = USSYS;
         }
         
         [self.switchBtn setTitle:[self appDelegate].curSystem forState:UIControlStateNormal];

@@ -1,0 +1,201 @@
+/* 
+  Localizable.strings
+  tyresize
+
+  Created by mac on 13-9-7.
+  Copyright (c) 2013年 thinktube. All rights reserved.
+*/
+/* UIView/OperationView.m 86 */
+"YOUR TYRE" = "YOUR TYRE";
+
+/* UIView/OperationView.m 89 */
+"YOU WANT" = "YOU WANT";
+
+/* UIView/ParameterView.m 43 */
+"Sidewall(in)" = "Sidewall(in)";
+
+/* UIView/ParameterView.m 44 */
+"Radius(in)" = "Radius(in)";
+
+/* UIView/ParameterView.m 45 */
+"Diamter(in)" = "Diamter(in)";
+
+/* UIView/ParameterView.m 46 */
+"Circumference(in)" = "Circumference(in)";
+
+/* UIView/ParameterView.m 47 */
+"Rotations/Mile" = "Rotations/Mile";
+
+/* UIView/ParameterView.m 48 */
+"Speedo Diff(%)" = "Speedo Diff(%)";
+
+/* UIView/ParameterView.m 49 */
+"Speed@60mph" = "Speed@60mph";
+
+/* UIView/ParameterView.m 52 */
+"Sidewall(mm)" = "Sidewall(mm)";
+
+/* UIView/ParameterView.m 53 */
+"Radius(mm)" = "Radius(mm)";
+
+/* UIView/ParameterView.m 54 */
+"Diamter(mm)" = "Diamter(mm)";
+
+/* UIView/ParameterView.m 55 */
+"Circumference(mm)" = "Circumference(mm)";
+
+/* UIView/ParameterView.m 56 */
+"Rotations/KM" = "Rotations/KM";
+
+/* UIView/ParameterView.m 57 */
+"Speedo Diff(%)" = "Speedo Diff(%)";
+
+/* UIView/ParameterView.m 58 */
+"Speed@100kph" = "Speed@100kph";
+
+/* UIView/ParameterView.m 91 */
+"---" = "---";
+
+/* UIView/ParameterView.m 102 */
+"---" = "---";
+
+/* UIView/ParameterView.m 131 */
+"---" = "---";
+
+/* ViewController/KBViewController.m 126 */
+"195" = "195";
+
+/* ViewController/KBViewController.m 127 */
+"Nomainal section width \nMeasure Unit: mm" = "Nomainal section width \nMeasure Unit: mm";
+
+/* ViewController/KBViewController.m 130 */
+"55" = "55";
+
+/* ViewController/KBViewController.m 131 */
+"Sidewall Percent\nsidewall = width * 55%" = "Sidewall Percent\nsidewall = width * 55%";
+
+/* ViewController/KBViewController.m 134 */
+"R" = "R";
+
+/* ViewController/KBViewController.m 135 */
+"Radial Construction" = "Radial Construction";
+
+/* ViewController/KBViewController.m 138 */
+"16" = "16";
+
+/* ViewController/KBViewController.m 139 */
+"Radial Construction\nMeasure Unit: inches" = "Radial Construction\nMeasure Unit: inches";
+
+/* ViewController/KBViewController.m 142 */
+"87" = "87";
+
+/* ViewController/KBViewController.m 143 */
+"Load opacity of one tyre\n89 = 1,279 pounds\n88 = 1,235 pounds\n87 = 1,201 pounds\n86 = 1,168 pounds\n85 = 1,135 pounds\nTypically, the load indexes of the\ntires used on passenger cars\nand light trucks range from\n70 to 110.\n87 * 4 > car weight + people's \nweight" = "Load opacity of one tyre\n89 = 1,279 pounds\n88 = 1,235 pounds\n87 = 1,201 pounds\n86 = 1,168 pounds\n85 = 1,135 pounds\nTypically, the load indexes of the\ntires used on passenger cars\nand light trucks range from\n70 to 110.\n87 * 4 > car weight + people's \nweight";
+
+/* ViewController/KBViewController.m 146 */
+"V" = "V";
+
+/* ViewController/KBViewController.m 147 */
+"Speed symbol maximum speed\n\nL  120KM/h\nQ  160KM/h\nR  170KM/h\nS  180KM/h\nH  210KM/h\nV  240KM/h\nW  270KM/h\nY  300KM/h" = "Speed symbol maximum speed\n\nL  120KM/h\nQ  160KM/h\nR  170KM/h\nS  180KM/h\nH  210KM/h\nV  240KM/h\nW  270KM/h\nY  300KM/h";
+
+/* ViewController/KBViewController.m 224 */
+"195" = "195";
+
+/* ViewController/KBViewController.m 225 */
+"55" = "55";
+
+/* ViewController/KBViewController.m 226 */
+"R" = "R";
+
+/* ViewController/KBViewController.m 227 */
+"16" = "16";
+
+/* ViewController/KBViewController.m 228 */
+"87" = "87";
+
+/* ViewController/KBViewController.m 229 */
+"V" = "V";
+
+/* ViewController/KBViewController.m 274 */
+"199mm" = "199mm";
+
+/* ViewController/KBViewController.m 275 */
+"55%" = "55%";
+
+/* ViewController/KBViewController.m 276 */
+"Radial\nConstruction" = "Radial\nConstruction";
+
+/* ViewController/KBViewController.m 277 */
+"16inches" = "16inches";
+
+/* ViewController/KBViewController.m 278 */
+"Load\nopacity\nof tyre" = "Load\nopacity\nof tyre";
+
+/* ViewController/KBViewController.m 279 */
+"Speed\nSymbol\nmaximum\nspeed" = "Speed\nSymbol\nmaximum\nspeed";
+
+/* ViewController/MCTabBarController.m 58 */
+"WIKI" = "WIKI";
+
+/* ViewController/MCTabBarController.m 63 */
+"OTHER" = "OTHER";
+
+/* ViewController/MainViewController.m 163 */
+"WIKI" = "WIKI";
+
+/* ViewController/MainViewController.m 169 */
+"OTHER" = "OTHER";
+
+/* ViewController/OtherViewController.m 75 */
+"With tyre wiki you can know the detail of parameter." = "With tyre wiki you can know the detail of parameter.";
+
+/* ViewController/OtherViewController.m 76 */
+"Click list data to view more 7 lines." = "Click list data to view more 7 lines.";
+
+/* ViewController/OtherViewController.m 77 */
+"Lock your tyre first and change you want." = "Lock your tyre first and change you want.";
+
+/* ViewController/OtherViewController.m 78 */
+"Metric and Imperial system switch." = "Metric and Imperial system switch.";
+
+/* ViewController/OtherViewController.m 79 */
+"The most Easy-to-use tyre calculator,and UI friendly." = "The most Easy-to-use tyre calculator,and UI friendly.";
+
+/* ViewController/OtherViewController.m 151 */
+"Mactive" = "Mactive";
+
+/* ViewController/OtherViewController.m 152 */
+"Developer" = "Developer";
+
+/* ViewController/OtherViewController.m 161 */
+"Leon Qin" = "Leon Qin";
+
+/* ViewController/OtherViewController.m 162 */
+" Designer" = " Designer";
+
+/* ViewController/OtherViewController.m 172 */
+"laofozhu" = "laofozhu";
+
+/* ViewController/OtherViewController.m 173 */
+"Counselor" = "Counselor";
+
+/* ViewController/OtherViewController.m 224 */
+"Mactive" = "Mactive";
+
+/* ViewController/OtherViewController.m 225 */
+"Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard" = "Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard";
+
+/* ViewController/OtherViewController.m 228 */
+"Leon Qin" = "Leon Qin";
+
+/* ViewController/OtherViewController.m 229 */
+"Leon Qin Summary" = "Leon Qin Summary";
+
+/* ViewController/OtherViewController.m 232 */
+"Laofozhu" = "Laofozhu";
+
+/* ViewController/OtherViewController.m 233 */
+"Laofozhu Summary" = "Laofozhu Summary";
+
+"IMPERIAL" = "IMPERIAL";
+"METRIC" = "METRIC";

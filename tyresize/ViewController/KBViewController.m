@@ -132,11 +132,11 @@
             break;
         case 3:
             title       = T(@"R");
-            content     = T(@"Radial Constration");
+            content     = T(@"Radial Construction");
             break;
         case 4:
             title       = T(@"16");
-            content     = T(@"Radial Constration\nMeasure Unit: inches");
+            content     = T(@"Radial Construction\nMeasure Unit: inches");
             break;
         case 5:
             title       = T(@"87");
@@ -273,7 +273,7 @@
     NSArray *titleArray = [NSArray arrayWithObjects:
                            T(@"199mm"),
                            T(@"55%"),
-                           T(@"Radial\nConstraction"),
+                           T(@"Radial\nConstruction"),
                            T(@"16inches"),
                            T(@"Load\nopacity\nof tyre"),
                            T(@"Speed\nSymbol\nmaximum\nspeed"), nil];

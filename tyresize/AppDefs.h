@@ -9,6 +9,7 @@
 #ifndef tyresize_AppDefs_h
 #define tyresize_AppDefs_h
 
+#define PRODUCT_NAME T(@"PRODUCT_NAME")
 #define M_APPLEID 623336978
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
@@ -102,7 +103,7 @@
 //#define TYRE_VIEW_HEIGHT 177.0f
 #define TYRE_VIEW_HEIGHT (IS_IPHONE_5 ? 177.0f : 155.0f)
 #define OPER_VIEW_HEIGHT (IS_IPHONE_5 ? 217.0f : 200.0f)  //lock btn in the oper_view
-#define PRMT_VIEW_HEIGHT 223.0f 
+#define PRMT_VIEW_HEIGHT 250.0f 
 #define BUTTON_VIEW_HEIGHT  44.0f
 
 #define NAV_BAR_HEIGHT 26.0f
