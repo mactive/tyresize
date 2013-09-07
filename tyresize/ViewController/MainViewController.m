@@ -183,18 +183,27 @@
 
 - (void)switchAction
 {    
-    self.nowArray = [self calculationWithW:self.nowWFloat
-                                      andA:self.nowAFloat
-                                      andR:self.nowRFloat
-                                   andType:@"now"];
+//    self.nowArray = [self calculationWithW:self.nowWFloat
+//                                      andA:self.nowAFloat
+//                                      andR:self.nowRFloat
+//                                   andType:@"now"];
+//    
+//    [self.prmtView changeNowPrmt:self.nowArray];
     
-    [self.prmtView changeNowPrmt:self.nowArray];
     self.wantArray = [self calculationWithW:self.wantWFloat
                                        andA:self.wantAFloat
                                        andR:self.wantRFloat
                                     andType:@"want"];
     
     [self.prmtView changeWantPrmt:self.wantArray];
+    
+    self.nowArray = [self calculationWithW:self.nowWFloat
+                                      andA:self.nowAFloat
+                                      andR:self.nowRFloat
+                                   andType:@"now"];
+    
+    [self.prmtView changeNowPrmt:self.nowArray];
+    
     [self.prmtView refreshPrmtView:[self appDelegate].curSystem];
 
 }
