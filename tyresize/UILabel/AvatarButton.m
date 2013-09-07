@@ -56,7 +56,7 @@
         [self.nameLabel setNumberOfLines:0];
         
         self.titleLabel = [[GradientNormalLabel alloc]initWithFrame:
-                           CGRectMake(0, BUTTON_SQUARE+5, BUTTON_SQUARE, 20)];
+                           CGRectMake(0, BUTTON_SQUARE+10, BUTTON_SQUARE, 20)];
         
         self.cricleView = [[UIView alloc]initWithFrame:CGRectMake(-5.0f, -5.0f, CRICLE_SQUARE, CRICLE_SQUARE)];
                 

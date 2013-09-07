@@ -15,8 +15,8 @@
 
 @end
 
-#define SCROLL_Y    115.0f
-#define SCROLL_HEIGHT    40.0f
+#define SCROLL_Y    (IS_IPHONE_5 ? 115.0f : 100.0f)
+#define SCROLL_HEIGHT    36.0f
 
 
 @implementation ScrollCellUIView

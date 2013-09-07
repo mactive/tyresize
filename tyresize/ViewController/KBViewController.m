@@ -49,6 +49,7 @@
 #define X_I         51.0f
 #define GAP_HEIGHT  20.0f
 
+#define DETAIL_Y    (IS_IPHONE_5 ? 40.0f : 20.0f)
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,13 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    CGFloat offsetY;
-    if (IS_IPHONE_5) {
-        offsetY =  20.0f;
-    }else{
-        offsetY = 10.0f;
-    }
-    
+    CGFloat offsetY = IS_IPHONE_5 ? 20.0f : 0.0f ;
     //BG View
     self.tyreBgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyreView_bg.png"]];
     self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT);
@@ -92,7 +87,6 @@
     [self refreshDetailViewWithIndex:1 willRotate:YES];
 }
 
-#define DETAIL_Y 40.0f
 
 - (void)initDetailView
 {

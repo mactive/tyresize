@@ -58,13 +58,14 @@
 #define OFFSET_X            5.0f
 #define OFFSET_Y            5.0f
 #define HANDLE_WIDTH        135.0f
-#define HANDLE_HEIGHT       39.0f
-#define TITLE_HEIGHT        39.0f
+#define HANDLE_HEIGHT       (IS_IPHONE_5 ? 39.0f : 36.0f)
+#define TITLE_HEIGHT        (IS_IPHONE_5 ? 39.0f : 26.0f)
 
-#define LOCK_WIDTH      54.0f
-#define LOCK_HEIGHT     38.0f
-#define L_H     LOCK_HEIGHT
-#define LINE_HEIGHT     (OFFSET_Y + HANDLE_HEIGHT)
+#define LOCK_WIDTH          54.0f
+#define LOCK_HEIGHT         38.0f
+#define L_H                 (IS_IPHONE_5 ? 38.0f : 38.0f)
+#define L_H_OFFSET          (IS_IPHONE_5 ? 16.0f : 20.0f)
+#define LINE_HEIGHT         (OFFSET_Y + HANDLE_HEIGHT)
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -143,13 +144,14 @@
         
         //BG View
         self.bgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"operView_bg.png"]];
-        self.bgView.frame = CGRectMake(0, L_H-16 , TOTAL_WIDTH, OPER_VIEW_HEIGHT-L_H+16);
+        self.bgView.frame = CGRectMake(0, L_H-L_H_OFFSET , TOTAL_WIDTH, OPER_VIEW_HEIGHT-L_H+L_H_OFFSET);
         
 //        [self setBackgroundColor:[UIColor colorWithRed:33.0f green:35.0f blue:38.0f alpha:1.0]];
         [self setBackgroundColor:[UIColor clearColor]];
 
         // add to view
         // add 晚的后计算
+        [self addSubview:self.lockNowButton];
         [self addSubview:self.bgView];
 
         [self addSubview:self.wantWView];
@@ -162,7 +164,6 @@
         
         [self addSubview:self.nowTitle];
         [self addSubview:self.wantTitle];
-        [self addSubview:self.lockNowButton];
         
     }
     return self;

@@ -98,9 +98,8 @@
 
 
 
-#define TYRE_X            (320.0f - TYRE_WIDTH)/2
-#define TYRE_Y            20.0f
-
+#define TYRE_X          (320.0f - TYRE_WIDTH)/2
+#define TYRE_Y          (IS_IPHONE_5 ? 30.0f : 20.0f)
 
 - (void)viewDidLoad
 {
@@ -112,25 +111,16 @@
     self.tyreBgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tyreView_bg.png"]];
     self.tyreBgView.frame = CGRectMake(0, 0, TOTAL_WIDTH, TYRE_VIEW_HEIGHT+38);
     [self.view addSubview:self.tyreBgView];
-    
-    CGFloat tyre_Y;
-    CGFloat tyre_Height;
-    if (IS_IPHONE_5) {
-        tyre_Y = 30.0f;
-        tyre_Height = 180.0f;
-    }else{
-        tyre_Y = TYRE_Y;
-        tyre_Height = TYRE_HEIGHT;
-    }
 
-    self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, tyre_Y, TYRE_WIDTH, TYRE_HEIGHT)];
+    self.tyreView = [[TyreView alloc]initWithFrame:CGRectMake(TYRE_X, TYRE_Y, TYRE_WIDTH, TYRE_HEIGHT)];
     [self.view addSubview:self.tyreView];
     
     self.operView = [[OperationView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT, TOTAL_WIDTH, OPER_VIEW_HEIGHT)];
     self.operView.delegate = self;
     [self.view addSubview:self.operView];
     
-    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, TYRE_VIEW_HEIGHT+OPER_VIEW_HEIGHT, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
+    CGFloat PRMTY_IN_MAINVIEW = IS_IPHONE_5 ? TYRE_VIEW_HEIGHT+OPER_VIEW_HEIGHT : TYRE_VIEW_HEIGHT+OPER_VIEW_HEIGHT-10 ;
+    self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, PRMTY_IN_MAINVIEW, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
     
