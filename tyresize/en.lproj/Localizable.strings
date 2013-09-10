@@ -138,13 +138,10 @@
 "WIKI" = "WIKI";
 
 /* ViewController/MCTabBarController.m 63 */
-"OTHER" = "OTHER";
+"OTHER" = "TEAM";
 
 /* ViewController/MainViewController.m 163 */
 "WIKI" = "WIKI";
-
-/* ViewController/MainViewController.m 169 */
-"OTHER" = "OTHER";
 
 /* ViewController/OtherViewController.m 75 */
 "With tyre wiki you can know the detail of parameter." = "With tyre wiki you can know the detail of parameter.";
