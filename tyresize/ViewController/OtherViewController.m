@@ -124,7 +124,7 @@
 #define AVATAR_Y (IS_IPHONE_5 ? 50.0f : 40.0f )
 #define AVATAR_WIDTH 100.0f
 #define AVATAR_HEIGHT 120.0f
-#define DETAIL_HEIGHT 100.0f
+#define DETAIL_HEIGHT 150.0f
 #define DETAIL_Y 40.0f
 #define DETAIL_X 20.0f
 #define MAX_WIDTH   280.0f
@@ -198,7 +198,7 @@
     [bgView setImage:[UIImage imageNamed:@"wiki_detail_bg.png"]];
     
     self.detailScrollView = [[UIScrollView alloc]initWithFrame:
-                             CGRectMake(0, 7, TOTAL_WIDTH, TOTAL_HEIGHT - TYRE_VIEW_HEIGHT - OPER_VIEW_HEIGHT - GAP_HEIGHT )];
+                             CGRectMake(0, 7, TOTAL_WIDTH, TOTAL_HEIGHT - TYRE_VIEW_HEIGHT - OPER_VIEW_HEIGHT - GAP_HEIGHT/2 )];
     self.detailScrollView.contentOffset = CGPointMake(0, GAP_HEIGHT);
     // detailTitle
     self.detailTitle = [[ColoredLabel alloc]init];
@@ -211,14 +211,14 @@
     
     //socialView
     self.socialView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, SOCIAL_BTN_HEIGHT)];
-    
+    [self.scrollView setUserInteractionEnabled:YES];
     // view inherit
     [self.detailScrollView addSubview:self.socialView];
     [self.detailScrollView addSubview:self.detailTitle];
     [self.detailScrollView addSubview:self.detailContent];
     [self.detailView addSubview:bgView];
     [self.detailView addSubview:self.detailScrollView];
-    
+
     [self.view addSubview:self.detailView];
     
 }
@@ -236,9 +236,12 @@
     // refresh subview
     [self.socialView.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
 
+    
     NSArray *keyArray = [dict allKeys];
     
     for (int i = 0; i < keyArray.count ; i++) {
+//        UIButton *linkBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        [linkBtn setFrame:CGRectMake(( SOCIAL_BTN_WIDTH+GAP_HEIGHT/2 ) * i, 0, SOCIAL_BTN_WIDTH, SOCIAL_BTN_HEIGHT)];        
         SocialButton *linkBtn = [SocialButton buttonWithType:UIButtonTypeCustom];
         [linkBtn setFrame:CGRectMake(( SOCIAL_BTN_WIDTH+GAP_HEIGHT/2 ) * i, 0, SOCIAL_BTN_WIDTH, SOCIAL_BTN_HEIGHT)];
         NSString *_type = [fontAwesomeDict objectForKey:[keyArray objectAtIndex:i]];
@@ -251,7 +254,6 @@
 
 - (void)jumpURL:(SocialButton *)sender
 {
-    NSLog(@"======%@",sender.urlString);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sender.urlString]];
 }
 
@@ -268,7 +270,7 @@
                             @"GITHUB": @"https://github.com/mactive",
                             @"TWITTER": @"http://twitter.com/moodomac",
                             @"TUMBLR": @"http://mactive.tumblr.com",
-                            @"WEIBO": @"http://weibo.com/u/1217609444"
+                            @"WEIBO": @"http://m.weibo.cn/1217609444"
                             };
             break;
         case 2:
@@ -276,14 +278,14 @@
             content     = T(@"Leon Qin Summary");
             socialDict  = @{
                             @"DRIBBBLE": @"http://dribbble.com/leonqin",
-                            @"WEIBO": @"http://weibo.com/mtion"
+                            @"WEIBO": @"http://m.weibo.cn/1682802747"
                             };
             break;
         case 3:
             title       = T(@"Laofozhu");
             content     = T(@"Laofozhu Summary");
             socialDict  = @{
-                            @"WEIBO": @"http://weibo.com/u/2088122407"
+                            @"WEIBO": @"http://m.weibo.cn/2088122407"
                             };
             break;
         default:
@@ -306,8 +308,6 @@
     CGFloat contentHeight = size.height + DETAIL_Y * 2 + GAP_HEIGHT * 2;
     [self.detailScrollView setContentSize:CGSizeMake(TOTAL_WIDTH, contentHeight )];
     
-    //    CGFloat offsetY = size.height + DETAIL_HEIGHT ;
-    //    [self moveYPosition:offsetY andDelay:0 withView:self.detailView];
 }
 
 #pragma mark -- set avatar and set selected
