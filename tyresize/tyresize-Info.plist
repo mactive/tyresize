@@ -43,6 +43,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FontAwesome.otf</string>
 		<string>Museo500-Regular.otf</string>
 		<string>Gotham-Black.otf</string>
 		<string>Gotham-Bold.otf</string>

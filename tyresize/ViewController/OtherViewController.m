@@ -13,6 +13,7 @@
 #import "AvatarButton.h"
 #import "ColoredLabel.h"
 #import "MultilineView.h"
+#import "SocialButton.h"
 
 @interface OtherViewController ()<UIScrollViewAccessibilityDelegate>
 @property(strong, nonatomic)GCPagedScrollView *scrollView;
@@ -26,6 +27,7 @@
 @property(strong, nonatomic)UIView *detailView;
 @property(strong, nonatomic)ColoredLabel *detailTitle;
 @property(strong, nonatomic)MultilineView *detailContent;
+@property(strong, nonatomic)UIView *socialView;
 @property(strong, nonatomic)UIScrollView *detailScrollView;
 
 @end
@@ -46,6 +48,7 @@
 @synthesize detailTitle;
 @synthesize detailContent;
 @synthesize detailScrollView;
+@synthesize socialView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -206,31 +209,82 @@
     self.detailContent = [[MultilineView alloc] initWithFrame:CGRectZero];
     self.detailContent.textAlign = NSTextAlignmentLeft;
     
+    //socialView
+    self.socialView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, TOTAL_WIDTH, SOCIAL_BTN_HEIGHT)];
+    
     // view inherit
+    [self.detailScrollView addSubview:self.socialView];
     [self.detailScrollView addSubview:self.detailTitle];
     [self.detailScrollView addSubview:self.detailContent];
     [self.detailView addSubview:bgView];
     [self.detailView addSubview:self.detailScrollView];
     
     [self.view addSubview:self.detailView];
+    
+}
+
+
+- (void)refreshSocialMediaWithDict:(NSDictionary *)dict
+{
+    NSDictionary *fontAwesomeDict = @{
+                                      @"GITHUB": @"\uf113",
+                                      @"WEIBO": @"\uf18a",
+                                      @"DRIBBBLE": @"\uf17d",
+                                      @"TWITTER": @"\uf099",
+                                      @"TUMBLR": @"\uf173",
+                                      };
+    // refresh subview
+    [self.socialView.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+
+    NSArray *keyArray = [dict allKeys];
+    
+    for (int i = 0; i < keyArray.count ; i++) {
+        SocialButton *linkBtn = [SocialButton buttonWithType:UIButtonTypeCustom];
+        [linkBtn setFrame:CGRectMake(( SOCIAL_BTN_WIDTH+GAP_HEIGHT/2 ) * i, 0, SOCIAL_BTN_WIDTH, SOCIAL_BTN_HEIGHT)];
+        NSString *_type = [fontAwesomeDict objectForKey:[keyArray objectAtIndex:i]];
+        linkBtn.urlString  = [dict objectForKey:[keyArray objectAtIndex:i]];
+        [linkBtn setTitle:_type forState:UIControlStateNormal];
+        [linkBtn addTarget:self action:@selector(jumpURL:) forControlEvents:UIControlEventTouchUpInside];
+        [self.socialView addSubview:linkBtn];
+    }
+}
+
+- (void)jumpURL:(SocialButton *)sender
+{
+    NSLog(@"======%@",sender.urlString);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sender.urlString]];
 }
 
 - (void)refreshDetailViewWithIndex:(NSInteger)index
 {
     NSString *title;
     NSString *content;
+    NSDictionary *socialDict;
     switch (index) {
         case 1:
             title       = T(@"Mactive");
             content     = T(@"Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard");
+            socialDict  = @{
+                            @"GITHUB": @"https://github.com/mactive",
+                            @"TWITTER": @"http://twitter.com/moodomac",
+                            @"TUMBLR": @"http://mactive.tumblr.com",
+                            @"WEIBO": @"http://weibo.com/u/1217609444"
+                            };
             break;
         case 2:
             title       = T(@"Leon Qin");
             content     = T(@"Leon Qin Summary");
+            socialDict  = @{
+                            @"DRIBBBLE": @"http://dribbble.com/leonqin",
+                            @"WEIBO": @"http://weibo.com/mtion"
+                            };
             break;
         case 3:
             title       = T(@"Laofozhu");
             content     = T(@"Laofozhu Summary");
+            socialDict  = @{
+                            @"WEIBO": @"http://weibo.com/u/2088122407"
+                            };
             break;
         default:
             break;
@@ -246,7 +300,10 @@
     [self.detailContent setMultiLineText:content];
     [self.detailTitle setText:title];
     
-    CGFloat contentHeight = size.height + DETAIL_Y * 2;
+    [self.socialView setFrame:CGRectMake(DETAIL_X, DETAIL_Y+size.height+GAP_HEIGHT/2, MAX_WIDTH, GAP_HEIGHT * 2)];
+    [self refreshSocialMediaWithDict:socialDict];
+    
+    CGFloat contentHeight = size.height + DETAIL_Y * 2 + GAP_HEIGHT * 2;
     [self.detailScrollView setContentSize:CGSizeMake(TOTAL_WIDTH, contentHeight )];
     
     //    CGFloat offsetY = size.height + DETAIL_HEIGHT ;

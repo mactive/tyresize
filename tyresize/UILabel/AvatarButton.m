@@ -28,7 +28,6 @@
 #define CRICLE_SQUARE   90.0f
 #define CRICLE_RADIUS   45.0f
 
-
 @implementation AvatarButton
 
 @synthesize avatarImage, iconImage;

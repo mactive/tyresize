@@ -87,8 +87,14 @@
 
 #define FONT_LIGHT_15 [UIFont fontWithName:@"Gotham-Light" size:15.0f]
 #define FONT_LIGHT_12 [UIFont fontWithName:@"Gotham-Light" size:12.0f]
+#define FONT_AWESOME_15 [UIFont fontWithName:@"FontAwesome" size:15.0f]
 
-
+// font awesome
+#define ICON_GITHUB @"\uf113"
+#define ICON_WEIBO  @"\uf18a"
+#define ICON_DRIBBBLE @"\uf17d"
+#define ICON_TWITTER @"\uf099"
+#define ICON_TUMBLR @"\uf173"
 
 
 // gradient
@@ -107,6 +113,9 @@
 #define BUTTON_VIEW_HEIGHT  44.0f
 
 #define NAV_BAR_HEIGHT 26.0f
+
+#define SOCIAL_BTN_WIDTH 40.0f
+#define SOCIAL_BTN_HEIGHT 24.0f
 
 #define P_W tyreWidth
 #define P_A aspectRatio
@@ -129,7 +138,7 @@ alpha:(a)]
 #define GRAYCOLOR [UIColor colorWithRed:158.0f/255.0f green:158.0f/255.0f blue:158.0f/255.0f alpha:1]
 #define HANDLEBORDERCOLOR [UIColor colorWithRed:228.0f/255.0f green:228.0f/255.0f blue:228.0f/255.0f alpha:1].CGColor
 #define HANDLEBGCOLOR [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1]
-#define DARKCOLOR [UIColor colorWithRed:57.0f/255.0f green:57.0f/255.0f blue:57.0f/255.0f alpha:1]
+#define DARKCOLOR [UIColor colorWithRed:42.0f/255.0f green:43.0f/255.0f blue:49.0f/255.0f alpha:1]
 
 #define ORANGECOLOR [UIColor colorWithRed:255.0f/255.0f green:236.0f/255.0f blue:76.0f/255.0f alpha:1]
 #define ORANGE_INNERSHADOW_COLOR [UIColor colorWithRed:239.0f/255.0f green:105.0f/255.0f blue:6.0f/255.0f alpha:1]
