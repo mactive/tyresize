@@ -188,28 +188,20 @@
 - (void)switchAction
 {
     // first change now and get now base
+    self.wantArray = [self calculationWithW:self.wantWFloat
+                                       andA:self.wantAFloat
+                                       andR:self.wantRFloat
+                                    andType:@"want"];
+    
+    // calculationWithW 会改变轮胎尺寸 所以需要后设置 now
     self.nowArray = [self calculationWithW:self.nowWFloat
                                       andA:self.nowAFloat
                                       andR:self.nowRFloat
                                    andType:@"now"];
     
     [self.prmtView changeNowPrmt:self.nowArray];
-    
-    // than change the want want/now get the ratio
-    self.wantArray = [self calculationWithW:self.wantWFloat
-                                       andA:self.wantAFloat
-                                       andR:self.wantRFloat
-                                    andType:@"want"];
-    
     [self.prmtView changeWantPrmt:self.wantArray];
-    
-//    self.nowArray = [self calculationWithW:self.nowWFloat
-//                                      andA:self.nowAFloat
-//                                      andR:self.nowRFloat
-//                                   andType:@"now"];
-//
-//    [self.prmtView changeNowPrmt:self.nowArray];
-    
+
     [self.prmtView refreshPrmtView:[self appDelegate].curSystem];
 
 }
