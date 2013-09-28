@@ -52,8 +52,8 @@
 
 // Boolean
 @property(assign, nonatomic)BOOL isOffseted;
-@property(strong, nonatomic)UISwipeGestureRecognizer *tyreSwipeGR;
-@property(strong, nonatomic)UISwipeGestureRecognizer *prmtSwipeGR;
+@property(strong, nonatomic)UISwipeGestureRecognizer *fingerUpSwipeGR;
+@property(strong, nonatomic)UISwipeGestureRecognizer *fingerDownSwipeGR;
 @property(strong, nonatomic)UITapGestureRecognizer *prmtTapGR;
 
 @end
@@ -82,7 +82,7 @@
 @synthesize nowPrmtD;
 @synthesize wantPrmtD;
 
-@synthesize tyreSwipeGR, prmtSwipeGR, prmtTapGR;
+@synthesize fingerUpSwipeGR, fingerDownSwipeGR, prmtTapGR;
 @synthesize nowArray,wantArray;
 
 
@@ -99,7 +99,7 @@
 
 
 #define TYRE_X          (320.0f - TYRE_WIDTH)/2
-#define TYRE_Y          (IS_IPHONE_5 ? 30.0f : 20.0f)
+#define TYRE_Y          (IS_IPHONE_5 ? 20.0f : 15.0f)
 
 - (void)viewDidLoad
 {
@@ -123,12 +123,16 @@
     self.prmtView = [[ParameterView alloc]initWithFrame:CGRectMake(0, PRMTY_IN_MAINVIEW, TOTAL_WIDTH, PRMT_VIEW_HEIGHT)];
     [self.view addSubview:self.prmtView];
     
+    // swipe up and down
+    self.fingerUpSwipeGR = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleFingerSwipe:)];
+    self.fingerUpSwipeGR.direction = UISwipeGestureRecognizerDirectionUp;
+    self.fingerUpSwipeGR.numberOfTouchesRequired = 1;
     
-    self.tyreSwipeGR = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleTyreSwipe:)];
-    self.tyreSwipeGR.direction = UISwipeGestureRecognizerDirectionDown;
-    self.tyreSwipeGR.numberOfTouchesRequired = 1;
+    self.fingerDownSwipeGR = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleFingerSwipe:)];
+    self.fingerDownSwipeGR.direction = UISwipeGestureRecognizerDirectionDown;
+    self.fingerDownSwipeGR.numberOfTouchesRequired = 1;
     
-    self.prmtTapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handlePrmtTap:)];
+    self.prmtTapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(checkAndMoveViews)];
     self.prmtTapGR.numberOfTapsRequired = 1;
     self.prmtTapGR.numberOfTouchesRequired = 1;
     self.isOffseted = NO;
@@ -182,14 +186,16 @@
 #pragma mark - bottom button actions
 
 - (void)switchAction
-{    
-//    self.nowArray = [self calculationWithW:self.nowWFloat
-//                                      andA:self.nowAFloat
-//                                      andR:self.nowRFloat
-//                                   andType:@"now"];
-//    
-//    [self.prmtView changeNowPrmt:self.nowArray];
+{
+    // first change now and get now base
+    self.nowArray = [self calculationWithW:self.nowWFloat
+                                      andA:self.nowAFloat
+                                      andR:self.nowRFloat
+                                   andType:@"now"];
     
+    [self.prmtView changeNowPrmt:self.nowArray];
+    
+    // than change the want want/now get the ratio
     self.wantArray = [self calculationWithW:self.wantWFloat
                                        andA:self.wantAFloat
                                        andR:self.wantRFloat
@@ -197,12 +203,12 @@
     
     [self.prmtView changeWantPrmt:self.wantArray];
     
-    self.nowArray = [self calculationWithW:self.nowWFloat
-                                      andA:self.nowAFloat
-                                      andR:self.nowRFloat
-                                   andType:@"now"];
-    
-    [self.prmtView changeNowPrmt:self.nowArray];
+//    self.nowArray = [self calculationWithW:self.nowWFloat
+//                                      andA:self.nowAFloat
+//                                      andR:self.nowRFloat
+//                                   andType:@"now"];
+//
+//    [self.prmtView changeNowPrmt:self.nowArray];
     
     [self.prmtView refreshPrmtView:[self appDelegate].curSystem];
 
@@ -225,9 +231,32 @@
 
 
 
+
 ///////////////////////////
+// 滑动参数
+- (void)handleFingerSwipe:(UISwipeGestureRecognizer *)sender
+{
+    if ( sender.direction == UISwipeGestureRecognizerDirectionDown )
+    {
+        NSLog(@" *** SWIPE DOWN ***");
+        if (self.isOffseted == YES) {
+            [self checkAndMoveViews];
+        }
+    }
+       
+    if ( sender.direction == UISwipeGestureRecognizerDirectionUp )
+    {
+        NSLog(@" *** SWIPE UP ***");
+        if(self.isOffseted == NO){
+            [self checkAndMoveViews];
+        }
+    }
+    
+}
+
 // 点击参数
-- (void)handlePrmtTap:(UITapGestureRecognizer *)paramSender
+//- (void)handlePrmtTap:(UITapGestureRecognizer *)paramSender
+- (void)checkAndMoveViews
 {
     CGFloat Yoffset;
 
@@ -254,8 +283,6 @@
         [self moveYOffest:Yoffset andDelay:0.10 withView:self.prmtView];
         self.isOffseted = YES;
     }
-    
-    
 }
 
 - (void)moveYOffest:(CGFloat)offset
@@ -280,7 +307,8 @@
     [super viewWillAppear:animated];
     
     [self.prmtView addGestureRecognizer:self.prmtTapGR];
-    
+    [self.view addGestureRecognizer:self.fingerUpSwipeGR];
+    [self.view addGestureRecognizer:self.fingerDownSwipeGR];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -342,6 +370,8 @@
     CGFloat speedo = 0.f;
     CGFloat speed = 0.f;
     
+    NSLog(@"calculationWithW switchAction: %@",[self appDelegate].curSystem );
+
     if ([[self appDelegate].curSystem isEqualToString:UKSYS]) {
         sidewall    = sidewall / IN_MM;
         radius      = radius / IN_MM;
@@ -369,20 +399,20 @@
     [self.tyreView changeHubRatio:self.handleHubRatio];
 //    NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
 
-    
-    
     // action
     if ([type isEqualToString:@"now"]) {
         self.nowPrmtD = circumference;
-        NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
-            
+//        NSLog(@"==tyre %f, hub %f",self.handleTyreRatio, self.handleHubRatio);
+        
     }else if ([type isEqualToString:@"want"]){
         self.wantPrmtD = circumference;
     }
     
-    NSLog(@"now: %f want: %f", self.nowPrmtD,self.wantPrmtD);
-    if (self.nowPrmtD > 0 && self.wantPrmtD > 0) {
-        speedo  = self.wantPrmtD / self.nowPrmtD *100;
+    if (self.nowPrmtD > 0 && self.wantPrmtD > 0 && [type isEqualToString:@"want"]) {
+        NSLog(@"now: %f want: %f", self.nowPrmtD,self.wantPrmtD);
+
+        speedo  = self.wantPrmtD / self.nowPrmtD * 100;
+        NSLog(@"==speedo %f",speedo);
         
         if ([[self appDelegate].curSystem isEqualToString:UKSYS]) {
             speed   = 60.0f * self.wantPrmtD / self.nowPrmtD ;
@@ -394,7 +424,6 @@
     [resultArray addObject:FLOAT(speedo)];
     [resultArray addObject:FLOAT(speed)];
 
-    
     return resultArray;
 }
 

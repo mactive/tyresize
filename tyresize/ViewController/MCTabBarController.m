@@ -84,6 +84,22 @@
 
     if (button.tag == SWITCH_BUTTON_TAG) {
         [self clearAllSelected];
+
+        // switch the curSystem
+        if ([[self appDelegate].curSystem isEqualToString:UKSYS] ) {
+            [self appDelegate].curSystem = USSYS;
+        }else{
+            [self appDelegate].curSystem = UKSYS;
+        }
+        
+        // change button title
+        
+        [self.switchBtn setTitle:[self appDelegate].curSystem forState:UIControlStateNormal];
+        [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
+        
+        NSLog(@"switchAction: %@",[self appDelegate].curSystem );
+        
+        
         // mainviewcontroller switchaction
         for (UINavigationController *v in self.viewControllers)
         {
@@ -94,18 +110,6 @@
                 [(MainViewController *)vc switchAction];
             }
         }
-        
-        [self.switchBtn setTitle:[self appDelegate].curSystem forState:UIControlStateNormal];
-        [self.switchBtn setBackgroundImage:[UIImage imageNamed:@"btnOn_bg.png"] forState:UIControlStateNormal];
-        
-        // change button title
-        if ([[self appDelegate].curSystem isEqualToString:UKSYS] ) {
-            [self appDelegate].curSystem = USSYS;
-        }else{
-            [self appDelegate].curSystem = UKSYS;
-        }
-        
-        NSLog(@"switchAction: %@",[self appDelegate].curSystem );
     }
 
     if (button.tag == WIKI_BUTTON_TAG) {

@@ -55,7 +55,7 @@
 @synthesize isLockNowButton;
 @synthesize delegate;
 
-#define OFFSET_X            5.0f
+#define OFFSET_X            12.0f
 #define OFFSET_Y            5.0f
 #define HANDLE_WIDTH        135.0f
 #define HANDLE_HEIGHT       (IS_IPHONE_5 ? 39.0f : 36.0f)

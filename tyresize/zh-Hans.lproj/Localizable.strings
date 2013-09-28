@@ -6,10 +6,10 @@
   Copyright (c) 2013年 thinktube. All rights reserved.
 */
 /* UIView/OperationView.m 86 */
-"YOUR TYRE" = "现在的";
+"YOUR TYRE" = "我的轮胎";
 
 /* UIView/OperationView.m 89 */
-"YOU WANT" = "想要的";
+"YOU WANT" = "想要换成";
 
 /* UIView/ParameterView.m 43 */
 "Sidewall(in)" = "侧壁(英寸)";
@@ -78,13 +78,13 @@
 "R" = "R";
 
 /* ViewController/KBViewController.m 135 */
-"Radial Constration" = "轮圈直径";
+"Radial Construction" = "轮圈直径";
 
 /* ViewController/KBViewController.m 138 */
 "16" = "16";
 
 /* ViewController/KBViewController.m 139 */
-"Radial Constration\nMeasure Unit: inches" = "轮圈直径\n单位: 英寸";
+"Radial Construction\nMeasure Unit: inches" = "轮圈直径\n单位: 英寸";
 
 /* ViewController/KBViewController.m 142 */
 "87" = "87";
@@ -189,7 +189,7 @@
 "Leon Qin" = "Leon Qin";
 
 /* ViewController/OtherViewController.m 229 */
-"Leon Qin Summary" = "Leon Qin Summary";
+"Leon Qin Summary" = "最美应用 Next Day 设计师, 前街旁网设计师.\nProfessional Traveller";
 
 /* ViewController/OtherViewController.m 232 */
 "Laofozhu" = "Laofozhu";
