@@ -171,14 +171,7 @@
                          }
                          completion:nil];
     }
-    
-    
 
-    
-    
-    
-    
-    
 //    CGFloat offsetY = size.height + DETAIL_HEIGHT ;
 //    [self moveYPosition:offsetY andDelay:0 withView:self.detailView];
 }

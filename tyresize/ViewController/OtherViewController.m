@@ -265,7 +265,7 @@
     switch (index) {
         case 1:
             title       = T(@"Mactive");
-            content     = T(@"Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard");
+            content     = T(@"Mactive Summary");
             socialDict  = @{
                             @"GITHUB": @"https://github.com/mactive",
                             @"TWITTER": @"http://twitter.com/moodomac",

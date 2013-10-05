@@ -180,19 +180,20 @@
 "Mactive" = "Mactive";
 
 /* ViewController/OtherViewController.m 225 */
-"Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard" = "Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard";
+"Mactive Summary" = "Thinktube.Inc Founder, The Tyresize App &\nBabyDraw App Maker.\nCraftman and Interactive Developer,\nBig fan of Blizzard";
 
 /* ViewController/OtherViewController.m 228 */
 "Leon Qin" = "Leon Qin";
 
 /* ViewController/OtherViewController.m 229 */
-"Leon Qin Summary" = "Designer of Next Day App and Jiepang.com.\nProfessional Traveller";
+/*"Leon Qin Summary" = "GUI 设计爱好者,喜欢摄影旅行,\n更喜欢发现生活的点滴.";*/
+"Leon Qin Summary" = "GUI Designer\nLove Photography and Travel\nprefer to seek details of the life.";
 
 /* ViewController/OtherViewController.m 232 */
 "Laofozhu" = "Laofozhu";
 
-/* ViewController/OtherViewController.m 233 */
-"Laofozhu Summary" = "Laofozhu Summary";
+/* ViewController/OtherViewController.m 233 硬派4X4死忠\n拿相机的电影摄影师\n阅读新手\n喜欢回忆旅行*/
+"Laofozhu Summary" = "Hardcore fans of 4X4,cinematographer,\nlike reading and memory in the travel";
 
 "IMPERIAL" = "IMPERIAL";
 "METRIC" = "METRIC";

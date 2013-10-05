@@ -1,2 +1,3 @@
 /* AppDefs.h */
-"PRODUCT_NAME" = "轮胎计算器";
+"CFBundleDisplayName" = "轮胎计算器";
+"CFBundleName" = "轮胎计算器";

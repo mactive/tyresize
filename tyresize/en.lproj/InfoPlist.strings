@@ -1,2 +1,4 @@
 /* AppDefs.h */
-"PRODUCT_NAME" = "TyreSize";
+"CFBundleDisplayName" = "TyreSize";
+"CFBundleName" = "TyreSize";
+
